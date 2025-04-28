@@ -1,0 +1,52 @@
+/* globals.css */
+
+/* 0. Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap");
+
+/* 1. Import Tailwind CSS (zero-config) */
+@import "tailwindcss";
+
+/* 2. Override do dark mode para usar .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 3. Suas variáveis e @theme inline */
+@theme inline {
+  --color-primary:    #ED6E00;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sofia:       "Sofia Sans", sans-serif;
+  --font-ubuntu:      "Ubuntu", sans-serif;
+}
+
+/* 4. Tema claro (padrão) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 5. Dark automático (prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 6. Dark manual via next-themes */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 7. Light manual via next-themes */
+html.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 8. Estilização base do body */
+body {
+  background: var(--color-background);
+  color:      var(--color-foreground);
+  font-family: var(--font-sofia);
+}
