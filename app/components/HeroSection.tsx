@@ -21,11 +21,12 @@ export default function HeroSection() {
     >
       {/* Background image */}
       <div
-        className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover filter brightness-[.85]"
+        className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover"
         style={{
           backgroundImage: isDark
             ? "url('/high-tech-background-dark.png')"
             : "url('/high-tech-background-light.png')",
+          filter: isDark ? 'brightness(0.85)' : 'brightness(0.96)',
         }}
       />
 
@@ -35,8 +36,8 @@ export default function HeroSection() {
         style={{
           background: isDark
             ? 'radial-gradient(circle at center, rgba(0,0,0,0.55) 0%, transparent 60%)'
-            : 'radial-gradient(circle at center, rgba(255,255,255,0.65) 0%, transparent 60%)',
-          mixBlendMode: isDark ? 'screen' : 'overlay',
+            : 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 150%)',
+          mixBlendMode: isDark ? 'screen' : 'lighten',
         }}
       />
 
