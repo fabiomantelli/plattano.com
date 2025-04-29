@@ -5,17 +5,25 @@ import { Phone, Mail, Instagram, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
+interface ContactForm {
+  name: string;
+  company: string;
+  phone: string;
+  email: string;
+  note: string;
+}
+
 export default function FooterSection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ContactForm>({
     name: '',
     company: '',
     phone: '',
     email: '',
     note: '',
   });
-
+  
   useEffect(() => setMounted(true), []);
   if (!mounted) return null; // evita hydration mismatch
 
@@ -85,7 +93,7 @@ export default function FooterSection() {
                 type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
                 name={field}
                 placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                value={(form as any)[field]}
+                value={form[field as keyof ContactForm]}
                 onChange={handleChange}
                 className={`
                   bg-transparent border rounded px-4 py-2 focus:outline-none
