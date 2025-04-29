@@ -7,9 +7,26 @@ import type { Metadata } from 'next';
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
-// Definir os metadados com os favicons
 export const metadata: Metadata = {
-  title: 'Minha Aplicação', // Ajuste conforme necessário
+  title: 'Plattano Technologies – Empowering Businesses with Secure IT Solutions',
+  description: 'Plattano Technologies specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
+  keywords: [
+    'Plattano Technologies',
+    'IT services',
+    'data protection',
+    'hybrid cloud',
+    'cybersecurity',
+    'managed services',
+    'Veeam',
+    'VMware',
+    'SentinelOne',
+    'Rainforest',
+    'cloud storage',
+    'backup solutions',
+    'Brazil IT company',
+    'technology solutions',
+    'digital transformation'
+  ],
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -25,16 +42,3 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ClientRoot>
-          {/* espaço reservado para header fixo de 100px */}
-          <main className="pt-[100px]">{children}</main>
-        </ClientRoot>
-      </body>
-    </html>
-  );
-}
