@@ -1,22 +1,40 @@
 // app/layout.tsx
-import './globals.css'
-import ClientRoot from './components/ClientRoot'
-import { Geist, Geist_Mono } from 'next/font/google'
+import './globals.css';
+import ClientRoot from './components/ClientRoot';
+import { Geist, Geist_Mono } from 'next/font/google';
+import type { Metadata } from 'next';
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+
+// Definir os metadados com os favicons
+export const metadata: Metadata = {
+  title: 'Minha Aplicação', // Ajuste conforme necessário
+  icons: {
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
+    ],
+    other: [
+      { rel: 'icon', url: '/android-chrome-192x192.png', sizes: '192x192' },
+      { rel: 'icon', url: '/android-chrome-512x512.png', sizes: '512x512' },
+    ],
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientRoot>
           {/* espaço reservado para header fixo de 100px */}
-          <main className="pt-[100px]">
-            {children}
-          </main>
+          <main className="pt-[100px]">{children}</main>
         </ClientRoot>
       </body>
     </html>
-  )
+  );
 }
