@@ -1,3 +1,0 @@
-# converte para CRLF ao fazer checkout no Windows,
-# mas armazena LF puro no repositório
-* text=auto
