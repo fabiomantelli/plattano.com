@@ -25,15 +25,13 @@ const stats: Stat[] = [
 
 export default function StatsSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return null; // enquanto não montou, evita erro de hydration
-  }
+  if (!mounted) return null;
 
   const isDark = resolvedTheme === 'dark';
 
@@ -45,7 +43,7 @@ export default function StatsSection() {
         before:absolute before:inset-0 before:-z-10
         ${isDark
           ? 'before:bg-[linear-gradient(120deg,#953B01_0%,#000000_40%)]'
-          : 'before:bg-[linear-gradient(120deg,#ED6E00_0%,#ED6E00_50%)]'}
+          : 'before:bg-[linear-gradient(120deg,#ffffff_0%,#ED6E00_50%)]'}
         before:opacity-60
       `}
     >
@@ -63,17 +61,13 @@ export default function StatsSection() {
         </div>
 
         {/* Stats grid */}
-        <div
-          className="
-            w-full grid grid-cols-2 lg:grid-cols-7 text-center
-            divide-y-2 divide-primary lg:divide-y-0 lg:divide-x-2
-          "
-        >
+        <div className="w-full grid grid-cols-2 lg:grid-cols-7 text-center divide-y-2 divide-primary lg:divide-y-0 lg:divide-x-2">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center p-6">
               <span className={`text-4xl md:text-3xl font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                {stat.prefix ?? ''}
-                {isInView ? (
+                {stat.prefix}
+                {/* Force dynamic mount to animate only on client */}
+                {mounted && isInView ? (
                   <CountUp
                     start={0}
                     end={stat.value}
@@ -82,11 +76,11 @@ export default function StatsSection() {
                     separator="."
                   />
                 ) : (
-                  0
+                  stat.value.toLocaleString()
                 )}
-                {stat.suffix ?? ''}
+                {stat.suffix}
               </span>
-              <span className={`mt-2 text-base md:text-lg ${isDark ? 'text-neutral-400' : 'text-neutral-800'}`}>
+              <span className={`mt-2 text-base md:text-lg ${isDark ? 'text-neutral-300' : 'text-neutral-800'}`}>
                 {stat.label}
               </span>
             </div>
