@@ -18,7 +18,7 @@ export default function ResilienceSection() {
       >
         {/* Left column */}
         <div className="w-full md:w-1/2 text-[38px] leading-tight font-semibold md:pr-8 text-center md:text-left">
-          <span className="text-primary">ACTIVATE</span> YOUR COMPANY'S DIGITAL RESILIENCE.
+          <span className="text-primary">ACTIVATE</span> YOUR COMPANY&nbsp;&apos;S DIGITAL RESILIENCE.
           <br />
           <span className="text-primary">ACTIVATE</span> IT HERE AND NOW.
         </div>
