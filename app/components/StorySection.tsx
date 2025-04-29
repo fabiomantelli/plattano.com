@@ -2,11 +2,21 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function StorySection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === 'dark';
+
   return (
-    <section className="w-full bg-black text-white px-8">
-      <div className="mx-auto max-w-7xl px-4 py-24 flex flex-col lg:flex-row items-center gap-12">
+    <section className={`w-full px-8 py-24 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-800'}`}>
+      <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12">
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,9 +31,10 @@ export default function StorySection() {
           <p className="text-[18px] leading-relaxed">
             Like a tree, we have weathered many seasons to now serve countless
             companies through technology. Our deep roots reflect our
-            reputation, yet we never stop <span className="font-semibold">GROWING</span>
-            &nbsp;new branches, following the rhythm of innovation to solve
-            whatever each client needs to perform better and more securely.
+            reputation, yet we never stop{' '}
+            <span className="font-semibold text-primary">GROWING</span> new
+            branches, following the rhythm of innovation to solve whatever each
+            client needs to perform better and more securely.
           </p>
           <h3 className="text-[46px] font-bold uppercase">
             We are <span className="text-primary">PLATTANO!</span>
@@ -49,7 +60,7 @@ export default function StorySection() {
               alt="Plattano banner"
               width={1500}
               height={844}
-              className="w-full h-auto rounded-2xl shadow-lg object-cover"
+              className="w-full h-auto rounded-2xl shadow-xl object-cover"
               priority
               unoptimized
             />

@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import CountUp from 'react-countup';
+import { useTheme } from 'next-themes';
 
 type Stat = {
   label: string;
@@ -25,58 +26,72 @@ const stats: Stat[] = [
 export default function StatsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return null; // enquanto não montou, evita erro de hydration
+  }
+
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <section
       ref={ref}
-      className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 py-24 flex flex-col items-center gap-16"
+      className={`
+        relative isolate overflow-hidden py-24
+        before:absolute before:inset-0 before:-z-10
+        ${isDark
+          ? 'before:bg-[linear-gradient(120deg,#953B01_0%,#000000_40%)]'
+          : 'before:bg-[linear-gradient(120deg,#ED6E00_0%,#ED6E00_50%)]'}
+        before:opacity-60
+      `}
     >
-      {/* Heading */}
-      <div className="text-center space-y-4">
-        <h2 className="text-[42px] font-semibold text-white">
-          WHAT HAVE WE ACHIEVED?
-        </h2>
-        <p className="text-[22px] text-white">
-          In <span className="text-primary font-semibold">+7 YEARS</span> WE HAVE
-          SERVED <span className="text-primary font-semibold">+1,000 CLIENTS</span>{' '}
-          NATIONWIDE –{' '}
-          <span className="text-primary font-semibold">ACROSS EVERY SEGMENT.</span>
-        </p>
-      </div>
+      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col items-center gap-16">
+        {/* Heading */}
+        <div className="text-center space-y-4">
+          <h2 className={`text-[42px] font-semibold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+            WHAT HAVE WE ACHIEVED?
+          </h2>
+          <p className={`text-[22px] ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+            In <span className="text-primary font-semibold">+7 YEARS</span> WE HAVE SERVED{' '}
+            <span className="text-primary font-semibold">+1,000 CLIENTS</span> NATIONWIDE –{' '}
+            <span className="text-primary font-semibold">ACROSS EVERY SEGMENT.</span>
+          </p>
+        </div>
 
-      {/* Stats */}
-      <div
-        className="
-          w-full
-          grid grid-cols-2            /* mobile & tablet: 2 cols, horizontal lines */
-          lg:grid-cols-7              /* desktop: 7 cols in one row */
-          text-center
-          divide-y-2 divide-primary  /* horizontal lines */
-          lg:divide-y-0 lg:divide-x-2 /* desktop: switch to vertical lines */
-        "
-      >
-        {stats.map((stat) => (
-          <div key={stat.label} className="flex flex-col items-center p-6">
-            <span className="text-4xl md:text-3xl font-bold">
-              {stat.prefix ?? ''}
-              {isInView ? (
-                <CountUp
-                  start={0}
-                  end={stat.value}
-                  duration={2.5}
-                  decimals={stat.decimals ?? 0}
-                  separator="."
-                />
-              ) : (
-                0
-              )}
-              {stat.suffix ?? ''}
-            </span>
-            <span className="mt-2 text-base md:text-lg text-muted-foreground">
-              {stat.label}
-            </span>
-          </div>
-        ))}
+        {/* Stats grid */}
+        <div
+          className="
+            w-full grid grid-cols-2 lg:grid-cols-7 text-center
+            divide-y-2 divide-primary lg:divide-y-0 lg:divide-x-2
+          "
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center p-6">
+              <span className={`text-4xl md:text-3xl font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                {stat.prefix ?? ''}
+                {isInView ? (
+                  <CountUp
+                    start={0}
+                    end={stat.value}
+                    duration={2.5}
+                    decimals={stat.decimals ?? 0}
+                    separator="."
+                  />
+                ) : (
+                  0
+                )}
+                {stat.suffix ?? ''}
+              </span>
+              <span className={`mt-2 text-base md:text-lg ${isDark ? 'text-neutral-400' : 'text-neutral-800'}`}>
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

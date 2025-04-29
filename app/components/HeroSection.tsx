@@ -1,31 +1,42 @@
-// components/HeroSection.tsx
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function HeroSection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === 'dark';
+
   return (
     <section
-      className="
-        relative w-full h-[60vh]
-        flex items-center justify-center
-        overflow-hidden bg-black
-      "
+      className={`
+        relative w-full h-[60vh] flex items-center justify-center overflow-hidden
+        ${isDark ? 'bg-black' : 'bg-white'}
+      `}
     >
-      {/* 👉 full-width background via absolute centering */}
+      {/* Background image */}
       <div
-        className="
-          absolute top-0 left-1/2 w-screen h-full
-          transform -translate-x-1/2
-          bg-center bg-cover filter brightness-75
-        "
-        style={{ backgroundImage: "url('/high-tech-background.png')" }}
+        className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover filter brightness-[.85]"
+        style={{
+          backgroundImage: isDark
+            ? "url('/high-tech-background-dark.png')"
+            : "url('/high-tech-background-light.png')",
+        }}
       />
 
-      {/* Glow overlay */}
+      {/* Glow Overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle at center, rgba(0,0,0,0.45) 0%, transparent 50%)',
-          mixBlendMode: 'screen',
+          background: isDark
+            ? 'radial-gradient(circle at center, rgba(0,0,0,0.55) 0%, transparent 60%)'
+            : 'radial-gradient(circle at center, rgba(255,255,255,0.65) 0%, transparent 60%)',
+          mixBlendMode: isDark ? 'screen' : 'overlay',
         }}
       />
 
@@ -38,14 +49,15 @@ export default function HeroSection() {
         }}
       />
 
-      {/* CONTENT: centered both vertically & horizontally */}
+      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl text-center px-4">
         <h1
-          className="
+          className={`
             font-sofia text-2xl md:text-4xl lg:text-6xl font-extrabold
-            text-white drop-shadow-[0_0_8px_rgba(237,110,0,0.8)]
+            ${isDark ? 'text-white' : 'text-neutral-800'}
+            drop-shadow-[0_0_8px_rgba(237,110,0,0.8)]
             leading-tight
-          "
+          `}
         >
           CONNECTING <span className="text-primary">INNOVATION</span>,<br />
           EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br />

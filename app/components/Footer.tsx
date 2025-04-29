@@ -1,12 +1,13 @@
 'use client';
 
-// Instagram is deprecated in typings but still functional; suppress TS warning
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore-next-line
+import { useState, useEffect } from 'react';
 import { Phone, Mail, Instagram, Clock } from 'lucide-react';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 export default function FooterSection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -15,8 +16,13 @@ export default function FooterSection() {
     note: '',
   });
 
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null; // evita hydration mismatch
+
+  const isDark = resolvedTheme === 'dark';
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -25,94 +31,93 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="w-full bg-black text-white">
-      {/* COLUNAS */}
-      <div className="mx-auto max-w-7xl px-4 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center justify-items-center md:justify-items-start text-center md:text-left px-12">
-        {/* Coluna ESQUERDA */}
+    <footer className={`w-full ${isDark ? 'bg-black text-white' : 'bg-neutral-100 text-neutral-900'}`}>
+      {/* Columns */}
+      <div className="mx-auto max-w-7xl py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center justify-items-center md:justify-items-start text-center md:text-left px-8 sm:px-12 lg:px-24">
+        
+        {/* Left Column */}
         <div className="space-y-6 w-full max-w-sm">
           <h3 className="text-2xl font-semibold">CONNECT WITH US</h3>
 
-          <div className="flex items-center justify-center md:justify-start gap-3">
+          <Link href="tel:+13213138762" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
             <Phone size={20} className="text-primary" />
-            <span>+1&nbsp;323&nbsp;1323</span>
-          </div>
+            <span>+1 321 313-8762</span>
+          </Link>
 
           <div className="flex items-center justify-center md:justify-start gap-3">
             <Clock size={20} className="text-primary" />
-            <span>9&nbsp;AM – 6&nbsp;PM&nbsp;EST</span>
+            <span>9 AM – 6 PM EST</span>
           </div>
 
-          <div className="flex items-center justify-center md:justify-start gap-3">
+          <Link href="mailto:plattano@plattano.com" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
             <Mail size={20} className="text-primary" />
-            <span>contact@plattano.com</span>
-          </div>
+            <span>plattano@plattano.com</span>
+          </Link>
 
-          <div className="flex items-center justify-center md:justify-start gap-3">
+          <Link href="https://www.instagram.com/plattanotechnologies.us/" target="_blank" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
             <Instagram size={20} className="text-primary" />
             <span>@plattanotechnologies.us</span>
-          </div>
+          </Link>
 
           <h4 className="pt-8 text-xl font-semibold">WHERE WE ARE:</h4>
           <address className="not-italic leading-relaxed">
-            7345 W Sand Lake Rd Ste 210 Office 6438
-            <br />
+            7345 W Sand Lake Rd Ste 210 Office 6438<br />
             Orlando, FL 32819
           </address>
         </div>
 
-        {/* Coluna DIREITA */}
+        {/* Right Column (Form) */}
         <div className="space-y-6 w-full max-w-md">
           <h3 className="text-2xl font-semibold">Get in touch with our team</h3>
           <p>Plattano Technologies US, always by your side</p>
 
-          {/* Formulário */}
+          {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-neutral-800 p-6 rounded-lg flex flex-col gap-4"
+            className={`
+              p-6 rounded-xl flex flex-col gap-4 transition-all duration-300
+              ${isDark ? 'bg-neutral-800 border border-white/10' : 'bg-white border border-neutral-300'}
+            `}
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={form.name}
-              onChange={handleChange}
-              className="bg-transparent border border-white/40 rounded px-4 py-2 placeholder:text-white/60 focus:outline-none"
-            />
-            <input
-              type="text"
-              name="company"
-              placeholder="Company Name"
-              value={form.company}
-              onChange={handleChange}
-              className="bg-transparent border border-white/40 rounded px-4 py-2 placeholder:text-white/60 focus:outline-none"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              value={form.phone}
-              onChange={handleChange}
-              className="bg-transparent border border-white/40 rounded px-4 py-2 placeholder:text-white/60 focus:outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={handleChange}
-              className="bg-transparent border border-white/40 rounded px-4 py-2 placeholder:text-white/60 focus:outline-none"
-            />
+            {['name', 'company', 'phone', 'email'].map((field) => (
+              <input
+                key={field}
+                type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                name={field}
+                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+                value={(form as any)[field]}
+                onChange={handleChange}
+                className={`
+                  bg-transparent border rounded px-4 py-2 focus:outline-none
+                  ${isDark
+                    ? 'border-white/40 placeholder:text-white/60 text-white'
+                    : 'border-neutral-300 placeholder:text-neutral-500 text-black'}
+                `}
+              />
+            ))}
             <textarea
               name="note"
               rows={3}
               placeholder="Note"
               value={form.note}
               onChange={handleChange}
-              className="bg-transparent border border-white/40 rounded px-4 py-2 placeholder:text-white/60 focus:outline-none resize-none"
+              className={`
+                bg-transparent border rounded px-4 py-2 focus:outline-none resize-none
+                ${isDark
+                  ? 'border-white/40 placeholder:text-white/60 text-white'
+                  : 'border-neutral-300 placeholder:text-neutral-500 text-black'}
+              `}
             />
+
+            {/* SEND Button */}
             <button
               type="submit"
-              className="self-center md:self-start px-8 py-3 rounded-md bg-primary text-white font-semibold shadow-lg transition-colors duration-200 hover:bg-white hover:text-primary"
+              className={`
+                w-full py-3 rounded-md font-semibold shadow-lg transition-all duration-200 border-2
+                ${isDark
+                  ? 'bg-black text-white border-primary hover:bg-white hover:text-primary'
+                  : 'bg-primary text-white border-primary hover:bg-white hover:text-primary'}
+              `}
             >
               SEND
             </button>
@@ -129,10 +134,10 @@ export default function FooterSection() {
         referrerPolicy="no-referrer-when-downgrade"
       />
 
-      {/* Rodapé final */}
-      <div className="w-full bg-black text-center text-sm py-6 border-t border-white/20">
-        <span className="text-primary">Plattano Tecnologia LTDA 27.839.811/0001-37</span>
-        <br />© 2025 Plattano® Technologies US
+      {/* Bottom Footer */}
+      <div className={`w-full ${isDark ? 'bg-black text-neutral-400' : 'bg-neutral-200 text-neutral-700'} text-center text-sm py-6 border-t ${isDark ? 'border-white/20' : 'border-neutral-300'}`}>
+        EIN 33-3441498<br />
+        <span className="text-primary">© 2025 Plattano® Technologies US</span>
       </div>
     </footer>
   );

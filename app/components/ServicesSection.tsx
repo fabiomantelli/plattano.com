@@ -3,13 +3,23 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function ServicesSection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === 'dark';
+
   return (
-    <section className="w-full bg-black text-white">
-      <div className="mx-auto max-w-7xl px-4 py-24">
+    <section className={`w-full ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'}`}>
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-24 py-24">
         {/* Centered title */}
-        <h2 className="text-white text-center font-semibold text-4xl md:text-5xl mb-12">
+        <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">
           SERVICES
         </h2>
 
@@ -31,7 +41,10 @@ export default function ServicesSection() {
             </p>
             <Link
               href="#"
-              className="inline-block self-center md:self-start px-8 py-3 rounded-md bg-primary text-white font-semibold shadow-lg transition-colors duration-200 hover:bg-white hover:text-primary"
+              className="
+                inline-block self-center md:self-start px-8 py-3 rounded-md font-semibold shadow-lg transition-colors duration-200
+                bg-primary text-white hover:bg-transparent hover:text-primary border border-primary
+              "
             >
               EXPLORE OUR SERVICES
             </Link>
@@ -50,7 +63,7 @@ export default function ServicesSection() {
               alt="Managed services illustration"
               width={600}
               height={400}
-              className="w-full h-auto mx-auto"
+              className="w-full rounded-xl shadow-lg"
             />
           </motion.div>
         </div>

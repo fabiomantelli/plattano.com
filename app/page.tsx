@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <> 
       <HeroSection />
-      <FeaturesSection />\
+      <FeaturesSection />
       <StatsSection />
       <RaiseBarSection />
       <StorySection />

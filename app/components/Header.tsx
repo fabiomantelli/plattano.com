@@ -1,12 +1,12 @@
-// components/Header.tsx
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Menu, X } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 const menuItems = [
   { href: '/', label: 'Home' },
@@ -21,15 +21,14 @@ const menuItems = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  /* close mobile drawer when clicking outside */
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        menuOpen &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
     }
@@ -39,30 +38,23 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full z-40 bg-primary dark:bg-black shadow-md">
-      <div className="max-w-7xl mx-auto h-[100px] flex items-center px-6 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto h-[100px] flex items-center px-8 sm:px-8">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/logo.webp"
-            alt="Plattano logo"
-            width={180}
-            height={50}
-            priority
-          />
+          {mounted && (
+            <Image
+              src={resolvedTheme === 'light' ? '/logo-black.webp' : '/logo.webp'}
+              alt="Plattano logo"
+              width={180}
+              height={50}
+              priority
+            />
+          )}
         </Link>
 
         {/* Desktop / Tablet navigation */}
         <nav className="hidden md:flex flex-1 justify-center">
-          <ul
-            className="
-              flex items-center
-              space-x-6 lg:space-x-8
-              overflow-x-auto scrollbar-hide
-              snap-x snap-mandatory
-              px-2
-              [&>*]:snap-center
-            "
-          >
+          <ul className="flex items-center space-x-6 lg:space-x-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-2 [&>*]:snap-center">
             {menuItems.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -94,11 +86,11 @@ export default function Header() {
               <FaInstagram className="h-5 w-5 dark:text-primary text-black hover:opacity-80 transition-opacity" />
             </Link>
             <Link
-              href="https://wa.me/+13213138762"
+              href="https://www.linkedin.com/company/plattano-technologies/"
               target="_blank"
-              aria-label="WhatsApp"
+              aria-label="LinkedIn"
             >
-              <FaWhatsapp className="h-5 w-5 dark:text-primary text-black hover:opacity-80 transition-opacity" />
+              <FaLinkedin className="h-5 w-5 dark:text-primary text-black hover:opacity-80 transition-opacity" />
             </Link>
             <ThemeToggle />
           </div>
@@ -142,18 +134,31 @@ export default function Header() {
         </nav>
 
         <div className="mt-auto p-6 flex items-center space-x-4">
-          <Link
-            href="https://instagram.com/plattano"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <FaInstagram className="h-6 w-6 text-[var(--color-primary)]" />
-          </Link>
-          <Link href="https://wa.me/" target="_blank" aria-label="WhatsApp">
-            <FaWhatsapp className="h-6 w-6 text-[var(--color-primary)]" />
-          </Link>
+          {mounted && (
+            <>
+              <Link
+                href="https://instagram.com/plattano.us"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <FaInstagram
+                  className={`h-6 w-6 ${resolvedTheme === 'light' ? 'text-black' : 'text-[var(--color-primary)]'}`}
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/plattano-technologies/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin
+                  className={`h-6 w-6 ${resolvedTheme === 'light' ? 'text-black' : 'text-[var(--color-primary)]'}`}
+                />
+              </Link>
+            </>
+          )}
           <ThemeToggle />
         </div>
+
       </div>
     </header>
   );
