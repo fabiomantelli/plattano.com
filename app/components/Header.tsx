@@ -8,7 +8,14 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-const menuItems = [
+// Define MenuItem interface for type safety
+interface MenuItem {
+  label: string;
+  href?: string;
+  submenu?: MenuItem[];
+}
+
+const menuItems: MenuItem[] = [
   {
     label: 'Home',
     href: '/',
@@ -22,7 +29,7 @@ const menuItems = [
       {
         label: 'Cybersecurity',
         submenu: [
-          // Updated href values - replace with actual routes
+          // Placeholder routes - replace with actual routes
           { label: 'SentinelOne', href: '/products/cybersecurity/sentinelone' },
           { label: 'Rainforest', href: '/products/cybersecurity/rainforest' },
         ],
@@ -93,7 +100,7 @@ export default function Header() {
     };
   }, [menuOpen, expandedDesktop, expandedDesktopNested]);
 
-  const renderSubmenu = (submenu: any[], nested?: boolean) => (
+  const renderSubmenu = (submenu: MenuItem[], nested?: boolean) => (
     <ul className={`${nested ? 'pl-6 mt-2' : 'pl-4'} space-y-2`}>
       {submenu.map((sub) =>
         sub.submenu ? (
@@ -114,7 +121,7 @@ export default function Header() {
         ) : (
           <li key={sub.label}>
             <Link
-              href={sub.href}
+              href={sub.href || '#'}
               className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
               onClick={() => {
                 setMenuOpen(false);
@@ -196,7 +203,7 @@ export default function Header() {
                                   {sub.submenu.map((nested) => (
                                     <li key={nested.label}>
                                       <Link
-                                        href={nested.href}
+                                        href={nested.href || '#'}
                                         className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
                                         onClick={() => {
                                           setExpandedDesktop(null);
@@ -213,7 +220,7 @@ export default function Header() {
                           ) : (
                             <li key={sub.label}>
                               <Link
-                                href={sub.href}
+                                href={sub.href || '#'}
                                 className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
                                 onClick={() => {
                                   setExpandedDesktop(null);
@@ -230,7 +237,7 @@ export default function Header() {
                   </>
                 ) : (
                   <Link
-                    href={item.href}
+                    href={item.href || '#'}
                     className="text-black dark:text-white font-medium text-sm sm:text-base dark:hover:text-[#ED6E00] hover:text-[#ED6E00] transition duration-150 whitespace-nowrap"
                   >
                     {item.label}
@@ -313,7 +320,7 @@ export default function Header() {
                   </>
                 ) : (
                   <Link
-                    href={item.href}
+                    href={item.href || '#'}
                     className="block text-black dark:text-white text-base hover:text-[#ED6E00]"
                     onClick={() => {
                       setMenuOpen(false);
