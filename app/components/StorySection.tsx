@@ -15,7 +15,7 @@ export default function StorySection() {
 
   return (
     <section className={`w-full py-12 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-800'}`}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12">
+      <div className="mx-auto max-w-7xl py-8 px-6 sm:px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12">
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

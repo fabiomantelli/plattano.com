@@ -17,7 +17,7 @@ export default function SolutionsSection() {
 
   return (
     <section className={`w-full ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'}`}>
-      <div className="mx-auto max-w-7xl gap-16 py-12 px-6 sm:px-12 lg:px-24">
+      <div className="mx-auto max-w-7xl gap-16 py-8 px-12 sm:px-12 lg:px-24">
         {/* Título */}
         <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">SOLUTIONS</h2>
 
@@ -47,7 +47,7 @@ export default function SolutionsSection() {
               alt="Cloud illustration"
               width={400}
               height={300}
-              className="w-3/4 mx-auto"
+              className="mx-auto"
             />
           </motion.div>
 
@@ -95,7 +95,7 @@ export default function SolutionsSection() {
               alt="Partner illustration"
               width={400}
               height={300}
-              className="w-3/4 mx-auto"
+              className="mx-auto"
             />
           </motion.div>
 

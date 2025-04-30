@@ -16,7 +16,7 @@ export default function ServicesSection() {
 
   return (
     <section className={`w-full ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'}`}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 py-12">
+      <div className="mx-auto max-w-7xl px-12 lg:px-24 py-12">
         {/* Title */}
         <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">SERVICES</h2>
 
@@ -46,7 +46,7 @@ export default function ServicesSection() {
               alt="Managed services illustration"
               width={400}
               height={300}
-              className="w-3/4 mx-auto"
+              className="mx-auto"
             />
           </motion.div>
 
@@ -58,7 +58,7 @@ export default function ServicesSection() {
             viewport={{ once: true, amount: 0.6 }}
             className="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left items-center md:items-start"
           >
-            <p className="text-[48px] leading-tight font-semibold text-primary">
+            <p className="text-[36px] md:text-[48px] leading-tight font-semibold text-primary">
               FOCUS ON YOUR BUSINESS!
             </p>
             <p className="text-[22px]">
