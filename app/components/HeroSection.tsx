@@ -51,7 +51,7 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl text-center px-4">
+      <div className="relative z-10 mx-auto max-w-7xl text-center px-8">
         <h1
           className={`
             font-sofia text-2xl md:text-4xl lg:text-6xl font-extrabold

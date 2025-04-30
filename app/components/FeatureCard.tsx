@@ -52,12 +52,9 @@ export default function FeatureCard({ logo, title, description, cta }: Feature) 
           dark:bg-primary
           bg-black text-white
           rounded-lg
-          transition-colors transition-transform duration-200
-          dark:hover:bg-white
-          hover:bg-gray-800 hover:text-primary hover:border hover:border-primary
         "
       >
-        <span>{cta}</span>
+        <span className="text-white">{cta}</span>
       </button>
     </div>
   );
