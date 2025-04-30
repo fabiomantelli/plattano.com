@@ -9,14 +9,13 @@ export default function StorySection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-
   if (!mounted) return null;
 
   const isDark = resolvedTheme === 'dark';
 
   return (
-    <section className={`w-full px-8 py-24 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-800'}`}>
-      <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12">
+    <section className={`w-full py-12 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-800'}`}>
+      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12">
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,13 +41,13 @@ export default function StorySection() {
           <p className="text-[20px]">Technologies to Serve and Transform.</p>
         </motion.div>
 
-        {/* Image block */}
+        {/* Large image on desktop */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.6 }}
-          className="flex-1 w-full"
+          className="hidden lg:block flex-1 w-full"
         >
           <motion.div
             whileHover={{ rotate: 5 }}
@@ -56,15 +55,34 @@ export default function StorySection() {
             className="w-full"
           >
             <Image
-              src="/story-image.webp"
+              src="/story-image.png"
               alt="Plattano banner"
               width={1500}
               height={844}
-              className="w-full h-auto rounded-2xl shadow-xl object-cover"
+              className="w-full h-auto"
               priority
               unoptimized
             />
           </motion.div>
+        </motion.div>
+
+        {/* Smaller image for mobile + tablet */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.6 }}
+          className="block lg:hidden w-2/3 mx-auto"
+        >
+          <Image
+            src="/story-image.png"
+            alt="Plattano mobile/tablet banner"
+            width={800}
+            height={450}
+            className="w-full h-auto"
+            priority
+            unoptimized
+          />
         </motion.div>
       </div>
     </section>
