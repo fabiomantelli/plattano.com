@@ -19,7 +19,14 @@ export default function SolutionsSection() {
     <section className={`w-full ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'}`}>
       <div className="mx-auto max-w-7xl gap-16 py-8 px-12 sm:px-12 lg:px-24">
         {/* Título */}
-        <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">SOLUTIONS</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">SOLUTIONS</h2>
+        </motion.div>
 
         {/* Primeira linha */}
         <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-32 mb-24">
