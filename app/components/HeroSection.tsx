@@ -15,18 +15,18 @@ export default function HeroSection() {
   return (
     <section
       className={`
-        relative w-full h-[60vh] flex items-center justify-center overflow-hidden
+        relative w-full h-[65vh] flex items-center justify-center overflow-hidden
         ${isDark ? 'bg-black' : 'bg-white'}
       `}
     >
-      {/* Background image */}
+      {/* Background image + dark gradient overlay */}
       <div
         className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover"
         style={{
           backgroundImage: isDark
-            ? "url('/high-tech-background-dark.png')"
-            : "url('/high-tech-background-light.png')",
-          filter: isDark ? 'brightness(0.85)' : 'brightness(0.96)',
+            ? `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('/high-tech-background-dark.png')`
+            : `url('/high-tech-background-light.png')`,
+          filter: isDark ? 'brightness(0.9)' : 'brightness(0.96)',
         }}
       />
 

@@ -14,7 +14,7 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { label: 'Years in the market', value: 7, prefix: '+' },
+  { label: 'Years in the market', value: 8, prefix: '+' },
   { label: 'VMs provisioned', value: 15000, prefix: '+' },
   { label: 'Clients served', value: 1100, prefix: '+' },
   { label: 'Project hours', value: 6000, prefix: '+' },
