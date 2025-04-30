@@ -62,8 +62,8 @@ export default function Header() {
             <Image
               src={resolvedTheme === 'light' ? '/logo-black.webp' : '/logo.webp'}
               alt="Plattano logo"
-              width={160}
-              height={45}
+              width={180}
+              height={50}
               priority
             />
           )}
