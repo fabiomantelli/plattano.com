@@ -147,7 +147,7 @@ export default function SupportedLanguagesSection() {
   ];
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-black'}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
