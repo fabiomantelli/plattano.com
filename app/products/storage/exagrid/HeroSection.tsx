@@ -55,7 +55,7 @@ export default function HeroSection() {
           <p className="text-[18px] font-ubuntu leading-relaxed">
             Add with Plattano and Exagrid® the same robustness and{' '}
             <span className="text-primary">advanced technology</span> from aviation,
-            with a "landing zone" for your backups to{' '}
+            with a &quot;landing zone&quot; for your backups to{' '}
             <span className="text-primary">land</span> and{' '}
             <span className="text-primary">take off</span> with the{' '}
             <span className="text-primary">maximum performance and security</span>{' '}

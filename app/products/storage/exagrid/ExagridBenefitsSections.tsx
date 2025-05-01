@@ -50,7 +50,7 @@ export default function ExagridBenefitsSection() {
           </ul>
 
           <p className="text-[18px] font-ubuntu leading-relaxed">
-            With ExaGrid®'s layered backup storage, each appliance in the system brings not just disk, but also memory,
+            With ExaGrid®&apos;s layered backup storage, each appliance in the system brings not just disk, but also memory,
             bandwidth, and processing power — all necessary elements to maintain high performance backup and restore.
           </p>
 
