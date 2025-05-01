@@ -80,7 +80,7 @@ export default function VisibilitySection() {
       >
         <div className="w-full flex justify-center">
           <Image
-            src="/images/products/cybersecurity/rainforest/vulnerabilities-graph.png"
+            src="/images/products/cybersecurity/rainforest/rainforest-vulnerabilities-graph.png"
             alt="Vulnerability coverage graph"
             width={1000}
             height={600}
