@@ -19,7 +19,7 @@ export default function WhyChooseUsSection() {
   const textColor = isDark ? 'text-white' : 'text-black'
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900' : 'bg-white'}`}>  
+    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900' : 'bg-neutral-200'}`}>  
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -18,9 +18,8 @@ export default function HeroSection() {
     : '/images/products/cybersecurity/rainforest/rainforest-light-logo.webp';
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center gap-12 px-6 sm:px-12 lg:px-24">
-        
+    <section className={`w-full ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}> 
+      <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 sm:px-12 lg:px-24 md:min-h-[calc(100vh-150px)]">
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
