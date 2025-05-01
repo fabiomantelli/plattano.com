@@ -60,7 +60,7 @@ export default function VisibilitySection() {
           className="flex-1 w-full flex justify-center"
         >
           <Image
-            src="/images/products/rainforest/visibility-image.png"
+            src="/images/products/cybersecurity/rainforest/rainforest-visibility-image.png"
             alt="Rainforest security visibility"
             width={600}
             height={400}
