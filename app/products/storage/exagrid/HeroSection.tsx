@@ -14,13 +14,16 @@ export default function HeroSection() {
 
   const isDark = resolvedTheme === 'dark';
   const logoSrc = isDark
-    ? '/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp'
-    : '/images/products/cybersecurity/rainforest/rainforest-light-logo.webp';
+    ? '/images/products/storage/exagrid/exagrid-dark-logo.png'
+    : '/images/products/storage/exagrid/exagrid-light-logo.png';
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center gap-12 px-6 sm:px-12 lg:px-24">
-        
+    <section
+      className={`w-full min-h-screen flex items-center ${
+        isDark ? 'bg-black text-white' : 'bg-white text-black'
+      }`}
+    >
+      <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center gap-12 px-6 sm:px-12 lg:px-24 md:h-full md:justify-center">
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -29,11 +32,11 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="flex-1 space-y-6 md:space-y-8 text-center md:text-left"
         >
-          {/* Rainforest Logo (desktop only) */}
+          {/* Exagrid Logo (desktop only) */}
           <div className="hidden md:block mb-4">
             <Image
               src={logoSrc}
-              alt="Rainforest Logo"
+              alt="Exagrid Logo"
               width={300}
               height={103}
               className="h-auto w-auto"
@@ -41,13 +44,22 @@ export default function HeroSection() {
             />
           </div>
 
-          <h1 className="text-[48px] font-extrabold font-sofia leading-tight">
-            THE <span className="text-primary">CYBERSECURITY</span> PLATFORM{' '}
-            <span className="text-primary">ALL-IN-ONE</span>
+          <h1 className="text-[46px] font-bold font-sofia-sans leading-tight">
+            BE PREPARED FOR THE <span className="text-primary">INEVITABLE</span>
           </h1>
 
+          <h2 className="text-[24px] font-medium font-sofia-sans">
+            IT&apos;S A MATTER OF <span className="text-primary">WHEN</span>
+          </h2>
+
           <p className="text-[18px] font-ubuntu leading-relaxed">
-            Add the all-in-one <span className="text-primary">cybersecurity</span> platform powered by Plattano and Rainforest Tech to your stack—helping teams reduce and mitigate cyber risks effectively.
+            Add with Plattano and Exagrid® the same robustness and{' '}
+            <span className="text-primary">advanced technology</span> from aviation,
+            with a "landing zone" for your backups to{' '}
+            <span className="text-primary">land</span> and{' '}
+            <span className="text-primary">take off</span> with the{' '}
+            <span className="text-primary">maximum performance and security</span>{' '}
+            your business demands!
           </p>
         </motion.div>
 
@@ -59,11 +71,11 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="flex-1 w-full flex flex-col items-center md:items-end"
         >
-          {/* Rainforest Logo (mobile only, top) */}
+          {/* Exagrid Logo (mobile only, top) */}
           <div className="block md:hidden mb-6">
             <Image
               src={logoSrc}
-              alt="Rainforest Logo"
+              alt="Exagrid Logo"
               width={300}
               height={103}
               className="mx-auto h-auto w-auto"
@@ -74,11 +86,11 @@ export default function HeroSection() {
           {/* Hero Image (mobile bottom) */}
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-full mt-6 md:mt-0">
             <Image
-              src="/images/products/cybersecurity/rainforest/rainforest-hero.png"
-              alt="Rainforest cybersecurity platform"
+              src="/images/products/storage/exagrid/exagrid-hero.png"
+              alt="Hexagrid backup performance"
               width={600}
               height={400}
-              className="w-full h-auto"
+              className="w-full h-auto object-cover"
               priority
             />
           </div>

@@ -15,7 +15,7 @@ export default function IntegratedSecuritySection() {
   const isDark = resolvedTheme === 'dark';
 
   return (
-    <section className={`w-full py-12 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className={`w-full py-4 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-12 px-6 sm:px-12 lg:px-24">
         {/* Image block */}
         <motion.div

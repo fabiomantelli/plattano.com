@@ -3,7 +3,7 @@ import AppCloudSecuritySection from './AppCloudSecuritySection';
 import BrandIntelligenceSection from './BrandIntelligenceSection';
 import CloudSecurityOverviewSection from './CloudSecurityOverviewSection';
 import CyberFocusSection from './CyberFocusSection';
-import FaqSection from './FaqSection';
+import RainforestFaqSection from './RainforestFaqSection';
 import FraudProtectionOverviewSection from './FraudProtectionOverviewSection';
 import HeroSection from './HeroSection';
 import IntegratedSecuritySection from './IntegratedSecuritySection';
@@ -30,7 +30,7 @@ export default function RainforestPage() {
       <FraudProtectionOverviewSection />
       <LeakDetectionOverviewSection />
       <WhyChooseUsSection />
-      <FaqSection />
+      <RainforestFaqSection />
       <FooterSection />
     </main>
   );
