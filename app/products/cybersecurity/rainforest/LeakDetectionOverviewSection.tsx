@@ -68,7 +68,7 @@ export default function LeakDetectionOverviewSection() {
             <span className="text-primary"> SENSITIVE INFORMATION</span>
           </h2>
           <p className="text-base font-ubuntu max-w-3xl mx-auto">
-            The <strong>Rainforest Leak</strong> module monitors the deep, dark, and surface web to identify a wide range of leaks that may compromise your company's reputation.
+            The <strong>Rainforest Leak</strong> module monitors the deep, dark, and surface web to identify a wide range of leaks that may compromise your company&rsquo;s reputation.
           </p>
         </div>
 

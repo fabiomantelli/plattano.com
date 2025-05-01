@@ -61,7 +61,7 @@ export default function WhyChooseUsSection() {
             <Puzzle size={48} className="text-primary" />
             <h3 className="text-xl font-sofia text-primary">Multiple Integrations</h3>
             <p className={`text-base font-ubuntu max-w-xs ${textColor}`}>
-              Hundreds of integrations with the market's top tools such as CI/CD, project management, communication platforms, ticketing systems, and more.
+              Hundreds of integrations with the market&rsquo;s top tools such as CI/CD, project management, communication platforms, ticketing systems, and more.
             </p>
           </div>
         </div>
