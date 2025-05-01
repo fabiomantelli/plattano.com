@@ -203,7 +203,7 @@ export default function Header() {
                                 <ChevronDown size={14} className="lucide lucide-chevron-down" />
                               </button>
                               {expandedDesktopNested === sub.label && (
-                                <ul className="absolute left-full top-0 ml-2 bg-white dark:bg-neutral-800 shadow-lg rounded-md py-2 px-4 z-50 min-w-[180px] space-y-2">
+                                <ul className="absolute left-full top-0 ml-2 bg-white dark:bg-neutral-900 shadow-lg rounded-md py-2 px-4 z-50 min-w-[180px] space-y-2">
                                   {sub.submenu.map((nested) => (
                                     <li key={nested.label}>
                                       <Link

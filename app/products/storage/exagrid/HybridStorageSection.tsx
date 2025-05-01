@@ -16,7 +16,7 @@ export default function HybridStorageSection() {
 
   const isDark = resolvedTheme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-black';
-  const bgColor = isDark ? 'bg-neutral-800' : 'bg-neutral-300';
+  const bgColor = isDark ? 'bg-neutral-900' : 'bg-neutral-200';
   const openModal = (src: string) => setModalImage(src);
   const closeModal = () => setModalImage(null);
 
