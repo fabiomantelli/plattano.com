@@ -1,4 +1,3 @@
-// components/FeaturesSection.tsx
 import React from "react"
 import FeatureCard from "./FeatureCard"
 import { features } from "@/data/features"

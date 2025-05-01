@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from '../theme/ThemeToggle';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -149,7 +149,7 @@ export default function Header() {
         <Link href="/" className="flex-shrink-0">
           {mounted && (
             <Image
-              src={resolvedTheme === 'light' ? '/logo-black.webp' : '/logo.webp'}
+              src={resolvedTheme === 'light' ? '/images/home/logo-black.webp' : '/images/home/logo.webp'}
               alt="Plattano logo"
               width={180}
               height={50}

@@ -24,8 +24,8 @@ export default function HeroSection() {
         className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover"
         style={{
           backgroundImage: isDark
-            ? `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('/high-tech-background-dark.png')`
-            : `url('/high-tech-background-light.png')`,
+            ? `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('/images/home/high-tech-background-dark.png')`
+            : `url('/images/home/high-tech-background-light.png')`,
           filter: isDark ? 'brightness(0.9)' : 'brightness(0.96)',
         }}
       />

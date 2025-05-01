@@ -38,7 +38,7 @@ export default function ServicesSection() {
             className="hidden md:block w-full md:w-1/2"
           >
             <Image
-              src="/services-image.png"
+              src="/images/home/services-image.png"
               alt="Managed services illustration"
               width={600}
               height={400}
@@ -49,7 +49,7 @@ export default function ServicesSection() {
           {/* Imagem (mobile) */}
           <motion.div className="block md:hidden w-full mb-4">
             <Image
-              src="/services-image.png"
+              src="/images/home/services-image.png"
               alt="Managed services illustration"
               width={400}
               height={300}

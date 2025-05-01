@@ -1,13 +1,13 @@
-import HeroSection from './components/HeroSection'
-import FeaturesSection from './components/FeaturesSection'
-import StatsSection from './components/StatsSection'
-import RaiseBarSection from './components/RaiseBarSection'
-import StorySection from './components/StorySection'
-import SolutionsSection from './components/SolutionSection'
-import ServicesSection from './components/ServicesSection'
-import ResilienceSection from './components/ResilienceSection'
-import ProPowerSection from './components/ProPowerSection'
-import Footer from './components/Footer'
+import HeroSection from './(home)/HeroSection'
+import FeaturesSection from './(home)/FeaturesSection'
+import StatsSection from './(home)/StatsSection'
+import RaiseBarSection from './(home)/RaiseBarSection'
+import StorySection from './(home)/StorySection'
+import SolutionsSection from './(home)/SolutionSection'
+import ServicesSection from './(home)/ServicesSection'
+import ResilienceSection from './(home)/ResilienceSection'
+import ProPowerSection from './(home)/ProPowerSection'
+import Footer from './ui/layout/Footer'
 
 export default function Home() {
   return (

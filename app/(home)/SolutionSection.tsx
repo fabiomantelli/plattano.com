@@ -39,7 +39,7 @@ export default function SolutionsSection() {
             className="hidden md:block w-full md:w-1/2"
           >
             <Image
-              src="/solution-image.png"
+              src="/images/home/solution-image.png"
               alt="Cloud illustration"
               width={600}
               height={400}
@@ -50,7 +50,7 @@ export default function SolutionsSection() {
           {/* Imagem (mobile) */}
           <motion.div className="block md:hidden w-full mb-4">
             <Image
-              src="/solution-image.png"
+              src="/images/home/solution-image.png"
               alt="Cloud illustration"
               width={400}
               height={300}
@@ -87,7 +87,7 @@ export default function SolutionsSection() {
             className="hidden md:block w-full md:w-1/2"
           >
             <Image
-              src="/solution2-image.png"
+              src="/images/home/solution2-image.png"
               alt="Partner illustration"
               width={600}
               height={400}
@@ -98,7 +98,7 @@ export default function SolutionsSection() {
           {/* Imagem (mobile) */}
           <motion.div className="block md:hidden w-full mb-4">
             <Image
-              src="/solution2-image.png"
+              src="/images/home/solution2-image.png"
               alt="Partner illustration"
               width={400}
               height={300}

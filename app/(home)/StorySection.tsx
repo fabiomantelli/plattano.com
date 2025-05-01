@@ -55,7 +55,7 @@ export default function StorySection() {
             className="w-full"
           >
             <Image
-              src="/story-image.png"
+              src="/images/home/story-image.png"
               alt="Plattano banner"
               width={1500}
               height={844}
@@ -75,7 +75,7 @@ export default function StorySection() {
           className="block lg:hidden w-2/3 mx-auto"
         >
           <Image
-            src="/story-image.png"
+            src="/images/home/story-image.png"
             alt="Plattano mobile/tablet banner"
             width={800}
             height={450}

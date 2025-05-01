@@ -18,7 +18,7 @@ export default function ResilienceSection() {
       className={`
         relative isolate w-full text-white overflow-hidden
         before:absolute before:inset-0
-        before:bg-[url('/resilience-bg.webp')] before:bg-center
+        before:bg-[url('/images/home/resilience-bg.webp')] before:bg-center
         before:bg-cover before:bg-fixed before:-z-20
         after:absolute after:inset-0 after:-z-10
         ${isDark ? 'after:bg-black/50' : 'after:bg-primary/85'}

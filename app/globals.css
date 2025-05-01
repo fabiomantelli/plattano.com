@@ -47,6 +47,9 @@ html.light {
 /* 8. Estilização base do body */
 body {
   background: var(--color-background);
-  color:      var(--color-foreground);
+  color: var(--color-foreground);
   font-family: var(--font-sofia);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

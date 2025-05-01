@@ -51,7 +51,7 @@ export default function StatsSection() {
             WHAT HAVE WE ACHIEVED?
           </h2>
           <p className={`text-[22px] ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-            In <span className="text-primary font-semibold">+7 YEARS</span> WE HAVE SERVED{' '}
+            In <span className="text-primary font-semibold">+8 YEARS</span> WE HAVE SERVED{' '}
             <span className="text-primary font-semibold">+1,000 CLIENTS</span> NATIONWIDE –{' '}
             <span className="text-primary font-semibold">ACROSS EVERY SEGMENT.</span>
           </p>

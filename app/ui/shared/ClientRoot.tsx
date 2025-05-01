@@ -1,9 +1,8 @@
-// app/components/ClientRoot.tsx
 'use client'
 
 import { ReactNode } from 'react'
 import { ThemeProvider } from 'next-themes'
-import Header from './Header'
+import Header from '../layout/Header'
 
 export default function ClientRoot({ children }: { children: ReactNode }) {
   return (

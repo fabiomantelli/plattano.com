@@ -2,7 +2,7 @@
 import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import type { Metadata } from 'next'
-import ClientRoot from './components/ClientRoot'
+import ClientRoot from './ui/shared/ClientRoot'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
-      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/images/home/favicon.ico', type: 'image/x-icon' },
+      { url: '/images/home/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/images/home/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    apple: [{ url: '/images/home//apple-touch-icon.png', sizes: '180x180' }],
     other: [
-      { rel: 'icon', url: '/android-chrome-192x192.png', sizes: '192x192' },
-      { rel: 'icon', url: '/android-chrome-512x512.png', sizes: '512x512' },
+      { rel: 'icon', url: '/images/home/android-chrome-192x192.png', sizes: '192x192' },
+      { rel: 'icon', url: '/images/home/android-chrome-512x512.png', sizes: '512x512' },
     ],
   },
 }
