@@ -59,7 +59,7 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="flex-1 w-full flex flex-col items-center md:items-end"
         >
-          {/* Rainforest Logo (mobile only) */}
+          {/* Rainforest Logo (mobile only, top) */}
           <div className="block md:hidden mb-6">
             <Image
               src={logoSrc}
@@ -71,8 +71,8 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* Hero Image */}
-          <div className="w-full max-w-xs sm:max-w-sm md:max-w-full">
+          {/* Hero Image (mobile bottom) */}
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-full mt-6 md:mt-0">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-hero.png"
               alt="Rainforest cybersecurity platform"

@@ -24,7 +24,11 @@ const menuItems: MenuItem[] = [
     label: 'Products',
     submenu: [
       { label: 'Data Protection', href: '/data-protection' },
-      { label: 'Storage', href: '/storage' },
+      { label: 'Storage',
+        submenu: [
+          { label: 'ExaGrid', href: '/products/storage/exagrid'}
+        ]
+      },
       { label: 'Hybrid Multicloud', href: '/hybrid-multicloud' },
       {
         label: 'Cybersecurity',
