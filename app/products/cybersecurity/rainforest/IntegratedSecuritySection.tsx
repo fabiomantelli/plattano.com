@@ -27,7 +27,7 @@ export default function IntegratedSecuritySection() {
         >
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-full">
             <Image
-              src="/images/products/rainforest/rainforest-secure.png"
+              src="/images/products/cybersecurity/rainforest/rainforest-secure.png"
               alt="Security integration illustration"
               width={600}
               height={400}

@@ -14,8 +14,8 @@ export default function HeroSection() {
 
   const isDark = resolvedTheme === 'dark';
   const logoSrc = isDark
-    ? '/images/products/rainforest/rainforest-dark-logo.webp'
-    : '/images/products/rainforest/rainforest-light-logo.webp';
+    ? '/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp'
+    : '/images/products/cybersecurity/rainforest/rainforest-light-logo.webp';
 
   return (
     <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
