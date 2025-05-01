@@ -84,7 +84,7 @@ export default function FooterSection() {
             onSubmit={handleSubmit}
             className={`
               p-6 rounded-xl flex flex-col gap-4 transition-all duration-300
-              ${isDark ? 'bg-neutral-800 border border-white/10' : 'bg-white border border-neutral-300'}
+              ${isDark ? 'bg-neutral-900 border border-white/10' : 'bg-white border border-neutral-300'}
             `}
           >
             {['name', 'company', 'phone', 'email'].map((field) => (
