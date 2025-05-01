@@ -74,7 +74,7 @@ export default function HeroSection() {
           {/* Hero Image */}
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-full">
             <Image
-              src="/images/rainforest/rainforest-hero.png"
+              src="/images/products/cybersecurity/rainforest/rainforest-hero.png"
               alt="Rainforest cybersecurity platform"
               width={600}
               height={400}
