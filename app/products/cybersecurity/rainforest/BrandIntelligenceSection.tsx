@@ -76,7 +76,7 @@ export default function BrandIntelligenceSection() {
       >
         <div className="w-full flex justify-center">
           <Image
-            src="/images/products/cybersecurity/rainforest/rainforest-code.webp"
+            src="/images/products/cybersecurity/rainforest/rainforest-code-leak.webp"
             alt="Rainforest Code Intelligence Graphic"
             width={1000}
             height={600}
