@@ -27,7 +27,7 @@ export default function CyberFocusSection() {
   return (
     <section
       className={`w-full py-24 ${
-        isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'
+        isDark ? 'bg-neutral-900 text-white' : 'bg-neutral-200 text-neutral-900'
       }`}
     >
       <motion.div
