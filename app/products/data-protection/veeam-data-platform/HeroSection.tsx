@@ -45,7 +45,7 @@ export default function HeroSection() {
           </p>
 
           <h1 className="text-[48px] font-bold font-sofia leading-tight">
-            THE <span className="text-primary">POWER</span> of continuity <br />
+            THE <span className="text-primary">POWER</span> OF CONTINUITY <br />
             <span className="text-primary">IN YOUR HANDS</span>
           </h1>
 
