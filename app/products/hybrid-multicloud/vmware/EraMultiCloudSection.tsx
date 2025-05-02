@@ -1,24 +1,13 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function EraMultiCloudSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const sectionBg = isDark ? 'bg-neutral-900 text-white' : 'bg-white text-black';
-
   return (
-    <section className={`w-full ${sectionBg} py-24`}>
+    <section className="w-full py-24 bg-white text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center gap-12">
-        {/* Texto à esquerda */}
+        {/* Text Left */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -31,11 +20,14 @@ export default function EraMultiCloudSection() {
             <span className="text-primary">Multi-Cloud</span> Services Has Arrived
           </h2>
           <p className="text-[16px] md:text-[18px] font-ubuntu leading-relaxed">
-            In a multi-cloud world, how can businesses consistently build, run, manage, and secure apps across all clouds? That’s where multi-cloud services come in—a new class of IT services that decouple these capabilities and more so customers can focus on innovations that drive growth on the cloud of their choice.
+            In a multi-cloud world, how can businesses consistently build, run, manage, and secure
+            apps across all clouds? That’s where multi-cloud services come in—a new class of IT
+            services that decouple these capabilities and more so customers can focus on innovations
+            that drive growth on the cloud of their choice.
           </p>
         </motion.div>
 
-        {/* Imagem à direita */}
+        {/* Image Right */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -54,5 +46,5 @@ export default function EraMultiCloudSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,17 +1,8 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function SupportedLanguagesSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const isDark = resolvedTheme === 'dark';
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   const languages = [
     {
       id: 'c',
@@ -147,39 +138,41 @@ export default function SupportedLanguagesSection() {
   ];
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900 text-white' : 'bg-neutral-200 text-black'}`}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24"
-      >
-        <h2 className="text-center text-[36px] font-sofia font-bold mb-12">
-          <span className="text-primary">LANGUAGES</span>{' '}
-          <span className={isDark ? 'text-white' : 'text-black'}>SUPPORTED</span>
-        </h2>
-  
-        <div className="flex justify-center">
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-8">
-            {languages.map(({ id, svg }) => (
+    <section className="py-16">
+      <div className="container px-4 mx-auto text-center">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-10 text-black dark:text-white"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Supported Languages
+        </motion.h2>
+
+        <motion.div
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 place-items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.08 }}
+        >
+          {languages.map((lang, index) => (
+            <motion.div
+              key={lang.id}
+              className="w-20 h-20 flex items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+            >
               <div
-                key={id}
-                className={`w-20 h-20 rounded-xl flex items-center justify-center shadow-md transition ${
-                  isDark ? 'bg-white/10 border border-white/20' : 'bg-neutral-100 border border-neutral-300'
-                }`}
-              >
-                <div className="w-8 h-8">
-                  <div
-                    className="w-full h-full"
-                    dangerouslySetInnerHTML={{ __html: svg }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+                className="w-10 h-10 text-zinc-800 dark:text-zinc-200"
+                dangerouslySetInnerHTML={{ __html: lang.svg }}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
-  )
+  );
 }

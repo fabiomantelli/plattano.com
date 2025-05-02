@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
@@ -23,16 +22,7 @@ const faqItems = [
 ];
 
 export default function VmwareFaqSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const sectionBg = isDark ? 'bg-black text-white' : 'bg-white text-black';
-  const cardBg = isDark ? 'border-white/20 bg-white/5' : 'border-neutral-300 bg-neutral-50';
 
   const toggleIndex = (index: number) => {
     setOpenIndexes((prev) =>
@@ -41,7 +31,7 @@ export default function VmwareFaqSection() {
   };
 
   return (
-    <section className={`w-full py-20 ${sectionBg}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <div className="max-w-4xl mx-auto px-6 space-y-12">
         <h2 className="text-[44px] font-sofia font-bold text-primary text-center">
           Frequently Asked Questions
@@ -53,11 +43,13 @@ export default function VmwareFaqSection() {
             return (
               <div
                 key={index}
-                className={`border rounded-xl transition overflow-hidden ${cardBg}`}
+                className="rounded-xl border transition-all overflow-hidden border-neutral-300 bg-neutral-50 dark:border-white/20 dark:bg-white/5"
               >
                 <button
-                  className="w-full flex text-primary items-center justify-between px-6 py-5 text-left font-sofia text-xl font-medium focus:outline-none"
                   onClick={() => toggleIndex(index)}
+                  className="w-full flex items-center justify-between px-6 py-5 text-left text-xl font-sofia font-medium text-primary focus:outline-none"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-${index}`}
                 >
                   <span>{item.question}</span>
                   {isOpen ? <Minus size={20} /> : <Plus size={20} />}
@@ -66,6 +58,7 @@ export default function VmwareFaqSection() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-${index}`}
                       initial={{ height: 0 }}
                       animate={{ height: 'auto' }}
                       exit={{ height: 0 }}

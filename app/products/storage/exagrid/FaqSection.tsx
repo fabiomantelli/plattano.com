@@ -1,9 +1,8 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Plus, Minus } from 'lucide-react'
 
 const faqItems = [
   {
@@ -31,28 +30,19 @@ const faqItems = [
     answer:
       'You can place an ExaGrid appliance in a third-party data center or colocation facility.',
   },
-];
+]
 
 export default function ExagridFaqSection() {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === 'dark';
-  const [mounted, setMounted] = useState(false);
-  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
+  const [openIndexes, setOpenIndexes] = useState<number[]>([])
 
   const toggleIndex = (index: number) => {
     setOpenIndexes((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
-  };
+    )
+  }
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <div className="max-w-4xl mx-auto px-6 space-y-12">
         <h2 className="text-[44px] font-sofia font-bold text-primary text-center">
           Frequently Asked Questions
@@ -60,13 +50,11 @@ export default function ExagridFaqSection() {
 
         <div className="space-y-6">
           {faqItems.map((item, index) => {
-            const isOpen = openIndexes.includes(index);
+            const isOpen = openIndexes.includes(index)
             return (
               <div
                 key={index}
-                className={`border rounded-xl transition overflow-hidden ${
-                  isDark ? 'border-white/20 bg-white/5' : 'border-neutral-300 bg-neutral-50'
-                }`}
+                className="border rounded-xl transition overflow-hidden border-neutral-300 bg-neutral-50 dark:border-white/20 dark:bg-white/5"
               >
                 <button
                   className="w-full flex text-primary items-center justify-between px-6 py-5 text-left font-sofia text-xl font-medium focus:outline-none"
@@ -98,10 +86,10 @@ export default function ExagridFaqSection() {
                   )}
                 </AnimatePresence>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-} 
+  )
+}

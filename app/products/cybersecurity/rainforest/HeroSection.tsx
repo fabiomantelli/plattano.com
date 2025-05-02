@@ -1,24 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const logoSrc = isDark
-    ? '/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp'
-    : '/images/products/cybersecurity/rainforest/rainforest-light-logo.webp';
-
   return (
-    <section className={`w-full ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}> 
+    <section className="w-full bg-white text-black dark:bg-black dark:text-white">
       <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 sm:px-12 lg:px-24 md:min-h-[calc(100vh-150px)]">
         {/* Text block */}
         <motion.div
@@ -31,11 +18,19 @@ export default function HeroSection() {
           {/* Rainforest Logo (desktop only) */}
           <div className="hidden md:block mb-4">
             <Image
-              src={logoSrc}
+              src="/images/products/cybersecurity/rainforest/rainforest-light-logo.webp"
               alt="Rainforest Logo"
               width={300}
               height={103}
-              className="h-auto w-auto"
+              className="block dark:hidden h-auto w-auto"
+              priority
+            />
+            <Image
+              src="/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp"
+              alt="Rainforest Logo"
+              width={300}
+              height={103}
+              className="hidden dark:block h-auto w-auto"
               priority
             />
           </div>
@@ -61,11 +56,19 @@ export default function HeroSection() {
           {/* Rainforest Logo (mobile only, top) */}
           <div className="block md:hidden mb-6">
             <Image
-              src={logoSrc}
+              src="/images/products/cybersecurity/rainforest/rainforest-light-logo.webp"
               alt="Rainforest Logo"
               width={300}
               height={103}
-              className="mx-auto h-auto w-auto"
+              className="mx-auto h-auto w-auto block dark:hidden"
+              priority
+            />
+            <Image
+              src="/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp"
+              alt="Rainforest Logo"
+              width={300}
+              height={103}
+              className="mx-auto h-auto w-auto hidden dark:block"
               priority
             />
           </div>

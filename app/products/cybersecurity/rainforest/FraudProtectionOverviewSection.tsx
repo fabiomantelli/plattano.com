@@ -1,9 +1,8 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { X } from 'lucide-react'
 
 const imageData = [
@@ -38,19 +37,10 @@ const imageData = [
 ]
 
 export default function FraudProtectionOverviewSection() {
-  const { resolvedTheme: theme } = useTheme()
-  const isDark = theme === 'dark'
-  const [mounted, setMounted] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

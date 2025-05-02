@@ -1,45 +1,37 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { Phone, Mail, Instagram, Clock } from 'lucide-react';
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
+import { useState } from 'react'
+import { Phone, Mail, Instagram, Clock } from 'lucide-react'
+import Link from 'next/link'
 
 interface ContactForm {
-  name: string;
-  company: string;
-  phone: string;
-  email: string;
-  note: string;
+  name: string
+  company: string
+  phone: string
+  email: string
+  note: string
 }
 
 export default function Footer() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [form, setForm] = useState<ContactForm>({
     name: '',
     company: '',
     phone: '',
     email: '',
     note: '',
-  });
-  
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null; // evita hydration mismatch
-
-  const isDark = resolvedTheme === 'dark';
+  })
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm({ ...form, [e.target.name]: e.target.value });
+  ) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-  };
+    e.preventDefault()
+    console.log(form)
+  }
 
   return (
-    <footer className={`w-full ${isDark ? 'bg-black text-white' : 'bg-neutral-100 text-neutral-900'}`}>
+    <footer className="w-full bg-neutral-100 text-neutral-900 dark:bg-black dark:text-white">
       {/* Columns */}
       <div className="mx-auto max-w-7xl py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center justify-items-center md:justify-items-start text-center md:text-left px-8 sm:px-12 lg:px-24">
         
@@ -82,10 +74,7 @@ export default function Footer() {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className={`
-              p-6 rounded-xl flex flex-col gap-4 transition-all duration-300
-              ${isDark ? 'bg-neutral-900 border border-white/10' : 'bg-white border border-neutral-300'}
-            `}
+            className="p-6 rounded-xl flex flex-col gap-4 transition-all duration-300 bg-white border border-neutral-300 dark:bg-neutral-900 dark:border-white/10"
           >
             {['name', 'company', 'phone', 'email'].map((field) => (
               <input
@@ -95,12 +84,7 @@ export default function Footer() {
                 placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                 value={form[field as keyof ContactForm]}
                 onChange={handleChange}
-                className={`
-                  bg-transparent border rounded px-4 py-2 focus:outline-none
-                  ${isDark
-                    ? 'border-white/40 placeholder:text-white/60 text-white'
-                    : 'border-neutral-300 placeholder:text-neutral-500 text-black'}
-                `}
+                className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
               />
             ))}
             <textarea
@@ -109,23 +93,13 @@ export default function Footer() {
               placeholder="Note"
               value={form.note}
               onChange={handleChange}
-              className={`
-                bg-transparent border rounded px-4 py-2 focus:outline-none resize-none
-                ${isDark
-                  ? 'border-white/40 placeholder:text-white/60 text-white'
-                  : 'border-neutral-300 placeholder:text-neutral-500 text-black'}
-              `}
+              className="bg-transparent border rounded px-4 py-2 focus:outline-none resize-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
             />
 
             {/* SEND Button */}
             <button
               type="submit"
-              className={`
-                w-full py-3 rounded-md font-semibold shadow-lg transition-all duration-200 border-2
-                ${isDark
-                  ? 'bg-black text-white border-primary hover:bg-white hover:text-primary'
-                  : 'bg-primary text-white border-primary hover:bg-white hover:text-primary'}
-              `}
+              className="w-full py-3 rounded-md font-semibold shadow-lg transition-all duration-200 border-2 bg-primary text-white border-primary hover:bg-white hover:text-primary dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-primary"
             >
               SEND
             </button>
@@ -143,10 +117,10 @@ export default function Footer() {
       />
 
       {/* Bottom Footer */}
-      <div className={`w-full ${isDark ? 'bg-black text-neutral-400' : 'bg-neutral-200 text-neutral-700'} text-center text-sm py-6 border-t ${isDark ? 'border-white/20' : 'border-neutral-300'}`}>
+      <div className="w-full bg-neutral-200 text-neutral-700 dark:bg-black dark:text-neutral-400 text-center text-sm py-6 border-t border-neutral-300 dark:border-white/20">
         EIN 33-3441498<br />
         <span className="text-primary">© 2025 Plattano® Technologies US</span>
       </div>
     </footer>
-  );
+  )
 }

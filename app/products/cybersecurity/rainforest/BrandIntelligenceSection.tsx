@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const insights = [
@@ -17,15 +15,8 @@ const insights = [
 ];
 
 export default function BrandIntelligenceSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const isDark = resolvedTheme === 'dark';
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -48,10 +39,11 @@ export default function BrandIntelligenceSection() {
           {insights.map(({ image, text }, index) => (
             <div
               key={index}
-              className={`
+              className="
                 rounded-xl p-6 text-center flex flex-col items-center gap-4 shadow-md transition
-                ${isDark ? 'bg-white/10 border border-white/20' : 'bg-white border border-neutral-300'}
-              `}
+                bg-white border border-neutral-300
+                dark:bg-white/10 dark:border-white/20
+              "
             >
               <Image
                 src={image}

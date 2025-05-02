@@ -1,8 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { BrainCircuit, Database, Globe, Cpu } from 'lucide-react';
 
 const items = [
@@ -33,14 +31,6 @@ const items = [
 ];
 
 export default function UseCasesGridSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const textColor = isDark ? 'text-gray-200' : 'text-neutral-700';
-
   return (
     <section className="w-full py-24 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
@@ -55,8 +45,8 @@ export default function UseCasesGridSection() {
               className="flex flex-col items-center text-center p-8 rounded-2xl shadow-xl bg-primary text-white"
             >
               <item.icon className="w-10 h-10 mb-4 text-white" />
-              <h3 className="text-lg font-bold mb-3 text-white">{item.title}</h3>
-              <p className={`text-[15px] font-ubuntu leading-relaxed ${textColor}`}>
+              <h3 className="text-lg font-bold mb-3">{item.title}</h3>
+              <p className="text-[15px] font-ubuntu leading-relaxed text-white/90">
                 {item.description}
               </p>
             </motion.div>

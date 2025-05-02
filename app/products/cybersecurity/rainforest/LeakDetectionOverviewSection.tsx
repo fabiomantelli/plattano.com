@@ -1,9 +1,8 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { X } from 'lucide-react'
 
 const leakItems = [
@@ -38,22 +37,13 @@ const leakItems = [
 ]
 
 export default function LeakDetectionOverviewSection() {
-  const { resolvedTheme: theme } = useTheme()
-  const isDark = theme === 'dark'
-  const [mounted, setMounted] = useState(false)
   const [modalImage, setModalImage] = useState<string | null>(null)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const openModal = (src: string) => setModalImage(src)
   const closeModal = () => setModalImage(null)
 
-  if (!mounted) return null
-
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +87,6 @@ export default function LeakDetectionOverviewSection() {
                 />
               </div>
             </div>
-          
           ))}
         </div>
       </motion.div>

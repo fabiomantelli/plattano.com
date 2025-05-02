@@ -1,20 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function AppCloudSecuritySection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const isDark = resolvedTheme === 'dark';
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +31,7 @@ export default function AppCloudSecuritySection() {
           </div>
         </div>
 
-        {/* Image Block (visible on all screens) */}
+        {/* Image Block */}
         <div className="flex-1 w-full flex justify-center">
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
             <Image

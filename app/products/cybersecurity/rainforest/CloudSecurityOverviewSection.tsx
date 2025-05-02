@@ -1,29 +1,18 @@
-'use client'
+'use client';
 
-import { useTheme } from 'next-themes'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { X } from 'lucide-react'
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
+import { X } from 'lucide-react';
 
 export default function CloudSecurityOverviewSection() {
-  const { resolvedTheme: theme } = useTheme()
-  const isDark = theme === 'dark'
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
-  const [mounted, setMounted] = useState(false)
-  const [modalImage, setModalImage] = useState<string | null>(null)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const openModal = (src: string) => setModalImage(src)
-  const closeModal = () => setModalImage(null)
-
-  if (!mounted) return null
+  const openModal = (src: string) => setModalImage(src);
+  const closeModal = () => setModalImage(null);
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,9 +25,10 @@ export default function CloudSecurityOverviewSection() {
           <div className="w-full">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-vulnerabilities-per-severity.webp"
-              alt="Rainforest modules analysis"
+              alt="Rainforest vulnerabilities per severity"
               width={500}
               height={400}
+              loading="lazy"
               className="w-full max-w-md mx-auto md:mx-0 cursor-pointer"
               onClick={() =>
                 openModal(
@@ -49,13 +39,17 @@ export default function CloudSecurityOverviewSection() {
           </div>
           <div className="text-center md:text-left font-ubuntu text-base space-y-6">
             <p>
-              The <strong>Rainforest Application</strong> and <strong>Rainforest Asset</strong> modules analyze container images and infrastructure automation processes (IaC – Infrastructure as Code), detecting vulnerabilities before applications go live.
+              The <strong>Rainforest Application</strong> and <strong>Rainforest Asset</strong>{' '}
+              modules analyze container images and infrastructure automation processes (IaC – Infrastructure as Code), detecting vulnerabilities before applications go live.
             </p>
             <p>
-              It also identifies vulnerabilities in various infrastructure components such as databases and application servers.
+              It also identifies vulnerabilities in various infrastructure components such as
+              databases and application servers.
             </p>
             <p>
-              <strong>Rainforest Cloud</strong> monitors the security controls of major cloud providers, helping ensure a safer and more stable environment for your application (AWS, Azure, GCP, and Oracle).
+              <strong>Rainforest Cloud</strong> monitors the security controls of major cloud
+              providers, helping ensure a safer and more stable environment for your application
+              (AWS, Azure, GCP, and Oracle).
             </p>
           </div>
         </div>
@@ -63,14 +57,16 @@ export default function CloudSecurityOverviewSection() {
         {/* Section 2 */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
           <div className="text-center md:text-left text-[32px] font-sofia leading-snug uppercase">
-            Automated cloud security is essential for confident scaling. Reduce risk through continuous monitoring and proactive actions.
+            Automated cloud security is essential for confident scaling. Reduce risk through
+            continuous monitoring and proactive actions.
           </div>
           <div className="w-full">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-status-devsecops.webp"
-              alt="Status DevSecOps"
+              alt="Rainforest DevSecOps status"
               width={500}
               height={400}
+              loading="lazy"
               className="w-full max-w-md mx-auto md:mx-0 cursor-pointer"
               onClick={() =>
                 openModal(
@@ -85,10 +81,13 @@ export default function CloudSecurityOverviewSection() {
         <div className="text-center max-w-4xl mx-auto space-y-6">
           <h3 className="text-[40px] font-sofia font-bold text-primary">GARTNER:</h3>
           <p className="text-base font-ubuntu text-primary">
-            “Nearly all successful attacks on cloud services are the result of misconfiguration, inadequate management, and mistakes.”
+            “Nearly all successful attacks on cloud services are the result of misconfiguration,
+            inadequate management, and mistakes.”
           </p>
-          <p className={`text-base font-ubuntu ${isDark ? 'text-white' : 'text-black'}`}>
-            Security gaps can lead to lawsuits and fines that cost millions. An automated approach to cloud posture security and compliance can help your company prevent misconfigurations that often result in breaches.
+          <p className="text-base font-ubuntu text-black dark:text-white">
+            Security gaps can lead to lawsuits and fines that cost millions. An automated approach
+            to cloud posture security and compliance can help your company prevent misconfigurations
+            that often result in breaches.
           </p>
         </div>
       </motion.div>
@@ -109,14 +108,15 @@ export default function CloudSecurityOverviewSection() {
             </button>
             <Image
               src={modalImage}
-              alt="Expanded view"
+              alt="Expanded modal image"
               width={1200}
               height={800}
               className="w-full h-auto rounded-xl shadow-xl"
+              loading="eager"
             />
           </div>
         </div>
       )}
     </section>
-  )
+  );
 }

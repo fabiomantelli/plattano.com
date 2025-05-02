@@ -1,8 +1,6 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
 import {
   Cloud,
   LayoutDashboard,
@@ -10,7 +8,7 @@ import {
   ShieldCheck,
   MoveRight,
   ShieldAlert,
-} from 'lucide-react';
+} from 'lucide-react'
 
 const items = [
   {
@@ -49,22 +47,11 @@ const items = [
     description:
       'Quickly recover from modern ransomware attacks with a fully managed solution using an isolated recovery environment (IRE) and built-in behavioral analysis of active workloads.',
   },
-];
+]
 
 export default function CapabilitiesGridSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const sectionBg = isDark ? 'bg-black text-white' : 'bg-gray-50 text-neutral-900';
-  const cardBg = isDark
-    ? 'bg-white/5 border-white/10 backdrop-blur-sm'
-    : 'bg-white/80 border-neutral-200 backdrop-blur-sm';
-
   return (
-    <section className={`w-full py-24 ${sectionBg}`}>
+    <section className="w-full py-24 bg-gray-50 text-neutral-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +71,7 @@ export default function CapabilitiesGridSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true, amount: 0.4 }}
-              className={`flex flex-col items-center text-center p-8 rounded-2xl shadow-xl border transition-all duration-300 ${cardBg} hover:scale-[1.02] hover:shadow-2xl`}
+              className="flex flex-col items-center text-center p-8 rounded-2xl shadow-xl border transition-all duration-300 bg-white/80 dark:bg-white/5 dark:border-white/10 border-neutral-200 hover:scale-[1.02] hover:shadow-2xl"
             >
               <item.icon className="w-10 h-10 mb-4 text-primary" />
               <h3 className="text-xl font-semibold mb-2 uppercase">{item.title}</h3>
@@ -96,5 +83,5 @@ export default function CapabilitiesGridSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

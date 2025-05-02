@@ -1,9 +1,12 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import { CloudCog, PiggyBank, Layers, Boxes } from 'lucide-react';
+import { motion } from 'framer-motion'
+import {
+  CloudCog,
+  PiggyBank,
+  Layers,
+  Boxes,
+} from 'lucide-react'
 
 const features = [
   {
@@ -30,24 +33,13 @@ const features = [
     description:
       'Optimize performance, resilience, and availability of VMs and Kubernetes clusters with integrated container orchestration via VMware Cloud Foundation with Tanzu.',
   },
-];
+]
 
 export default function CloudFoundationSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const sectionTextColor = isDark ? 'text-white' : 'text-neutral-900';
-  const cardBg = isDark
-    ? 'bg-white/5 border-white/10 backdrop-blur-sm'
-    : 'bg-white/80 border-neutral-200 backdrop-blur-sm';
-
   return (
-    <section className={`w-full py-24 ${sectionTextColor}`}>
+    <section className="w-full py-24 bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center">
-        {/* Título principal */}
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +50,7 @@ export default function CloudFoundationSection() {
           VMware <span className="text-primary">Cloud Foundation</span>
         </motion.h2>
 
-        {/* Subtexto 1 */}
+        {/* Subtext 1 */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +61,7 @@ export default function CloudFoundationSection() {
           Efficiently manage virtual machines and container workloads. Bring cloud benefits to your on-prem hyperconverged infrastructure (HCI) deployments.
         </motion.p>
 
-        {/* Subtexto 2 */}
+        {/* Subtext 2 */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +74,7 @@ export default function CloudFoundationSection() {
           <span className="text-primary">modern</span> applications.
         </motion.p>
 
-        {/* Cards */}
+        {/* Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
           {features.map((item, idx) => (
             <motion.div
@@ -91,19 +83,15 @@ export default function CloudFoundationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true, amount: 0.5 }}
-              className={`flex flex-col items-center text-center p-6 rounded-2xl shadow-lg border transition-all duration-300 ${cardBg}`}
+              className="flex flex-col items-center text-center p-6 rounded-2xl shadow-lg border transition-all duration-300 bg-white/80 dark:bg-white/5 border-neutral-200 dark:border-white/10 backdrop-blur-sm"
             >
               <item.icon className="w-10 h-10 mb-4 text-primary" />
-              <h3 className="text-lg font-bold text-primary mb-2">
-                {item.title}
-              </h3>
-              <p className="text-[15px] font-ubuntu leading-relaxed">
-                {item.description}
-              </p>
+              <h3 className="text-lg font-bold text-primary mb-2">{item.title}</h3>
+              <p className="text-[15px] font-ubuntu leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

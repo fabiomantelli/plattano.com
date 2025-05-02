@@ -23,7 +23,11 @@ const menuItems: MenuItem[] = [
   {
     label: 'Products',
     submenu: [
-      { label: 'Data Protection', href: '/data-protection' },
+      { label: 'Data Protection',
+        submenu: [
+          { label: 'Veeam Data Plataform', href: '/products/data-protection/veeam-data-platform' }
+        ]
+      },
       { label: 'Storage',
         submenu: [
           { label: 'ExaGrid', href: '/products/storage/exagrid'}
@@ -31,7 +35,7 @@ const menuItems: MenuItem[] = [
       },
       { label: 'Hybrid Multicloud',
         submenu: [
-          { label: 'VMware by Broadcom', href: '/products/hybrid-multicloud/vmware'}
+          { label: 'VMware by Broadcom', href: '/products/hybrid-multicloud/vmware' }
         ]
       },
       {

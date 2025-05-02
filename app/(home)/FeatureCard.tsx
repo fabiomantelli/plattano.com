@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
 
@@ -29,9 +31,9 @@ export default function FeatureCard({ logo, title, description, cta }: Feature) 
         <Image
           src={logo}
           alt={`${title} logo`}
-          width={128}
-          height={64}
-          className="object-contain transition-transform duration-200 group-hover:scale-105"
+          width={128}   // Define explicit width here
+          height={64}   // Define explicit height here
+          className="object-contain transition-transform duration-200 group-hover:scale-105 w-full h-full"
           priority
         />
       </div>

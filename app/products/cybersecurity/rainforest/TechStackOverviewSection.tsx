@@ -1,22 +1,8 @@
-'use client'
+'use client';
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 export default function TechStackOverviewSection() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const isDark = resolvedTheme === 'dark';
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
-
   const techCategories = [
     {
       id: 'Cloud',
@@ -136,7 +122,7 @@ export default function TechStackOverviewSection() {
   ]
 
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -146,9 +132,9 @@ export default function TechStackOverviewSection() {
       >
         <h2 className="text-center text-[36px] font-sofia font-bold mb-12">
           <span className="text-primary">TECH</span>{' '}
-          <span className={isDark ? 'text-white' : 'text-black'}>STACK</span>
+          <span className="text-black dark:text-white">STACK</span>
         </h2>
-  
+
         <div className="space-y-20">
           {techCategories.map((category) => (
             <div key={category.id} className="mb-12">
@@ -156,17 +142,18 @@ export default function TechStackOverviewSection() {
                 {category.id}
               </h3>
               <div
-                className="grid justify-center gap-6 sm:gap-8"
-                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(80px, auto))' }}
+                className="grid gap-6 sm:gap-8 place-items-center justify-center"
+                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))' }}
               >
                 {category.technologies.map(({ id, svg }) => (
                   <div
                     key={id}
-                    className="w-20 h-20 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-white/10 border dark:border-white/20 shadow"
+                    className="w-20 h-20 flex items-center justify-center rounded-xl border border-neutral-200 dark:border-white/20 bg-neutral-100 dark:bg-white/10 shadow-sm"
                   >
-                    <div className="w-8 h-8">
-                      <div dangerouslySetInnerHTML={{ __html: svg }} />
-                    </div>
+                    <div
+                      className="w-8 h-8 text-zinc-800 dark:text-zinc-200"
+                      dangerouslySetInnerHTML={{ __html: svg }}
+                    />
                   </div>
                 ))}
               </div>
@@ -175,5 +162,5 @@ export default function TechStackOverviewSection() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

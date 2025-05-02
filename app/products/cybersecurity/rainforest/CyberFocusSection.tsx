@@ -1,7 +1,5 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
@@ -16,20 +14,8 @@ const stats = [
 ];
 
 export default function CyberFocusSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
   return (
-    <section
-      className={`w-full py-24 ${
-        isDark ? 'bg-neutral-900 text-white' : 'bg-neutral-200 text-neutral-900'
-      }`}
-    >
+    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,11 +35,7 @@ export default function CyberFocusSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`rounded-xl p-6 text-center shadow-md transition-all ${
-                isDark
-                  ? 'bg-white/10 border border-white/20'
-                  : 'bg-neutral-100 border border-neutral-300'
-              }`}
+              className="rounded-xl p-6 text-center shadow-md transition-all border bg-neutral-100 border-neutral-300 dark:bg-white/10 dark:border-white/20"
             >
               <div className="text-[36px] font-bold text-primary mb-2">
                 {stat.value} {stat.unit}
@@ -65,7 +47,7 @@ export default function CyberFocusSection() {
 
         {/* Source */}
         <p className="text-md text-center opacity-70">
-        <span className="text-primary">Sources:</span> State of Ransomware 2023, Panda Security Index, PwC Brasil
+          <span className="text-primary">Sources:</span> State of Ransomware 2023, Panda Security Index, PwC Brasil
         </p>
       </motion.div>
     </section>

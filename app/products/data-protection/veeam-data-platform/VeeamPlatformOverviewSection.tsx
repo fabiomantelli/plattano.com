@@ -49,19 +49,15 @@ export default function VeeamPlatformOverviewSection() {
         {/* Native APIs */}
         <div className="space-y-10">
           <h3 className="text-2xl font-bold text-primary">Native APIs</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center">
             {apiTypes.map(({ label, icon }) => (
-              <motion.div
+              <div
                 key={label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.5 }}
                 className="p-6 flex flex-col items-center text-center rounded-2xl shadow-lg border transition-all duration-300 bg-white/80 border-neutral-200 backdrop-blur-sm dark:bg-white/5 dark:border-white/10"
               >
-                <div className="text-3xl mb-3">{icon}</div>
-                <h4 className="font-bold text-sm">{label.toUpperCase()}</h4>
-              </motion.div>
+                <div className="text-3xl">{icon}</div>
+                <span className="font-bold text-sm text-center">{label.toUpperCase()}</span>
+              </div>
             ))}
           </div>
         </div>

@@ -1,26 +1,18 @@
-'use client';
+'use client'
 
-import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { useState } from 'react'
+import { X } from 'lucide-react'
 
 export default function ExagridBenefitsSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [modalImage, setModalImage] = useState<string | null>(null);
+  const [modalImage, setModalImage] = useState<string | null>(null)
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-black';
-  const openModal = (src: string) => setModalImage(src);
-  const closeModal = () => setModalImage(null);
+  const openModal = (src: string) => setModalImage(src)
+  const closeModal = () => setModalImage(null)
 
   return (
-    <section className={`w-full py-12 bg-background ${textColor}`}>
+    <section className="w-full py-12 bg-white text-black dark:bg-background dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -28,8 +20,8 @@ export default function ExagridBenefitsSection() {
         viewport={{ once: true, amount: 0.4 }}
         className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative"
       >
-        {/* Middle divider */}
-        <div className="hidden md:block absolute left-1/2 top-0 h-full w-[2px] bg-primary transform -translate-x-1/2 z-0"></div>
+        {/* Divider */}
+        <div className="hidden md:block absolute left-1/2 top-0 h-full w-[2px] bg-primary transform -translate-x-1/2 z-0" />
 
         {/* Left Column */}
         <motion.div
@@ -50,11 +42,10 @@ export default function ExagridBenefitsSection() {
           </ul>
 
           <p className="text-[18px] font-ubuntu leading-relaxed">
-            With ExaGrid®&apos;s layered backup storage, each appliance in the system brings not just disk, but also memory,
-            bandwidth, and processing power — all necessary elements to maintain high performance backup and restore.
+            With ExaGrid®&apos;s layered backup storage, each appliance in the system brings not just disk,
+            but also memory, bandwidth, and processing power — all necessary elements to maintain high performance backup and restore.
           </p>
 
-          {/* Image with modal trigger */}
           <div className="mt-6 cursor-pointer">
             <Image
               src="/images/products/storage/exagrid/exagrid-backup-layers.webp"
@@ -62,7 +53,9 @@ export default function ExagridBenefitsSection() {
               width={600}
               height={400}
               className="w-full h-auto rounded-xl shadow-xl object-cover"
-              onClick={() => openModal('/images/products/storage/exagrid/exagrid-backup-layers.webp')}
+              onClick={() =>
+                openModal('/images/products/storage/exagrid/exagrid-backup-layers.webp')
+              }
               priority
             />
           </div>
@@ -124,5 +117,5 @@ export default function ExagridBenefitsSection() {
         </div>
       )}
     </section>
-  );
+  )
 }

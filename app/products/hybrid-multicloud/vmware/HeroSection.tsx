@@ -1,27 +1,13 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function HeroSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-  const logoSrc = mounted
-    ? isDark
-      ? '/images/products/hybrid-multicloud/vmware/vmware-dark-logo.webp'
-      : '/images/products/hybrid-multicloud/vmware/vmware-light-logo.png'
-    : '';
-
   return (
-    <section className={`w-full py-12 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className="w-full py-12 bg-white text-black dark:bg-black dark:text-white">
       <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 sm:px-12 lg:px-24 md:min-h-[calc(100vh-150px)]">
+        
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -32,16 +18,22 @@ export default function HeroSection() {
         >
           {/* VMware Logo (desktop only) */}
           <div className="hidden md:block mb-4">
-            {logoSrc && (
-              <Image
-                src={logoSrc}
-                alt="VMware Logo"
-                width={300}
-                height={103}
-                className="h-auto w-auto"
-                priority
-              />
-            )}
+            <Image
+              src="/images/products/hybrid-multicloud/vmware/vmware-light-logo.png"
+              alt="VMware Logo Light"
+              width={300}
+              height={103}
+              className="block dark:hidden h-auto w-auto"
+              priority
+            />
+            <Image
+              src="/images/products/hybrid-multicloud/vmware/vmware-dark-logo.webp"
+              alt="VMware Logo Dark"
+              width={300}
+              height={103}
+              className="hidden dark:block h-auto w-auto"
+              priority
+            />
           </div>
 
           <h1 className="text-[48px] font-extrabold font-sofia leading-tight">
@@ -63,21 +55,27 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="flex-1 w-full flex flex-col items-center md:items-end"
         >
-          {/* VMware Logo (mobile only, top) */}
+          {/* VMware Logo (mobile only) */}
           <div className="block md:hidden mb-6">
-            {logoSrc && (
-              <Image
-                src={logoSrc}
-                alt="VMware Logo"
-                width={300}
-                height={103}
-                className="mx-auto h-auto w-auto"
-                priority
-              />
-            )}
+            <Image
+              src="/images/products/hybrid-multicloud/vmware/vmware-light-logo.png"
+              alt="VMware Logo Light"
+              width={300}
+              height={103}
+              className="mx-auto h-auto w-auto block dark:hidden"
+              priority
+            />
+            <Image
+              src="/images/products/hybrid-multicloud/vmware/vmware-dark-logo.webp"
+              alt="VMware Logo Dark"
+              width={300}
+              height={103}
+              className="mx-auto h-auto w-auto hidden dark:block"
+              priority
+            />
           </div>
 
-          {/* Hero Image (mobile bottom) */}
+          {/* Hero Image */}
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-full mt-6 md:mt-0">
             <Image
               src="/images/products/hybrid-multicloud/vmware/vmware-hero.png"
@@ -91,5 +89,5 @@ export default function HeroSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

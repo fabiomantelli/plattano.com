@@ -1,22 +1,10 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
 
 export default function VeeamFeatureBlocksSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
-  const sectionBg = isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900';
-  const cardBg = isDark ? 'bg-neutral-800 border-neutral-700' : 'bg-gray-100 border-neutral-300';
-
   return (
-    <section className={`w-full ${sectionBg} py-20`}>
+    <section className="w-full bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white py-20">
       <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row gap-10">
           {/* Block 1 */}
@@ -25,7 +13,7 @@ export default function VeeamFeatureBlocksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.6 }}
-            className={`flex-1 p-8 rounded-2xl shadow-lg border ${cardBg} flex flex-col items-center text-center`}
+            className="flex-1 p-8 rounded-2xl shadow-lg border bg-gray-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 flex flex-col items-center text-center"
           >
             <h3 className="text-[24px] font-bold font-sofia mb-4">
               <span className="text-primary">Broad-Spectrum Protection</span>
@@ -41,7 +29,7 @@ export default function VeeamFeatureBlocksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true, amount: 0.6 }}
-            className={`flex-1 p-8 rounded-2xl shadow-lg border ${cardBg} flex flex-col items-center text-center`}
+            className="flex-1 p-8 rounded-2xl shadow-lg border bg-gray-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 flex flex-col items-center text-center"
           >
             <h3 className="text-[24px] font-bold font-sofia mb-4">
               <span className="text-primary">Backup & Replication</span>
@@ -53,5 +41,5 @@ export default function VeeamFeatureBlocksSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

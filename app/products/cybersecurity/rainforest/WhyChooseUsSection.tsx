@@ -1,25 +1,11 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { Plug, BarChart3, Puzzle } from 'lucide-react'
 
 export default function WhyChooseUsSection() {
-  const { resolvedTheme: theme } = useTheme()
-  const isDark = theme === 'dark'
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
-  const textColor = isDark ? 'text-white' : 'text-black'
-
   return (
-    <section className={`w-full py-20 ${isDark ? 'bg-neutral-900' : 'bg-neutral-200'}`}>  
+    <section className="w-full py-20 bg-neutral-200 dark:bg-neutral-900">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,10 +15,10 @@ export default function WhyChooseUsSection() {
       >
         {/* Section Title */}
         <div className="text-center space-y-2">
-          <p className={`text-[22px] font-sofia ${textColor}`}>WHY CHOOSE US?</p>
+          <p className="text-[22px] font-sofia text-black dark:text-white">WHY CHOOSE US?</p>
           <h2 className="text-[36px] font-sofia font-bold">
             <span className="text-primary">WE SIMPLIFY</span>{' '}
-            <span className={textColor}>CYBERSECURITY</span>
+            <span className="text-black dark:text-white">CYBERSECURITY</span>
           </h2>
         </div>
 
@@ -42,7 +28,7 @@ export default function WhyChooseUsSection() {
           <div className="flex flex-col items-center space-y-4">
             <Plug size={48} className="text-primary" />
             <h3 className="text-xl font-sofia text-primary">Plug and Play</h3>
-            <p className={`text-base font-ubuntu max-w-xs ${textColor}`}>
+            <p className="text-base font-ubuntu max-w-xs text-black dark:text-white">
               Collect insights from Day One and make your company more secure from Code to Cloud.
             </p>
           </div>
@@ -51,7 +37,7 @@ export default function WhyChooseUsSection() {
           <div className="flex flex-col items-center space-y-4">
             <BarChart3 size={48} className="text-primary" />
             <h3 className="text-xl font-sofia text-primary">Data-Driven</h3>
-            <p className={`text-base font-ubuntu max-w-xs ${textColor}`}>
+            <p className="text-base font-ubuntu max-w-xs text-black dark:text-white">
               Real-time dashboards showing key insights so your teams can make faster and more accurate data-based decisions.
             </p>
           </div>
@@ -60,7 +46,7 @@ export default function WhyChooseUsSection() {
           <div className="flex flex-col items-center space-y-4">
             <Puzzle size={48} className="text-primary" />
             <h3 className="text-xl font-sofia text-primary">Multiple Integrations</h3>
-            <p className={`text-base font-ubuntu max-w-xs ${textColor}`}>
+            <p className="text-base font-ubuntu max-w-xs text-black dark:text-white">
               Hundreds of integrations with the market&rsquo;s top tools such as CI/CD, project management, communication platforms, ticketing systems, and more.
             </p>
           </div>
