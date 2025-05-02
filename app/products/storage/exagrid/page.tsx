@@ -1,4 +1,4 @@
-import FooterSection from "@/app/ui/layout/Footer";
+import Footer from "@/app/ui/layout/Footer";
 import ExagridBenefitsSection from "./ExagridBenefitsSections";
 import ExagridFaqSection from "./FaqSection";
 import HeroSection from "./HeroSection";
@@ -13,7 +13,7 @@ export default function ExagridPage() {
             <HybridStorageSection />
             <WhatWeProtectSection />
             <ExagridFaqSection />
-            <FooterSection />
+            <Footer />
         </>
     )
 }

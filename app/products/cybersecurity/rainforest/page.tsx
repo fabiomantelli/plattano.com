@@ -1,4 +1,4 @@
-import FooterSection from '@/app/ui/layout/Footer';
+import Footer from '@/app/ui/layout/Footer';
 import AppCloudSecuritySection from './AppCloudSecuritySection';
 import BrandIntelligenceSection from './BrandIntelligenceSection';
 import CloudSecurityOverviewSection from './CloudSecurityOverviewSection';
@@ -31,7 +31,7 @@ export default function RainforestPage() {
       <LeakDetectionOverviewSection />
       <WhyChooseUsSection />
       <RainforestFaqSection />
-      <FooterSection />
+      <Footer />
     </main>
   );
 }

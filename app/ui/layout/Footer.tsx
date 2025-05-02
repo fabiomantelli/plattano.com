@@ -13,7 +13,7 @@ interface ContactForm {
   note: string;
 }
 
-export default function FooterSection() {
+export default function Footer() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [form, setForm] = useState<ContactForm>({

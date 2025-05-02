@@ -29,7 +29,11 @@ const menuItems: MenuItem[] = [
           { label: 'ExaGrid', href: '/products/storage/exagrid'}
         ]
       },
-      { label: 'Hybrid Multicloud', href: '/hybrid-multicloud' },
+      { label: 'Hybrid Multicloud',
+        submenu: [
+          { label: 'VMware by Broadcom', href: '/products/hybrid-multicloud/vmware'}
+        ]
+      },
       {
         label: 'Cybersecurity',
         submenu: [
