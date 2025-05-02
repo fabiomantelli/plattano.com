@@ -8,10 +8,13 @@ export default function HeroSection() {
     <section className="w-full min-h-screen flex flex-col items-center bg-white text-black dark:bg-black dark:text-white">
       {/* Mobile Logo (top) */}
       <div className="block md:hidden mt-12 mb-6 px-6 sm:px-12 lg:px-24 w-full">
-        <img
+        <Image
           src="/images/products/data-protection/veeam-data-platform/veeam-logo.png"
           alt="Veeam Logo"
+          width={200}
+          height={60}
           className="h-auto w-[200px] mx-auto"
+          priority
         />
       </div>
 
@@ -27,10 +30,13 @@ export default function HeroSection() {
         >
           {/* Desktop Logo */}
           <div className="hidden md:block mb-4">
-            <img
+            <Image
               src="/images/products/data-protection/veeam-data-platform/veeam-logo.png"
               alt="Veeam Logo"
+              width={200}
+              height={60}
               className="h-auto w-[200px]"
+              priority
             />
           </div>
 
