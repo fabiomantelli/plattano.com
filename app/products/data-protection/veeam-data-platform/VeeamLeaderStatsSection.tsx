@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { useInView, motion } from 'framer-motion'
 import CountUp from 'react-countup'
 
