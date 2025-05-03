@@ -16,7 +16,7 @@ export default function AutonomousTechSection() {
         {/* Title */}
         <div className="text-center space-y-4">
           <h2 className="text-4xl font-bold leading-tight text-primary">
-            WE'RE PUSHING THE BOUNDARIES OF AUTONOMOUS TECHNOLOGY
+            WE&apos;RE PUSHING THE BOUNDARIES OF AUTONOMOUS TECHNOLOGY
           </h2>
           <p className="text-lg md:text-xl font-medium leading-relaxed">
             The future of cybersecurity is autonomous. This is how we do it.

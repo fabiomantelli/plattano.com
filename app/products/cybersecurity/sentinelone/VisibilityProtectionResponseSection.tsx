@@ -57,7 +57,7 @@ export default function VisibilityProtectionResponseSection() {
             ${isDark ? 'text-neutral-200' : 'text-neutral-800'}
           `}
         >
-          A platform to prevent, detect, respond, and hunt within the context of all your company's assets. <br />
+          A platform to prevent, detect, respond, and hunt within the context of all your company&apos;s assets. <br />
           See what was never seen before. Control the unknown. All at machine speed.
         </div>
       </motion.div>

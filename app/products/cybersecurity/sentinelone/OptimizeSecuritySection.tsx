@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function OptimizeSecuritySection() {
   return (
@@ -25,10 +26,13 @@ export default function OptimizeSecuritySection() {
 
         {/* Image */}
         <div className="flex-1 mt-8 md:mt-0">
-          <img
+          <Image
             src="/images/products/cybersecurity/sentinelone/sentinelone-robot-monitor.png" // Replace with your image path
             alt="SentinelOne XDR"
+            width={600} // Provide width for optimization
+            height={400} // Provide height for optimization
             className="w-full h-auto"
+            priority
           />
         </div>
       </motion.div>

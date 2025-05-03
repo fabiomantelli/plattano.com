@@ -18,7 +18,7 @@ export default function VisibilityFeaturesSection() {
             <span className="text-primary">VISIBILITY</span>. <span className="text-primary">PROTECTION</span>. <span className="text-primary">RESPONSE</span>
           </h2>
           <p className="text-lg md:text-xl font-medium leading-relaxed">
-            A platform to prevent, detect, respond, and hunt within the context of all your company's assets. See what was never seen before. Control the unknown. All at machine speed.
+            A platform to prevent, detect, respond, and hunt within the context of all your company&apos;s assets. See what was never seen before. Control the unknown. All at machine speed.
           </p>
         </motion.div>
 

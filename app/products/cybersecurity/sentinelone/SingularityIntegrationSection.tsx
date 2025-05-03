@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const itemsTop = [
   {
@@ -69,7 +70,14 @@ export default function SingularityIntegrationSection() {
 
         {/* Image */}
         <div className="mt-16">
-          <img src="/images/products/cybersecurity/sentinelone/sentinelone-logos.webp" alt="Image" className="w-full h-auto" />
+          <Image
+            src="/images/products/cybersecurity/sentinelone/sentinelone-logos.webp" // Replace with your image path
+            alt="SentinelOne Logos"
+            width={1000}
+            height={600}
+            className="w-full h-auto"
+            priority
+          />
         </div>
 
         {/* Bottom 3 Items */}

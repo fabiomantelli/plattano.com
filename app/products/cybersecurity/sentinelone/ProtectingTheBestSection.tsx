@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ProtectingTheBestSection() {
   return (
@@ -29,59 +30,75 @@ export default function ProtectingTheBestSection() {
         {/* Image Section with Logos */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 mt-12 w-full">
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-samsung.webp" // Replace with actual image path
               alt="Samsung Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-ea.webp" // Replace with actual image path
               alt="EA Sports Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-aston-martin.webp" // Replace with actual image path
               alt="Aston Martin Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-tommy-bahama.webp" // Replace with actual image path
               alt="Tommy Bahama Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-hitachi.webp" // Replace with actual image path
               alt="Hitachi Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-oneill.webp" // Replace with actual image path
               alt="ONeill Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-norwegian.webp" // Replace with actual image path
               alt="Norwegian Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
           <div className="flex justify-center">
-            <img
+            <Image
               src="/images/products/cybersecurity/sentinelone/sentinelone-fridays.webp" // Replace with actual image path
               alt="TGI Fridays Logo"
-              className="h-auto w-24 light:invert"
+              width={100}
+              height={50}
+              className="h-auto w-24"
             />
           </div>
         </div>
