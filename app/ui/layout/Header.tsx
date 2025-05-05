@@ -1,14 +1,13 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import ThemeToggle from '../theme/ThemeToggle';
+import Image from 'next/image';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import ThemeToggle from '../theme/ThemeToggle';
 
-// Define MenuItem interface for type safety
+/* ---------- tipagem e itens de menu ---------- */
 interface MenuItem {
   label: string;
   href?: string;
@@ -16,104 +15,128 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  {
-    label: 'Home',
-    href: '/',
-  },
+  { label: 'Home', href: '/' },
   {
     label: 'Products',
     submenu: [
-      { label: 'Data Protection',
+      {
+        label: 'Data Protection',
         submenu: [
-          { label: 'Veeam Data Plataform', href: '/products/data-protection/veeam-data-platform' }
-        ]
+          {
+            label: 'Backup and Recovery',
+            submenu: [
+              { label: 'Veeam Backup & Replication', href: '/products/data-protection/veeam-backup-and-replication' },
+              { label: 'Veeam for Microsoft 365', href: '/products/data-protection/veeam-for-microsoft-365' },
+              { label: 'Veeam for Microsoft Azure', href: '/products/data-protection/veeam-for-microsoft-azure' },
+              { label: 'Veeam for Google Cloud', href: '/products/data-protection/veeam-for-google-cloud' },
+              { label: 'Veeam for AWS', href: '/products/data-protection/veeam-for-aws' },
+            ],
+          },
+          { label: 'Veeam Data Platform', href: '/products/data-protection/veeam-data-platform' },
+          { label: 'Veeam Recovery Orchestrator', href: '/products/data-protection/veeam-recovery-orchestrator' },
+          { label: 'Veeam ONE', href: '/products/data-protection/veeam-one' },
+        ],
       },
-      { label: 'Storage',
+      {
+        label: 'Storage',
         submenu: [
-          { label: 'ExaGrid', href: '/products/storage/exagrid'}
-        ]
+          { label: 'ExaGrid', href: '/products/storage/exagrid' },
+          { label: 'Plattano Hot Cloud Storage', href: '/products/storage/plattano-hot-cloud-storage' },
+        ],
       },
-      { label: 'Hybrid Multicloud',
+      {
+        label: 'Hybrid Multicloud',
         submenu: [
           { label: 'VMware by Broadcom', href: '/products/hybrid-multicloud/vmware' },
           { label: 'Nutanix', href: '/products/hybrid-multicloud/nutanix' },
-        ]
+        ],
       },
       {
         label: 'Cybersecurity',
         submenu: [
-          // Placeholder routes - replace with actual routes
           { label: 'SentinelOne', href: '/products/cybersecurity/sentinelone' },
           { label: 'Rainforest', href: '/products/cybersecurity/rainforest' },
         ],
       },
     ],
   },
-  { label: 'Services', href: '/services' },
+  {
+    label: 'Services',
+    submenu: [
+      {
+        label: 'DPaaS',
+        submenu: [
+          { label: 'Managed Backup Services', href: '/services/dpaas/managed-backup-services' },
+          { label: 'BaaS for Public Cloud', href: '/services/dpaas/baas-for-public-cloud' },
+          { label: 'Off‑Site and Managed Backup', href: '/services/dpaas/off-site-and-manage-backup' },
+        ],
+      },
+      { label: 'Plattano Services', href: '/services/plattano-services' },
+    ],
+  },
   { label: 'Partnership', href: '/partnership' },
   { label: 'Contact', href: '/contact' },
   { label: 'The Plattano', href: '/the-plattano' },
-  { label: 'Resources', href: '/resources' },
 ];
 
+/* ---------- componente ---------- */
 export default function Header() {
+  /* estado de navegação */
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const [expandedMobileNested, setExpandedMobileNested] = useState<string | null>(null);
-  const [expandedDesktop, setExpandedDesktop] = useState<string | null>(null);
-  const [expandedDesktopNested, setExpandedDesktopNested] = useState<string | null>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const submenuRef = useRef<HTMLUListElement>(null);
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+
+  const [expandedDesktop, setExpandedDesktop] = useState<string | null>(null);          // 1º nível
+  const [expandedDesktopNested, setExpandedDesktopNested] = useState<string | null>(null); // 2º nível
+  const [expandedDesktopThird, setExpandedDesktopThird] = useState<string | null>(null);   // 3º nível
+
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  /* refs para fechar ao clicar fora */
+  const menuRef = useRef<HTMLDivElement>(null);
+  const submenuRef = useRef<HTMLUListElement>(null);
 
+  /* -------- efeitos -------- */
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      // Close mobile menu
-      if (menuOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        console.log('Clicked outside mobile menu, closing...');
+    const outsideClick = (e: MouseEvent) => {
+      if (menuOpen && menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
         setExpandedMobile(null);
         setExpandedMobileNested(null);
       }
-
-      // Close desktop submenu
       if (
-        (expandedDesktop || expandedDesktopNested) &&
+        (expandedDesktop || expandedDesktopNested || expandedDesktopThird) &&
         submenuRef.current &&
-        !submenuRef.current.contains(event.target as Node)
+        !submenuRef.current.contains(e.target as Node)
       ) {
-        console.log('Clicked outside desktop submenu, closing...');
         setExpandedDesktop(null);
         setExpandedDesktopNested(null);
+        setExpandedDesktopThird(null);
       }
     };
 
-    const handleScroll = () => {
-      if (menuOpen || expandedDesktop || expandedDesktopNested) {
-        console.log('Scrolling detected, closing menus...');
+    const onScroll = () => {
+      if (menuOpen || expandedDesktop || expandedDesktopNested || expandedDesktopThird) {
         setMenuOpen(false);
         setExpandedMobile(null);
         setExpandedMobileNested(null);
         setExpandedDesktop(null);
         setExpandedDesktopNested(null);
+        setExpandedDesktopThird(null);
       }
       setIsScrolled(window.scrollY > 10);
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    window.addEventListener('scroll', handleScroll);
-
+    document.addEventListener('mousedown', outsideClick);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', outsideClick);
+      window.removeEventListener('scroll', onScroll);
     };
-  }, [menuOpen, expandedDesktop, expandedDesktopNested]);
+  }, [menuOpen, expandedDesktop, expandedDesktopNested, expandedDesktopThird]);
 
-  const renderSubmenu = (submenu: MenuItem[], nested?: boolean) => (
+  /* -------- helpers -------- (mobile: recursivo infinito) */
+  const renderSubmenu = (submenu: MenuItem[], nested = false) => (
     <ul className={`${nested ? 'pl-6 mt-2' : 'pl-4'} space-y-2`}>
       {submenu.map((sub) =>
         sub.submenu ? (
@@ -122,19 +145,19 @@ export default function Header() {
               onClick={() =>
                 setExpandedMobileNested((prev) => (prev === sub.label ? null : sub.label))
               }
-              className={`flex items-center justify-between w-full text-left text-sm text-black dark:text-white ${
+              className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
                 expandedMobileNested === sub.label ? 'text-[#ED6E00]' : ''
               }`}
             >
               {sub.label}
-              <ChevronDown size={16} className="lucide lucide-chevron-down" />
+              <ChevronDown size={16} />
             </button>
             {expandedMobileNested === sub.label && renderSubmenu(sub.submenu, true)}
           </li>
         ) : (
           <li key={sub.label}>
             <Link
-              href={sub.href || '#'}
+              href={sub.href ?? '#'}
               className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
               onClick={() => {
                 setMenuOpen(false);
@@ -142,6 +165,7 @@ export default function Header() {
                 setExpandedMobileNested(null);
                 setExpandedDesktop(null);
                 setExpandedDesktopNested(null);
+                setExpandedDesktopThird(null);
               }}
             >
               {sub.label}
@@ -152,92 +176,148 @@ export default function Header() {
     </ul>
   );
 
+  /* -------- render -------- */
   return (
     <header
-      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 z-40 w-full bg-primary dark:bg-black transition-all duration-300 ${
         isScrolled ? 'py-2 shadow-md' : 'py-4'
-      } bg-primary dark:bg-black`}
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 sm:px-8 h-[60px] sm:h-[70px]">
-        <Link href="/" className="flex-shrink-0">
-          {mounted && (
-            <Image
-              src={resolvedTheme === 'light' ? '/images/home/logo-black.webp' : '/images/home/logo.webp'}
-              alt="Plattano logo"
-              width={180}
-              height={50}
-              priority
-              style={{ width: 'auto', height: 'auto' }}
-            />
-          )}
+      <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:h-[70px] sm:px-8">
+        {/* ---------- logo ---------- */}
+        <Link href="/" aria-label="Home" className="flex-shrink-0">
+          <Image
+            src="/images/home/logo-black.webp"
+            alt="Plattano logo"
+            width={180}
+            height={50}
+            priority
+            className="dark:hidden"
+          />
+          <Image
+            src="/images/home/logo.webp"
+            alt="Plattano logo dark"
+            width={180}
+            height={50}
+            priority
+            className="hidden dark:block"
+          />
         </Link>
 
-        <nav className="hidden md:flex flex-1 justify-center">
+        {/* ---------- navegação desktop ---------- */}
+        <nav className="hidden flex-1 justify-center md:flex">
           <ul className="flex items-center space-x-6 lg:space-x-8">
             {menuItems.map((item) => (
               <li key={item.label} className="relative">
                 {item.submenu ? (
                   <>
+                    {/* ---------- botão 1º nível ---------- */}
                     <button
-                      type="button"
                       onClick={() =>
                         setExpandedDesktop((prev) => (prev === item.label ? null : item.label))
                       }
-                      className={`text-black dark:text-white font-medium text-sm sm:text-base dark:hover:text-[#ED6E00] hover:text-[#ED6E00] transition duration-150 whitespace-nowrap flex items-center gap-1 ${
+                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black transition-colors duration-150 hover:text-[#ED6E00] dark:text-white dark:hover:text-[#ED6E00] ${
                         expandedDesktop === item.label ? 'text-[#ED6E00]' : ''
                       }`}
                     >
                       {item.label}
-                      <ChevronDown size={14} className="lucide lucide-chevron-down" />
+                      <ChevronDown size={14} />
                     </button>
+
+                    {/* ---------- submenu 1º nível ---------- */}
                     {expandedDesktop === item.label && (
                       <ul
                         ref={submenuRef}
-                        className="absolute top-full left-0 mt-2 bg-white dark:bg-neutral-900 shadow-lg rounded-md py-2 px-4 z-50 min-w-[200px] space-y-2"
+                        className="absolute left-0 top-full z-50 mt-2 min-w-[200px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900"
                       >
                         {item.submenu.map((sub) =>
                           sub.submenu ? (
                             <li key={sub.label} className="relative">
+                              {/* ---------- botão 2º nível ---------- */}
                               <button
                                 onClick={() =>
                                   setExpandedDesktopNested((prev) =>
                                     prev === sub.label ? null : sub.label
                                   )
                                 }
-                                className={`flex items-center justify-between w-full text-sm text-left text-black dark:text-white ${
+                                className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
                                   expandedDesktopNested === sub.label ? 'text-[#ED6E00]' : ''
                                 }`}
                               >
                                 {sub.label}
-                                <ChevronDown size={14} className="lucide lucide-chevron-down" />
+                                <ChevronDown size={14} />
                               </button>
+
+                              {/* ---------- submenu 2º nível ---------- */}
                               {expandedDesktopNested === sub.label && (
-                                <ul className="absolute left-full top-0 ml-2 bg-white dark:bg-neutral-900 shadow-lg rounded-md py-2 px-4 z-50 min-w-[180px] space-y-2">
-                                  {sub.submenu.map((nested) => (
-                                    <li key={nested.label}>
-                                      <Link
-                                        href={nested.href || '#'}
-                                        className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
-                                        onClick={() => {
-                                          setExpandedDesktop(null);
-                                          setExpandedDesktopNested(null);
-                                        }}
-                                      >
-                                        {nested.label}
-                                      </Link>
-                                    </li>
-                                  ))}
+                                <ul className="absolute left-full top-0 z-50 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
+                                  {sub.submenu.map((nested) =>
+                                    nested.submenu ? (
+                                      <li key={nested.label} className="relative">
+                                        {/* ---------- botão 3º nível ---------- */}
+                                        <button
+                                          onClick={() =>
+                                            setExpandedDesktopThird((prev) =>
+                                              prev === nested.label ? null : nested.label
+                                            )
+                                          }
+                                          className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
+                                            expandedDesktopThird === nested.label ? 'text-[#ED6E00]' : ''
+                                          }`}
+                                        >
+                                          {nested.label}
+                                          <ChevronDown size={14} />
+                                        </button>
+
+                                        {/* ---------- submenu 3º nível ---------- */}
+                                        {expandedDesktopThird === nested.label && (
+                                          <ul className="absolute left-full top-0 z-50 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
+                                            {nested.submenu.map((third) => (
+                                              <li key={third.label}>
+                                                <Link
+                                                  href={third.href ?? '#'}
+                                                  className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
+                                                  onClick={() => {
+                                                    setExpandedDesktop(null);
+                                                    setExpandedDesktopNested(null);
+                                                    setExpandedDesktopThird(null);
+                                                  }}
+                                                >
+                                                  {third.label}
+                                                </Link>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        )}
+                                      </li>
+                                    ) : (
+                                      <li key={nested.label}>
+                                        <Link
+                                          href={nested.href ?? '#'}
+                                          className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
+                                          onClick={() => {
+                                            setExpandedDesktop(null);
+                                            setExpandedDesktopNested(null);
+                                            setExpandedDesktopThird(null);
+                                          }}
+                                        >
+                                          {nested.label}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
                                 </ul>
                               )}
                             </li>
                           ) : (
                             <li key={sub.label}>
                               <Link
-                                href={sub.href || '#'}
-                                className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
+                                href={sub.href ?? '#'}
+                                className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
                                 onClick={() => {
                                   setExpandedDesktop(null);
                                   setExpandedDesktopNested(null);
+                                  setExpandedDesktopThird(null);
                                 }}
                               >
                                 {sub.label}
@@ -250,8 +330,8 @@ export default function Header() {
                   </>
                 ) : (
                   <Link
-                    href={item.href || '#'}
-                    className="text-black dark:text-white font-medium text-sm sm:text-base dark:hover:text-[#ED6E00] hover:text-[#ED6E00] transition duration-150 whitespace-nowrap"
+                    href={item.href ?? '#'}
+                    className="whitespace-nowrap text-sm font-medium text-black transition-colors duration-150 hover:text-[#ED6E00] dark:text-white dark:hover:text-[#ED6E00]"
                   >
                     {item.label}
                   </Link>
@@ -261,29 +341,31 @@ export default function Header() {
           </ul>
         </nav>
 
+        {/* ---------- social + toggle ---------- */}
         <div className="ml-auto flex items-center space-x-1 sm:space-x-2 md:space-x-4">
-          <div className="hidden md:flex items-center space-x-1 sm:space-x-2">
+          <div className="hidden items-center space-x-1 sm:space-x-2 md:flex">
             <Link
               href="https://www.instagram.com/plattanotechnologies.us/"
               target="_blank"
               aria-label="Instagram"
             >
-              <FaInstagram className="h-5 w-5 dark:text-[#ED6E00] text-black hover:text-[#ED6E00] transition-opacity" />
+              <FaInstagram className="h-5 w-5 text-black transition-opacity hover:text-[#ED6E00] dark:text-[#ED6E00]" />
             </Link>
             <Link
               href="https://www.linkedin.com/company/plattano-technologies/"
               target="_blank"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="h-5 w-5 dark:text-[#ED6E00] text-black hover:text-[#ED6E00] transition-opacity" />
+              <FaLinkedin className="h-5 w-5 text-black transition-opacity hover:text-[#ED6E00] dark:text-[#ED6E00]" />
             </Link>
             <ThemeToggle />
           </div>
 
+          {/* ---------- hambúrguer ---------- */}
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 focus:outline-none focus:ring"
             aria-label="Toggle menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 focus:outline-none focus:ring md:hidden"
           >
             {menuOpen ? (
               <X className="h-6 w-6 text-black dark:text-[#ED6E00]" />
@@ -294,11 +376,11 @@ export default function Header() {
         </div>
       </div>
 
+      {/* ---------- overlay ---------- */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 z-40 bg-black/50"
           onClick={() => {
-            console.log('Overlay clicked, closing mobile menu...');
             setMenuOpen(false);
             setExpandedMobile(null);
             setExpandedMobileNested(null);
@@ -306,9 +388,10 @@ export default function Header() {
         />
       )}
 
+      {/* ---------- drawer mobile ---------- */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white dark:bg-black shadow-xl transform transition-transform duration-300 z-50 ${
+        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs transform bg-white shadow-xl transition-transform duration-300 dark:bg-black ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -322,19 +405,19 @@ export default function Header() {
                       onClick={() =>
                         setExpandedMobile((prev) => (prev === item.label ? null : item.label))
                       }
-                      className={`flex items-center justify-between w-full text-left text-base text-black dark:text-white ${
+                      className={`flex w-full items-center justify-between text-left text-base text-black dark:text-white ${
                         expandedMobile === item.label ? 'text-[#ED6E00]' : ''
                       }`}
                     >
                       {item.label}
-                      <ChevronDown size={16} className="lucide lucide-chevron-down" />
+                      <ChevronDown size={16} />
                     </button>
                     {expandedMobile === item.label && renderSubmenu(item.submenu)}
                   </>
                 ) : (
                   <Link
-                    href={item.href || '#'}
-                    className="block text-black dark:text-white text-base hover:text-[#ED6E00]"
+                    href={item.href ?? '#'}
+                    className="block text-base text-black hover:text-[#ED6E00] dark:text-white"
                     onClick={() => {
                       setMenuOpen(false);
                       setExpandedMobile(null);
@@ -349,29 +432,18 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="mt-auto p-6 flex items-center space-x-4">
-          {mounted && (
-            <>
-              <Link href="https://instagram.com/plattano.us" target="_blank" aria-label="Instagram">
-                <FaInstagram
-                  className={`h-6 w-6 ${
-                    resolvedTheme === 'light' ? 'text-black' : 'text-[#ED6E00]'
-                  } hover:text-[#ED6E00]`}
-                />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/plattano-technologies/"
-                target="_blank"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin
-                  className={`h-6 w-6 ${
-                    resolvedTheme === 'light' ? 'text-black' : 'text-[#ED6E00]'
-                  } hover:text-[#ED6E00]`}
-                />
-              </Link>
-            </>
-          )}
+        {/* ---------- footer drawer ---------- */}
+        <div className="mt-auto flex items-center space-x-4 p-6">
+          <Link href="https://instagram.com/plattano.us" target="_blank" aria-label="Instagram">
+            <FaInstagram className="h-6 w-6 text-black hover:text-[#ED6E00] dark:text-[#ED6E00]" />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/company/plattano-technologies/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="h-6 w-6 text-black hover:text-[#ED6E00] dark:text-[#ED6E00]" />
+          </Link>
           <ThemeToggle />
         </div>
       </div>
