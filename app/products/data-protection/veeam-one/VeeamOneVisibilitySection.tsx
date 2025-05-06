@@ -6,12 +6,11 @@ import { motion } from 'framer-motion';
 import {
   ServerCog,
   ShieldCheck,
-  BarChart2,
+  BarChart2, 
   Layers,
   TrendingUp,
   CreditCard,
   ActivitySquare,
-  Zap,
   AlertTriangle,
 } from 'lucide-react';
 
