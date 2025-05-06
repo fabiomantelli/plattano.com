@@ -1,3 +1,4 @@
+import Footer from "@/app/ui/layout/Footer";
 import VeeamOneBenefitsSection from "./VeeamOneBenefitsSection";
 import VeeamOneCapabilitiesSection from "./VeeamOneCapabilitiesSection";
 import VeeamOneCostCapacitySection from "./VeeamOneCostCapacitySection";
@@ -22,6 +23,7 @@ export default function VeeamOnePage() {
             <VeeamOneGovernanceAndComplianceSection />
             <VeeamOneExtraResourcesSection />
             <VeeamOneFaqSection />
+            <Footer />
         </>
     )
 }

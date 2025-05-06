@@ -1,3 +1,4 @@
+import Footer from "@/app/ui/layout/Footer";
 import HeroSection from "./HeroSection";
 import VeeamConfidenceSection from "./VeeamConfidenceSection";
 import VeeamLastLineSection from "./VeeamLastLineSection";
@@ -14,6 +15,7 @@ export default function VeeamRecoveryOrcherstratorPage() {
             <VeeamLastLineSection />
             <VeeamOrchestrationSection />
             <VeeamOrchestratorFaqSection />
+            <Footer />
         </>
     )
 }
