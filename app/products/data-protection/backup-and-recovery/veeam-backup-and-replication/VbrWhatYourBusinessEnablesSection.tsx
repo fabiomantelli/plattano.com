@@ -16,7 +16,7 @@ export default function WhatYourBusinessEnablesSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight"
         >
-          WHAT CAN YOUR BUSINESS <span className="text-primary">ENABLE?</span>
+          WHAT CAN YOUR BUSINESS <span className="text-primary">ENABLE?</span>
         </motion.h2>
 
         {/* ---------- content row ---------- */}

@@ -15,10 +15,10 @@ export default function VbrLicensingSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="flex-1 space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-center lg:text-start">
             UNIVERSAL LICENSING
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed">
+          <p className="text-base sm:text-lg leading-relaxed text-center lg:text-start">
             Veeam and Plattano offer flexible licensing packages to match your growing disaster-recovery,
             monitoring, and data-protection needs—whether you’re just starting out or running a large
             enterprise. Our Veeam Universal License (VUL) lets you freely protect workloads across

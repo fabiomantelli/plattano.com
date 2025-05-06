@@ -46,7 +46,7 @@ export default function VbrReviewsBadgesSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true, amount: 0.5 }}
-          className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4"
+          className="grid w-full grid-cols-2 gap-6 md:grid-cols-4"
         >
           {logos.map((src, idx) => (
             <div key={idx} className="flex justify-center">

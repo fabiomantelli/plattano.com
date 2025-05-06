@@ -53,9 +53,9 @@ export default function VbrSoftwareDefinedSection() {
           transition={{ duration: 0.6 }}
           className="text-center text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl"
         >
-          <span className="text-primary">SOFTWARE‑DEFINED.</span>
+          <span className="text-primary">SOFTWARE-DEFINED.</span>
           <br />
-          <span>INFRASTRUCTURE‑AGNOSTIC.</span>
+          <span>INFRASTRUCTURE-AGNOSTIC.</span>
         </motion.h2>
 
         {/* ---------- paragraph ---------- */}
