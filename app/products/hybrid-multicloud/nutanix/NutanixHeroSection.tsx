@@ -38,6 +38,7 @@ export default function NutanixHeroSection() {
             width={600}
             height={400}
             className="w-full h-auto"
+            priority
           />
         </div>
       </motion.div>

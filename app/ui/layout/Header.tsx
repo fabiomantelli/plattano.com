@@ -186,13 +186,14 @@ export default function Header() {
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:h-[70px] sm:px-8">
         {/* ---------- logo ---------- */}
         <Link href="/" aria-label="Home" className="flex-shrink-0">
+          {/*  ⬇️  mesmas classes que o cliente adiciona  */}
           <Image
             src="/images/home/logo-black.webp"
             alt="Plattano logo"
             width={180}
             height={50}
             priority
-            className="dark:hidden"
+            className="h-auto w-auto dark:hidden"
           />
           <Image
             src="/images/home/logo.webp"
@@ -200,7 +201,7 @@ export default function Header() {
             width={180}
             height={50}
             priority
-            className="hidden dark:block"
+            className="hidden h-auto w-auto dark:block"
           />
         </Link>
 

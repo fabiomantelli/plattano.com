@@ -37,13 +37,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    // suppressHydrationWarning é útil se algum plugin de navegador injeta attrs extras
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientRoot>
-          {/* main content with padding for fixed header */}
+          {/* espaço para o header fixo */}
           <main className="pt-[100px]">{children}</main>
         </ClientRoot>
       </body>
     </html>
-  )
+  );
 }
