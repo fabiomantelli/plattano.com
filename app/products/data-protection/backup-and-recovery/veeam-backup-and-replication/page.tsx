@@ -13,7 +13,7 @@ import VbrHeroSection from "./VbrHeroSection";
 import VbrHybridCloudSection from "./VbrHybridCloudSection";
 import VbrInstantRecoverySection from "./VbrInstantRecoverySection";
 import VbrModularAndCloudNativeSection from "./VbrModularAndCloudNativeSection";
-import VbrOutageStatsSection from "./VbrOuutageStatsSection";
+import VbrOutageStatsSection from "./VbrOutageStatsSection";
 import VbrRansomwareProtectionSection from "./VbrRansomwareProtectionSection";
 import VbrRecoveryObjectivesSection from "./VbrRecoveryObjectsSection";
 import VbrReviewsBadgesSection from "./VbrReviewsBadgesSection";
