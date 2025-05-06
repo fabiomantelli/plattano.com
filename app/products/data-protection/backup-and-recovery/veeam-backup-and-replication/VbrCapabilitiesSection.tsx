@@ -81,7 +81,7 @@ export default function VbrCapabilitiesSection() {
             justify-items-center
           "
         >
-          {cards.map(({ title, blurb }, idx) => (
+          {cards.map(({ title, blurb }) => (
             <div
               key={title}
               className="

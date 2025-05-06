@@ -1,7 +1,6 @@
 // app/(veeam)/veeam-backup-and-replication/ui/CorePillarSection.tsx
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Cloud,

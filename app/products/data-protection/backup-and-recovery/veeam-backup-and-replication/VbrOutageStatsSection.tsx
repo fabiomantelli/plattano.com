@@ -1,4 +1,3 @@
-// app/(veeam)/veeam-backup-and-replication/ui/OutageStatsSection.tsx
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
