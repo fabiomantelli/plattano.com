@@ -38,14 +38,21 @@ function useCountUp(target: number, duration = 1800) {
 export default function VbrOutageStatsSection() {
   const stats = [
     { value: 53, label: 'cybersecurity event' },
-    { value: 52, label: 'infrastructure / network' },
+    { value: 52, label: 'infrastructure / network' },
     { value: 49, label: 'accidental deletion' },
     { value: 53, label: 'applications' }
   ]
-  const hooks = stats.map(s => useCountUp(s.value))
+
+  // Unconditionally call hooks in the same order on every render
+  const count0 = useCountUp(stats[0].value)
+  const count1 = useCountUp(stats[1].value)
+  const count2 = useCountUp(stats[2].value)
+  const count3 = useCountUp(stats[3].value)
+
+  const hooks = [count0, count1, count2, count3]
 
   return (
-    <section className="w-full py-20 text-neutral-800 bg-primary">
+    <section className="w-full py-20 bg-gray-50 text-neutral-900 dark:bg-black dark:text-white">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 sm:px-12 lg:px-24">
         {/* headline */}
         <motion.h2
@@ -55,12 +62,12 @@ export default function VbrOutageStatsSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="text-center sm:text-left max-w-2xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug"
         >
-          SERVICE <span className="text-neutral-300">OUTAGES</span> ARE MORE COMMON THAN YOU THINK
+          SERVICE <span className="text-primary">OUTAGES</span> ARE MORE COMMON THAN YOU THINK
         </motion.h2>
 
         {/* intro text */}
         <p className="text-center sm:text-left max-w-xl text-base sm:text-lg">
-          What are the most common causes of business‑impacting downtime?
+          What are the most common causes of business-impacting downtime?
         </p>
 
         {/* animated stats */}
@@ -80,7 +87,7 @@ export default function VbrOutageStatsSection() {
 
         {/* citation */}
         <p className="text-center sm:text-left pt-6 text-sm">
-          Source:&nbsp;<em>2023 Data Protection Trends</em>.
+          Source:&nbsp;<em>2023 Data Protection Trends</em>.
         </p>
       </div>
     </section>
