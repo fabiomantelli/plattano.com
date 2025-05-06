@@ -25,11 +25,11 @@ const menuItems: MenuItem[] = [
           {
             label: 'Backup and Recovery',
             submenu: [
-              { label: 'Veeam Backup & Replication', href: '/products/data-protection/veeam-backup-and-replication' },
-              { label: 'Veeam for Microsoft 365', href: '/products/data-protection/veeam-for-microsoft-365' },
-              { label: 'Veeam for Microsoft Azure', href: '/products/data-protection/veeam-for-microsoft-azure' },
-              { label: 'Veeam for Google Cloud', href: '/products/data-protection/veeam-for-google-cloud' },
-              { label: 'Veeam for AWS', href: '/products/data-protection/veeam-for-aws' },
+              { label: 'Veeam Backup & Replication', href: '/products/data-protection/backup-and-recovery/veeam-backup-and-replication' },
+              { label: 'Veeam for Microsoft 365', href: '/products/data-protection/backup-and-recovery/veeam-for-microsoft-365' },
+              { label: 'Veeam for Microsoft Azure', href: '/products/data-protection/backup-and-recovery/veeam-for-microsoft-azure' },
+              { label: 'Veeam for Google Cloud', href: '/products/data-protection/backup-and-recovery/veeam-for-google-cloud' },
+              { label: 'Veeam for AWS', href: '/products/data-protection/backup-and-recovery/veeam-for-aws' },
             ],
           },
           { label: 'Veeam Data Platform', href: '/products/data-protection/veeam-data-platform' },
