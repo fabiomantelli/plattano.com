@@ -6,14 +6,6 @@ import Image from 'next/image'
 export default function VbrControlYourDataSection() {
   return (
     <section className="relative w-full isolate">
-      {/* optional backdrop (replace or remove as you like) */}
-      <Image
-        src="/images/shared/chart‑blur‑bg.png" /* ← drop in your final asset */
-        alt=""
-        fill
-        priority
-        className="pointer-events-none -z-10 object-cover opacity-40 dark:opacity-50"
-      />
       {/* dark overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-white/80 dark:bg-black/70" />
 

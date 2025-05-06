@@ -79,7 +79,7 @@ export default function VbrSoftwareDefinedSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center font-semibold text-primary"
         >
-          The broadest ecosystem of storage, cloud&nbsp;and security partners
+          The broadest ecosystem of storage, cloud and security partners
         </motion.p>
 
         {/* ---------- stats row ---------- */}
@@ -125,7 +125,7 @@ export default function VbrSoftwareDefinedSection() {
               {v32}
             </span>
             <p className="text-sm font-medium sm:text-base">
-              Object‑storage products&nbsp;
+              Object‑storage products 
               <span className="whitespace-nowrap">(19 immutable)</span>
             </p>
           </div>

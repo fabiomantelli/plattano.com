@@ -26,10 +26,10 @@ export default function VbrDifferentiatorsHeadingSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="mt-4 text-center text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
         >
-          WHAT&nbsp;MAKES&nbsp;<span className="text-primary">VEEAM</span>&nbsp;DIFFERENT?
+          WHAT MAKES <span className="text-primary">VEEAM </span>DIFFERENT?
         </motion.h2>
-
-        {/* ---------- horizontal rule with leaf / star ---------- */}
+ 
+        {/* ---------- orizontal rule with leaf / star ---------- */}
         <div className="relative mt-10 w-full">
           <hr className="border-t border-current opacity-80" />
         </div>

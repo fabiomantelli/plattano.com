@@ -15,8 +15,8 @@ export default function VbrModularAndCloudNativeSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="text-center text-2xl font-extrabold leading-tight sm:text-3xl md:text-4xl"
         >
-          MODULAR&nbsp;AND&nbsp;CLOUD‑NATIVE.&nbsp;
-          <span className="text-primary">CLOUD&nbsp;MOBILITY.</span>
+          MODULAR AND CLOUD‑NATIVE. 
+          <span className="text-primary"> CLOUD MOBILITY.</span>
         </motion.h2>
 
         {/* ---------- subtitle ---------- */}
