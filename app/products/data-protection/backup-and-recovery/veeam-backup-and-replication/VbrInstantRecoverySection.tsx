@@ -38,7 +38,7 @@ export default function VbrInstantRecoverySection() {
             alt="Veeam differentiators chart"
             width={900}
             height={500}
-            priority
+            loading="lazy"
             className="w-full max-w-4xl rounded-xl object-contain"
           />
         </div>
