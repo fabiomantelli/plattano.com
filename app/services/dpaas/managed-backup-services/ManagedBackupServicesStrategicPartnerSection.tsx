@@ -10,7 +10,11 @@ export default function ManagedBackupServicesStrategicPartnersSection() {
     Software: ['Microsoft', 'Oracle']
   }
 
-  const [active, setActive] = useState<keyof typeof tabs | null>(null)
+  // explicit union of the keys
+  type TabKey = keyof typeof tabs
+  const tabKeys = Object.keys(tabs) as TabKey[]
+
+  const [active, setActive] = useState<TabKey | null>(null)
 
   return (
     <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
@@ -29,10 +33,10 @@ export default function ManagedBackupServicesStrategicPartnersSection() {
 
         {/* Tab Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          {Object.keys(tabs).map((tab) => (
+          {tabKeys.map((tab) => (
             <button
               key={tab}
-              onClick={() => setActive((prev) => (prev === tab ? null : (tab as any)))}
+              onClick={() => setActive((prev) => (prev === tab ? null : tab))}
               className={`
                 w-full sm:w-auto px-8 py-4 font-semibold rounded-lg border border-primary cursor-pointer
                 ${active === tab
