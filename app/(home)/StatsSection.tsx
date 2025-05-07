@@ -1,17 +1,16 @@
-'use client';
+'use client'
 
-import { useRef, useEffect, useState } from 'react';
-import { useInView } from 'framer-motion';
-import CountUp from 'react-countup';
-import { useTheme } from 'next-themes';
+import { useRef, useEffect, useState } from 'react'
+import { useInView } from 'framer-motion'
+import CountUp from 'react-countup'
 
 type Stat = {
-  label: string;
-  value: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
-};
+  label: string
+  value: number
+  prefix?: string
+  suffix?: string
+  decimals?: number
+}
 
 const stats: Stat[] = [
   { label: 'Years in the market', value: 8, prefix: '+' },
@@ -21,48 +20,43 @@ const stats: Stat[] = [
   { label: 'Certifications', value: 50, prefix: '+' },
   { label: 'Data lost or encrypted', value: 0 },
   { label: 'Attacks on managed clients', value: 0 },
-];
+]
 
 export default function StatsSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const isDark = mounted && resolvedTheme === 'dark';
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.5 })
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
     <section
       ref={ref}
-      className={`
+      className="
         relative isolate overflow-hidden py-24
-        before:absolute before:inset-0 before:-z-10
-        ${mounted && isDark
-          ? 'before:bg-[linear-gradient(120deg,#953B01_0%,#000000_40%)]'
-          : 'before:bg-[linear-gradient(120deg,#ffffff_0%,#ED6E00_50%)]'}
-        before:opacity-60
-      `}
+        bg-gradient-to-br from-white via-orange-500 to-orange-500
+        dark:bg-gradient-to-br dark:from-[#953B01] dark:via-black dark:to-black
+      "
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col items-center gap-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col items-center gap-16">
+        {/* Heading */}
         <div className="text-center space-y-4">
-          <h2 className={`text-[42px] font-semibold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+          <h2 className="text-[42px] font-semibold text-neutral-900 dark:text-white">
             WHAT HAVE WE ACHIEVED?
           </h2>
-          <p className={`text-[22px] ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+          <p className="text-[22px] text-neutral-900 dark:text-white">
             In <span className="text-primary font-semibold">+8 YEARS</span> WE HAVE SERVED{' '}
             <span className="text-primary font-semibold">+1,000 CLIENTS</span> NATIONWIDE –{' '}
             <span className="text-primary font-semibold">ACROSS EVERY SEGMENT.</span>
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-2 lg:grid-cols-7 text-center divide-y-2 divide-primary lg:divide-y-0 lg:divide-x-2">
+        {/* Stats grid */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-7 text-center divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-primary">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center p-6">
-              <span className={`text-4xl md:text-3xl font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                {stat.prefix ?? ''}
-                {mounted && isInView ? (
+              <span className="text-4xl md:text-3xl font-bold text-neutral-900 dark:text-white">
+                {stat.prefix}
+                {mounted && inView ? (
                   <CountUp
                     start={0}
                     end={stat.value}
@@ -73,9 +67,9 @@ export default function StatsSection() {
                 ) : (
                   0
                 )}
-                {stat.suffix ?? ''}
+                {stat.suffix}
               </span>
-              <span className={`mt-2 text-base md:text-lg ${isDark ? 'text-neutral-300' : 'text-neutral-800'}`}>
+              <span className="mt-2 text-base md:text-lg text-neutral-800 dark:text-neutral-300">
                 {stat.label}
               </span>
             </div>
@@ -83,5 +77,5 @@ export default function StatsSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

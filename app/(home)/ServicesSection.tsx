@@ -1,22 +1,14 @@
+// app/components/ServicesSection.tsx
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
 export default function ServicesSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
   return (
-    <section className={`w-full ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'}`}>
-      <div className="mx-auto max-w-7xl px-12 lg:px-24 py-12">
+    <section className="w-full bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white py-12">
+      <div className="mx-auto max-w-7xl px-6 lg:px-24">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,18 +16,20 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">SERVICES</h2>
+          <h2 className="text-center font-semibold text-4xl md:text-5xl mb-12">
+            SERVICES
+          </h2>
         </motion.div>
 
         {/* Content row */}
         <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-32">
-          {/* Imagem (desktop/tablet) */}
+          {/* Desktop image */}
           <motion.div
+            className="hidden md:block w-full md:w-1/2"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.6 }}
-            className="hidden md:block w-full md:w-1/2"
           >
             <Image
               src="/images/home/services-image.png"
@@ -46,8 +40,14 @@ export default function ServicesSection() {
             />
           </motion.div>
 
-          {/* Imagem (mobile) */}
-          <motion.div className="block md:hidden w-full mb-4">
+          {/* Mobile image under text */}
+          <motion.div
+            className="block md:hidden w-full mb-4 order-last"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.6 }}
+          >
             <Image
               src="/images/home/services-image.png"
               alt="Managed services illustration"
@@ -59,11 +59,11 @@ export default function ServicesSection() {
 
           {/* Text */}
           <motion.div
+            className="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left items-center md:items-start"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.6 }}
-            className="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left items-center md:items-start"
           >
             <p className="text-[36px] md:text-[48px] leading-tight font-semibold text-primary">
               FOCUS ON YOUR BUSINESS!
@@ -73,7 +73,7 @@ export default function ServicesSection() {
             </p>
             <Link
               href="#"
-              className="inline-block px-8 py-3 rounded-md font-semibold shadow-lg transition-colors duration-200 bg-primary text-white hover:bg-transparent hover:text-primary border border-primary"
+              className="inline-block px-8 py-3 rounded-md font-semibold shadow-lg transition-colors duration-200 bg-primary text-white hover:bg-transparent hover:text-primary border border-primary cursor-pointer"
             >
               EXPLORE OUR SERVICES
             </Link>

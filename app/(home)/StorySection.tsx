@@ -1,20 +1,11 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function StorySection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
   return (
-    <section className={`w-full py-12 ${isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-800'}`}>
+    <section className="w-full py-12 bg-white text-neutral-800 dark:bg-neutral-900 dark:text-white">
       <div className="mx-auto max-w-7xl py-8 px-6 sm:px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12">
         {/* Text block */}
         <motion.div
@@ -86,5 +77,5 @@ export default function StorySection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

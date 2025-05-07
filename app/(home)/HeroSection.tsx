@@ -1,48 +1,33 @@
-'use client';
+// app/components/HeroSection.tsx
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
+import { motion } from 'framer-motion'
 
 export default function HeroSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
   return (
-    <section
-      className={`
-        relative w-full h-[65vh] flex items-center justify-center overflow-hidden
-        ${isDark ? 'bg-black' : 'bg-white'}
-      `}
-    >
-      {/* Background image + dark gradient overlay */}
+    <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white text-neutral-800 dark:bg-black dark:text-white">
+      {/* Background image */}
       <div
-        className="absolute top-0 left-1/2 w-screen h-full transform -translate-x-1/2 bg-center bg-cover"
-        style={{
-          backgroundImage: isDark
-            ? `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('/images/home/high-tech-background-dark.png')`
-            : `url('/images/home/high-tech-background-light.png')`,
-          filter: isDark ? 'brightness(0.9)' : 'brightness(0.96)',
-        }}
+        className={`
+          absolute inset-0 bg-center bg-cover
+          bg-[url('/images/home/high-tech-background-light.png')]
+          dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.png')]
+          filter brightness-[0.96] dark:filter dark:brightness-90
+        `}
       />
 
-      {/* Glow Overlay */}
+      {/* Glow overlay */}
       <div
-        className="absolute inset-0"
-        style={{
-          background: isDark
-            ? 'radial-gradient(circle at center, rgba(0,0,0,0.55) 0%, transparent 60%)'
-            : 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 150%)',
-          mixBlendMode: isDark ? 'screen' : 'lighten',
-        }}
+        className={`
+          absolute inset-0
+          bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_150%)]
+          dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.55)_0%,transparent_60%)]
+          mix-blend-lighten dark:mix-blend-screen
+        `}
       />
 
-      {/* Grid watermark */}
-      <div
+       {/* Grid watermark */}
+       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
@@ -51,20 +36,25 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl text-center px-8">
+      <motion.div
+        className="relative z-10 mx-auto max-w-4xl text-center px-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h1
           className={`
-            font-sofia text-2xl md:text-4xl lg:text-6xl font-extrabold
-            ${isDark ? 'text-white' : 'text-neutral-800'}
+            font-sofia font-extrabold leading-tight
+            text-2xl sm:text-4xl lg:text-6xl
             drop-shadow-[0_0_8px_rgba(237,110,0,0.8)]
-            leading-tight
           `}
         >
-          CONNECTING <span className="text-primary">INNOVATION</span>,<br />
-          EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br />
+          CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
+          EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br/>
           YOUR WORLD, OUR <span className="text-primary">TECHNOLOGY</span>.
         </h1>
-      </div>
+      </motion.div>
     </section>
-  );
+  )
 }

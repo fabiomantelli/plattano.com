@@ -13,8 +13,12 @@ import {
   MegaphoneOff,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+
+const avoidItems = [
+  { icon: Target, label: 'Financial damage' },
+  { icon: MegaphoneOff, label: 'Negative brand exposure' },
+  { icon: Database, label: 'Data leaks and loss, and more…' },
+];
 
 const strengths = [
   { icon: Target, lead: 'FOCUS', rest: 'ON YOUR BUSINESS' },
@@ -29,20 +33,8 @@ const strengths = [
 ];
 
 export default function ProPowerSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
-
   return (
-    <section
-      className={`w-full py-24 ${
-        isDark ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'
-      }`}
-    >
+    <section className="w-full py-24 bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,18 +52,12 @@ export default function ProPowerSection() {
 
         {/* Avoid list */}
         <div className="space-y-4 text-xl">
-          <div className="flex items-center justify-center gap-3">
-            <Target className="w-8 h-8 text-primary" />
-            Financial damage
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <MegaphoneOff className="w-8 h-8 text-primary" />
-            Negative brand exposure
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <Database className="w-8 h-8 text-primary" />
-            Data leaks and loss, and more…
-          </div>
+          {avoidItems.map(({ icon: Icon, label }) => (
+            <div key={label} className="flex items-center justify-center gap-3">
+              <Icon className="w-8 h-8 text-primary" />
+              {label}
+            </div>
+          ))}
         </div>
 
         {/* Strengths heading */}
@@ -84,14 +70,10 @@ export default function ProPowerSection() {
           {strengths.map(({ icon: Icon, lead, rest }) => (
             <div
               key={lead}
-              className={`
+              className="
                 flex items-center gap-4 p-6 rounded-xl shadow-lg transition
-                ${
-                  isDark
-                    ? 'bg-white/10 border border-white/20'
-                    : 'bg-neutral-100 border border-neutral-300'
-                }
-              `}
+                bg-neutral-100 border border-neutral-300 dark:bg-white/10 dark:border-white/20
+              "
             >
               <Icon className="w-8 h-8 text-primary flex-shrink-0" />
               <span className="text-[24px] leading-snug uppercase">
