@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export default function VeeamAzureBackupReplicationSection() {
+export default function VeeamGcpBackupReplicationSection() {
   return (
-    <section className="w-full py-20 bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-4xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8 text-center">
         {/* Title */}
         <motion.h2
@@ -26,8 +26,8 @@ export default function VeeamAzureBackupReplicationSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="text-base sm:text-lg max-w-xl mx-auto opacity-90"
         >
-          Manage your Azure backups centrally alongside your physical, virtual,
-          cloud, SaaS and Kubernetes workloads.
+          Manage GCP backups centrally alongside other physical, virtual, cloud,&nbsp;
+          SaaS, and Kubernetes environments.
         </motion.p>
 
         {/* Call-to-Action */}
