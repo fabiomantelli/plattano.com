@@ -22,16 +22,16 @@ export default function PlattanoHCSEraSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="border border-primary rounded-xl p-8 text-center"
+          className="border border-primary rounded-xl p-8"
         >
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-6">
             Welcome Back to the Future<br />and to the End of the Eras of
           </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 justify-items-center">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             {items.map((text, idx) => (
               <li
                 key={idx}
-                className="flex items-center justify-center text-center gap-3"
+                className="flex items-center gap-3"
               >
                 <span className="mt-1 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
                 <span>{text}</span>

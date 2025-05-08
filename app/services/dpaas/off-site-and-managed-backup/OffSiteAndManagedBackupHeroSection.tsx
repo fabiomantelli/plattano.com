@@ -51,7 +51,8 @@ export default function OffSiteAndManagedBackupHeroSection() {
             <Image
               src="/images/services/dpaas/off-site-and-managed-backup/off-site-and-managed-backup-hero.png"
               alt="Off-Site Backup Illustration"
-              fill
+              width={800}
+              height={500}
               className="w-full h-auto object-cover"
               priority
             />

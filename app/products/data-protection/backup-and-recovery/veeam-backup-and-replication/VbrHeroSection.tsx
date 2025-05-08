@@ -20,7 +20,7 @@ export default function VbrHeroSection() {
         className="absolute inset-0 -z-10
                    bg-white/70 backdrop-brightness-90   /* light‑mode: soft white veil */
                    dark:bg-gradient-to-b               /* dark‑mode: deep gradient */
-                   dark:from-black/80 dark:via-black/85 dark:to-black/95"
+                   dark:from-black/85 dark:via-black/90 dark:to-black/95"
       />
 
       {/* ---- content ---- */}

@@ -11,7 +11,7 @@ export default function VeeamOneHeroSection() {
         className="pointer-events-none absolute inset-0
                   bg-[url('/images/products/data-protection/veeam-one/veeam-one-hero-bg.png')]
                   bg-center bg-no-repeat bg-cover
-                  opacity-10 dark:opacity-20"
+                  opacity-20 dark:opacity-15"
       />
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-24 lg:grid-cols-2 lg:gap-16">

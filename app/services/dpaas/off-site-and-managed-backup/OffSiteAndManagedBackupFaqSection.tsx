@@ -6,14 +6,14 @@ import { Plus, Minus } from 'lucide-react'
 
 const faqItems = [
   {
-    question: 'What are the benefits of choosing a service provider for my off‑site backup?',
+    question: 'What are the benefits of choosing a service provider for my off-site backup?',
     answer: `When you partner with a service provider you get more than just a copy of your data. Providers typically offer management services, documentation and maintenance, with custom SLAs.  
-By using a service‑provider cloud as your backup repository you also gain control over the geographic location of your data—unlike hyperscale public clouds—often a key compliance requirement.`,
+By using a service-provider cloud as your backup repository you also gain control over the geographic location of your data—unlike hyperscale public clouds—often a key compliance requirement.`,
   },
   {
-    question: 'What is the difference between off‑site backup and managed BaaS?',
-    answer: `Off‑site backup means sending a copy of your backups to a secondary location—such as a service provider’s data center or a public cloud.  
-Managed BaaS (Backup as a Service) is when the provider not only stores your backups off‑site but also manages your entire backup environment—scheduling, testing, verification and restore operations—on your behalf.`,
+    question: 'What is the difference between off-site backup and managed BaaS?',
+    answer: `Off-site backup means sending a copy of your backups to a secondary location—such as a service provider's data center or a public cloud.  
+Managed BaaS (Backup as a Service) is when the provider not only stores your backups off-site but also manages your entire backup environment—scheduling, testing, verification and restore operations—on your behalf.`,
   },
 ]
 

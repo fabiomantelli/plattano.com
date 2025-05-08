@@ -1,48 +1,33 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import CountUp from 'react-countup'
 
 export default function PlattanoHCSRansomwareStatsSection() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
-  const [ransomValue, setRansomValue] = useState(0)
-  const [percentValue, setPercentValue] = useState(0)
-  const [daysValue, setDaysValue] = useState(0)
-
-  useEffect(() => {
-    if (!inView) return
-    const duration = 1500
-    const frameRate = 30
-    const totalFrames = Math.round((duration / 1000) * frameRate)
-
-    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
-
-    let frame = 0
-    const animate = () => {
-      frame++
-      const progress = easeOut(frame / totalFrames)
-      setRansomValue(Math.round(350_000 * progress))
-      setPercentValue(Math.round(30 * progress))
-      setDaysValue(Math.round(21 * progress))
-      if (frame < totalFrames) {
-        requestAnimationFrame(animate)
-      }
-    }
-    requestAnimationFrame(animate)
-  }, [inView])
-
-  const formatCurrency = (val: number) =>
-    `$${(val / 1000).toFixed(0)}K+`
-  const formatPercent = (val: number) => `${val}%`
-  const formatDays = (val: number) => `${val} days`
+  const stats = [
+    {
+      end: 350000,
+      display: (n: number) => `$${(n/1000).toFixed(0)}K+`,
+      label: 'average ransom demanded for potential data decryption.',
+    },
+    {
+      end: 30,
+      display: (n: number) => `${n}%`,
+      label: 'of global attacks occur in Brazil, second only to the U.S.',
+    },
+    {
+      end: 21,
+      display: (n: number) => `${n} days`,
+      label: 'on average to restore services back to production.',
+    },
+  ]
 
   return (
-    <section
-      ref={ref}
-      className="w-full bg-white text-black dark:bg-black dark:text-white py-20"
-    >
+    <section ref={ref} className="w-full bg-white text-black dark:bg-black dark:text-white py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -51,33 +36,30 @@ export default function PlattanoHCSRansomwareStatsSection() {
         className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center space-y-12"
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {/* Ransom Amount */}
-          <div>
-            <div className="text-5xl sm:text-6xl font-extrabold text-primary">
-              {formatCurrency(ransomValue)}
-            </div>
-            <p className="mt-2 text-base opacity-80">
-              average ransom demanded for potential data decryption.
-            </p>
-          </div>
-          {/* Percentage */}
-          <div>
-            <div className="text-5xl sm:text-6xl font-extrabold text-primary">
-              {formatPercent(percentValue)}
-            </div>
-            <p className="mt-2 text-base opacity-80">
-              of global attacks occur in Brazil, second only to the U.S.
-            </p>
-          </div>
-          {/* Recovery Days */}
-          <div>
-            <div className="text-5xl sm:text-6xl font-extrabold text-primary">
-              {formatDays(daysValue)}
-            </div>
-            <p className="mt-2 text-base opacity-80">
-              on average to restore services back to production.
-            </p>
-          </div>
+          {stats.map(({ end, display, label }, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={inView ? { scale: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="space-y-4"
+            >
+              <div className="text-5xl sm:text-6xl font-extrabold text-primary">
+                {inView ? (
+                  <CountUp
+                    end={end}
+                    duration={1.5}
+                    formattingFn={display}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                ) : (
+                  display(0)
+                )}
+              </div>
+              <p className="mt-2 text-base opacity-80">{label}</p>
+            </motion.div>
+          ))}
         </div>
 
         <p className="text-sm opacity-70">

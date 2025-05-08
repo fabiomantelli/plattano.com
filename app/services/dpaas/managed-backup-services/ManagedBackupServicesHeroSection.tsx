@@ -38,7 +38,7 @@ export default function ManagedBackupServicesHeroSection() {
             alt="Managed Backup and DR as-a-Service overview"
             width={800}
             height={500}
-            className="w-full h-auto object-contain rounded-lg shadow-lg"
+            className="w-full h-auto object-contain"
             priority
           />
         </motion.div>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function VbrTrustedBySection() {
   return (
-    <section className="relative w-full py-24 bg-white text-black dark:bg-black dark:text-white">
+    <section className="relative w-full py-24 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-12 px-6 sm:px-12 lg:flex-row lg:gap-20 lg:px-24">
 
         {/* ---------- text column ---------- */}
