@@ -1,4 +1,3 @@
-// app/(veeam)/veeam-recovery-orchestrator/ui/OrchestrationGrid.tsx
 'use client';
 
 import {
@@ -29,13 +28,13 @@ const FEATURES = [
   },
   {
     icon: ServerCog,
-    title: 'Agent‑Based Recovery',
+    title: 'Agent-Based Recovery',
     desc: 'Rapidly restore Agent backups as VMs in Azure or vSphere.',
   },
   {
     icon: ClipboardCheck,
-    title: 'Wizard‑Driven Planning',
-    desc: 'Create granular DR plans that auto‑update & verify apps and sites.',
+    title: 'Wizard-Driven Planning',
+    desc: 'Create granular DR plans that auto-update & verify apps and sites.',
   },
   {
     icon: KeySquare,
@@ -44,17 +43,17 @@ const FEATURES = [
   },
   {
     icon: ActivitySquare,
-    title: 'Role‑Based Secure Access',
+    title: 'Role-Based Secure Access',
     desc: 'Delegate secure, scoped access to app owners and ops teams.',
   },
   {
     icon: ChevronsUpDown,
     title: 'Automated Testing',
-    desc: 'Run DR tests on demand or schedule‑free to make sure your RTO/RPOs are met.',
+    desc: 'Run DR tests on demand or schedule-free to make sure your RTO/RPOs are met.',
   },
   {
     icon: FlaskConical,
-    title: 'Instant‑On Lab',
+    title: 'Instant-On Lab',
     desc: 'Spin up DR sandboxes for patch testing and more—no production impact.',
   },
   {
@@ -69,7 +68,7 @@ const FEATURES = [
   },
   {
     icon: Database,
-    title: 'One‑Click Recovery',
+    title: 'One-Click Recovery',
     desc: 'Restore a single app or an entire site from anywhere via a web interface.',
   },
   {
@@ -86,8 +85,8 @@ export default function VeeamOrchestrationSection() {
       <div className="relative mx-auto max-w-7xl px-6 py-24">
         {/* headline */}
         <h2 className="mb-16 text-center font-extrabold leading-tight text-black dark:text-white text-[38px]">
-          SIMPLIFIED&nbsp;
-          <span className="text-primary">RECOVERY&nbsp;ORCHESTRATION</span>
+          SIMPLIFIED
+          <span className="text-primary"> RECOVERY ORCHESTRATION</span>
         </h2>
 
         {/* feature grid */}

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-/* ---------- count‑up hook ---------- */
+/* ---------- count-up hook ---------- */
 function useCountUp(target: number, duration = 1800) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -54,12 +54,12 @@ export default function VeeamLastLineSection() {
           </h2>
 
           <p className="mt-6 max-w-md mx-auto md:mx-0 text-lg text-neutral-900 dark:text-neutral-500">
-            Ransomware is brutal. In our&nbsp;2023 survey, cyber‑threats outranked every other
+            Ransomware is brutal. In our&nbsp;2023 survey, cyber-threats outranked every other
             obstacle to digital and IT transformation.
           </p>
 
           <p className="mt-6 text-sm text-gray-500 dark:text-gray-700">
-            Source:&nbsp;<em>2023 Data Protection Trends</em>.
+            Source:&nbsp;<em>2023 Data Protection Trends</em>.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function VeeamLastLineSection() {
               {v85}%
             </span>
             <p className="mt-3 max-w-xs text-primary">
-              of organizations were hit by ransomware in 2023
+              of organizations were hit by ransomware in 2023
             </p>
           </div>
 

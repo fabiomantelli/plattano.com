@@ -77,7 +77,7 @@ export default function VeeamOneFaqSection() {
     <section className="w-full bg-white py-20 text-black dark:bg-black dark:text-white">
       <div className="mx-auto max-w-4xl space-y-12 px-6">
         <h2 className="text-center text-[44px] font-bold text-primary">
-          Frequently&nbsp;Asked&nbsp;Questions
+          Frequently Asked Questions
         </h2>
 
         <div className="space-y-6">
