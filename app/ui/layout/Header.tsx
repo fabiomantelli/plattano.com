@@ -68,7 +68,7 @@ const menuItems: MenuItem[] = [
         submenu: [
           { label: 'Managed Backup Services', href: '/services/dpaas/managed-backup-services' },
           { label: 'BaaS for Public Cloud', href: '/services/dpaas/baas-for-public-cloud' },
-          { label: 'Off‑Site and Managed Backup', href: '/services/dpaas/off-site-and-manage-backup' },
+          { label: 'Off-Site and Managed Backup', href: '/services/dpaas/off-site-and-managed-backup' },
         ],
       },
       { label: 'Plattano Services', href: '/services/plattano-services' },
