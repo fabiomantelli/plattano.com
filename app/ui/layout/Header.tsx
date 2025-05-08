@@ -184,7 +184,7 @@ export default function Header() {
   );
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-2 shadow-md' : 'py-4'} bg-primary dark:bg-black`}>
+    <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-4 shadow-md' : 'py-6'} bg-primary dark:bg-black`}>
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:px-12">
         {/* logo */}
         <Link href="/" className="flex-shrink-0">
