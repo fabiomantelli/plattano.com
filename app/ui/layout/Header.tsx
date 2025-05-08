@@ -170,7 +170,7 @@ export default function Header() {
             ) : (
               <Link
                 href={item.href!}
-                className="block text-base text-black dark:text-white hover:text-primary"
+                className="block text-base text-black dark:text-white hover:text-neutral-200 hover:dark:text-primary"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
@@ -201,7 +201,7 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => setExpandedDesktop(prev => (prev === item.label ? null : item.label))}
-                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-primary ${
+                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-neutral-200 hover:dark:text-primary ${
                         expandedDesktop === item.label ? 'text-primary' : ''
                       }`}
                     >
@@ -246,7 +246,7 @@ export default function Header() {
                                               <li key={third.label}>
                                                 <Link
                                                   href={third.href!}
-                                                  className="block text-sm text-black hover:text-primary dark:text-white"
+                                                  className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
                                                   onClick={() => {
                                                     setExpandedDesktop(null);
                                                     setExpandedDesktopNested(null);
@@ -264,7 +264,7 @@ export default function Header() {
                                       <li key={nested.label}>
                                         <Link
                                           href={nested.href!}
-                                          className="block text-sm text-black hover:text-primary dark:text-white"
+                                          className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
                                           onClick={() => {
                                             setExpandedDesktop(null);
                                             setExpandedDesktopNested(null);
@@ -283,7 +283,7 @@ export default function Header() {
                             <li key={sub.label}>
                               <Link
                                 href={sub.href!}
-                                className="block text-sm text-black hover:text-primary dark:text-white"
+                                className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
                                 onClick={() => setExpandedDesktop(null)}
                               >
                                 {sub.label}
@@ -295,7 +295,7 @@ export default function Header() {
                     )}
                   </>
                 ) : (
-                  <Link href={item.href!} className="whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-primary">
+                  <Link href={item.href!} className="whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-neutral-200 hover:dark:text-primary">
                     {item.label}
                   </Link>
                 )}
@@ -307,10 +307,10 @@ export default function Header() {
         {/* social & theme */}
         <div className="ml-auto hidden items-center space-x-4 md:flex">
           <Link href="https://www.instagram.com/plattanotechnologies.us/" target="_blank">
-            <FaInstagram className="h-5 w-5 text-black dark:text-primary hover:text-primary" />
+            <FaInstagram className="h-5 w-5 text-black dark:text-primary hover:text-neutral-200 hover:dark:text-neutral-700" />
           </Link>
           <Link href="https://www.linkedin.com/company/plattano-technologies/" target="_blank">
-            <FaLinkedin className="h-5 w-5 text-black dark:text-primary hover:text-primary" />
+            <FaLinkedin className="h-5 w-5 text-black dark:text-primary hover:text-neutral-200 hover:dark:text-neutral-700" />
           </Link>
           <ThemeToggle />
         </div>
