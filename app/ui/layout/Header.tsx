@@ -7,7 +7,6 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import ThemeToggle from '../theme/ThemeToggle';
 
-/* ---------- tipagem e itens de menu ---------- */
 interface MenuItem {
   label: string;
   href?: string;
@@ -68,7 +67,7 @@ const menuItems: MenuItem[] = [
         submenu: [
           { label: 'Managed Backup Services', href: '/services/dpaas/managed-backup-services' },
           { label: 'BaaS for Public Cloud', href: '/services/dpaas/baas-for-public-cloud' },
-          { label: 'Off-Site and Managed Backup', href: '/services/dpaas/off-site-and-managed-backup' },
+          { label: 'Off‑Site and Managed Backup', href: '/services/dpaas/off-site-and-managed-backup' },
         ],
       },
       { label: 'Plattano Services', href: '/services/plattano-services' },
@@ -79,30 +78,26 @@ const menuItems: MenuItem[] = [
   { label: 'The Plattano', href: '/the-plattano' },
 ];
 
-/* ---------- componente ---------- */
 export default function Header() {
-  /* estado de navegação */
   const [menuOpen, setMenuOpen] = useState(false);
-  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
-  const [expandedMobileNested, setExpandedMobileNested] = useState<string | null>(null);
-
-  const [expandedDesktop, setExpandedDesktop] = useState<string | null>(null);          // 1º nível
-  const [expandedDesktopNested, setExpandedDesktopNested] = useState<string | null>(null); // 2º nível
-  const [expandedDesktopThird, setExpandedDesktopThird] = useState<string | null>(null);   // 3º nível
-
+  const [expandedMobileLevel1, setExpandedMobileLevel1] = useState<string | null>(null);
+  const [expandedMobileLevel2, setExpandedMobileLevel2] = useState<string | null>(null);
+  const [expandedMobileLevel3, setExpandedMobileLevel3] = useState<string | null>(null);
+  const [expandedDesktop, setExpandedDesktop] = useState<string | null>(null);
+  const [expandedDesktopNested, setExpandedDesktopNested] = useState<string | null>(null);
+  const [expandedDesktopThird, setExpandedDesktopThird] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  /* refs para fechar ao clicar fora */
   const menuRef = useRef<HTMLDivElement>(null);
   const submenuRef = useRef<HTMLUListElement>(null);
 
-  /* -------- efeitos -------- */
   useEffect(() => {
     const outsideClick = (e: MouseEvent) => {
       if (menuOpen && menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
-        setExpandedMobile(null);
-        setExpandedMobileNested(null);
+        setExpandedMobileLevel1(null);
+        setExpandedMobileLevel2(null);
+        setExpandedMobileLevel3(null);
       }
       if (
         (expandedDesktop || expandedDesktopNested || expandedDesktopThird) &&
@@ -114,19 +109,18 @@ export default function Header() {
         setExpandedDesktopThird(null);
       }
     };
-
     const onScroll = () => {
       if (menuOpen || expandedDesktop || expandedDesktopNested || expandedDesktopThird) {
         setMenuOpen(false);
-        setExpandedMobile(null);
-        setExpandedMobileNested(null);
+        setExpandedMobileLevel1(null);
+        setExpandedMobileLevel2(null);
+        setExpandedMobileLevel3(null);
         setExpandedDesktop(null);
         setExpandedDesktopNested(null);
         setExpandedDesktopThird(null);
       }
       setIsScrolled(window.scrollY > 10);
     };
-
     document.addEventListener('mousedown', outsideClick);
     window.addEventListener('scroll', onScroll);
     return () => {
@@ -135,149 +129,124 @@ export default function Header() {
     };
   }, [menuOpen, expandedDesktop, expandedDesktopNested, expandedDesktopThird]);
 
-  /* -------- helpers -------- (mobile: recursivo infinito) */
-  const renderSubmenu = (submenu: MenuItem[], nested = false) => (
-    <ul className={`${nested ? 'pl-6 mt-2' : 'pl-4'} space-y-2`}>
-      {submenu.map((sub) =>
-        sub.submenu ? (
-          <li key={sub.label}>
-            <button
-              onClick={() =>
-                setExpandedMobileNested((prev) => (prev === sub.label ? null : sub.label))
-              }
-              className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
-                expandedMobileNested === sub.label ? 'text-[#ED6E00]' : ''
-              }`}
-            >
-              {sub.label}
-              <ChevronDown size={16} />
-            </button>
-            {expandedMobileNested === sub.label && renderSubmenu(sub.submenu, true)}
+  const renderSubmenu = (items: MenuItem[], level = 1) => (
+    <ul className={`pl-${level * 4} mt-2 space-y-2`}>
+      {items.map(item => {
+        const hasChildren = !!item.submenu;
+        let expanded = false;
+        let toggle: () => void = () => {};
+
+        if (level === 1) {
+          expanded = expandedMobileLevel1 === item.label;
+          toggle = () => {
+            setExpandedMobileLevel1(prev => (prev === item.label ? null : item.label));
+            setExpandedMobileLevel2(null);
+            setExpandedMobileLevel3(null);
+          };
+        } else if (level === 2) {
+          expanded = expandedMobileLevel2 === item.label;
+          toggle = () => {
+            setExpandedMobileLevel2(prev => (prev === item.label ? null : item.label));
+            setExpandedMobileLevel3(null);
+          };
+        } else {
+          expanded = expandedMobileLevel3 === item.label;
+          toggle = () => setExpandedMobileLevel3(prev => (prev === item.label ? null : item.label));
+        }
+
+        return (
+          <li key={item.label}>
+            {hasChildren ? (
+              <button
+                onClick={toggle}
+                className="flex w-full items-center justify-between text-left text-base text-black dark:text-white"
+              >
+                {item.label}
+                <ChevronDown
+                  size={16}
+                  className={`${expanded ? 'rotate-180' : 'rotate-0'} transition-transform`}
+                />
+              </button>
+            ) : (
+              <Link
+                href={item.href!}
+                className="block text-base text-black dark:text-white hover:text-primary"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )}
+            {hasChildren && expanded && renderSubmenu(item.submenu!, level + 1)}
           </li>
-        ) : (
-          <li key={sub.label}>
-            <Link
-              href={sub.href ?? '#'}
-              className="block text-sm text-black dark:text-white hover:text-[#ED6E00]"
-              onClick={() => {
-                setMenuOpen(false);
-                setExpandedMobile(null);
-                setExpandedMobileNested(null);
-                setExpandedDesktop(null);
-                setExpandedDesktopNested(null);
-                setExpandedDesktopThird(null);
-              }}
-            >
-              {sub.label}
-            </Link>
-          </li>
-        )
-      )}
+        );
+      })}
     </ul>
   );
 
-  /* -------- render -------- */
   return (
-    <header
-      className={`fixed top-0 z-40 w-full bg-primary dark:bg-black transition-all duration-300 ${
-        isScrolled ? 'py-2 shadow-md' : 'py-4'
-      }`}
-    >
-      <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:h-[70px] sm:px-8">
-        {/* ---------- logo ---------- */}
-        <Link href="/" aria-label="Home" className="flex-shrink-0">
-          {/*  ⬇️  mesmas classes que o cliente adiciona  */}
-          <Image
-            src="/images/home/logo-black.webp"
-            alt="Plattano logo"
-            width={180}
-            height={50}
-            priority
-            className="h-auto w-auto dark:hidden"
-          />
-          <Image
-            src="/images/home/logo.webp"
-            alt="Plattano logo dark"
-            width={180}
-            height={50}
-            priority
-            className="hidden h-auto w-auto dark:block"
-          />
+    <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-2 shadow-md' : 'py-4'} bg-primary dark:bg-black`}>
+      <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:px-12">
+        {/* logo */}
+        <Link href="/" className="flex-shrink-0">
+          <Image src="/images/home/logo-black.webp" alt="Plattano logo" width={180} height={50} className="h-auto w-auto dark:hidden" priority />
+          <Image src="/images/home/logo.webp" alt="Plattano logo dark" width={180} height={50} className="hidden h-auto w-auto dark:block" priority />
         </Link>
 
-        {/* ---------- navegação desktop ---------- */}
+        {/* desktop nav */}
         <nav className="hidden flex-1 justify-center md:flex">
           <ul className="flex items-center space-x-6 lg:space-x-8">
-            {menuItems.map((item) => (
+            {menuItems.map(item => (
               <li key={item.label} className="relative">
                 {item.submenu ? (
                   <>
-                    {/* ---------- botão 1º nível ---------- */}
                     <button
-                      onClick={() =>
-                        setExpandedDesktop((prev) => (prev === item.label ? null : item.label))
-                      }
-                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black transition-colors duration-150 hover:text-[#ED6E00] dark:text-white dark:hover:text-[#ED6E00] ${
-                        expandedDesktop === item.label ? 'text-[#ED6E00]' : ''
+                      onClick={() => setExpandedDesktop(prev => (prev === item.label ? null : item.label))}
+                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-primary ${
+                        expandedDesktop === item.label ? 'text-primary' : ''
                       }`}
                     >
                       {item.label}
                       <ChevronDown size={14} />
                     </button>
-
-                    {/* ---------- submenu 1º nível ---------- */}
                     {expandedDesktop === item.label && (
-                      <ul
-                        ref={submenuRef}
-                        className="absolute left-0 top-full z-50 mt-2 min-w-[200px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900"
-                      >
-                        {item.submenu.map((sub) =>
+                      <ul ref={submenuRef} className="absolute left-0 top-full mt-2 min-w-[200px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
+                        {item.submenu!.map(sub =>
                           sub.submenu ? (
                             <li key={sub.label} className="relative">
-                              {/* ---------- botão 2º nível ---------- */}
                               <button
                                 onClick={() =>
-                                  setExpandedDesktopNested((prev) =>
-                                    prev === sub.label ? null : sub.label
-                                  )
+                                  setExpandedDesktopNested(prev => (prev === sub.label ? null : sub.label))
                                 }
                                 className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
-                                  expandedDesktopNested === sub.label ? 'text-[#ED6E00]' : ''
+                                  expandedDesktopNested === sub.label ? 'text-primary' : ''
                                 }`}
                               >
                                 {sub.label}
                                 <ChevronDown size={14} />
                               </button>
-
-                              {/* ---------- submenu 2º nível ---------- */}
                               {expandedDesktopNested === sub.label && (
-                                <ul className="absolute left-full top-0 z-50 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
-                                  {sub.submenu.map((nested) =>
+                                <ul className="absolute left-full top-0 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
+                                  {sub.submenu!.map(nested =>
                                     nested.submenu ? (
                                       <li key={nested.label} className="relative">
-                                        {/* ---------- botão 3º nível ---------- */}
                                         <button
                                           onClick={() =>
-                                            setExpandedDesktopThird((prev) =>
-                                              prev === nested.label ? null : nested.label
-                                            )
+                                            setExpandedDesktopThird(prev => (prev === nested.label ? null : nested.label))
                                           }
                                           className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
-                                            expandedDesktopThird === nested.label ? 'text-[#ED6E00]' : ''
+                                            expandedDesktopThird === nested.label ? 'text-primary' : ''
                                           }`}
                                         >
                                           {nested.label}
                                           <ChevronDown size={14} />
                                         </button>
-
-                                        {/* ---------- submenu 3º nível ---------- */}
                                         {expandedDesktopThird === nested.label && (
-                                          <ul className="absolute left-full top-0 z-50 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
-                                            {nested.submenu.map((third) => (
+                                          <ul className="absolute left-full top-0 ml-2 min-w-[180px] space-y-2 rounded-md bg-white py-2 px-4 shadow-lg dark:bg-neutral-900">
+                                            {nested.submenu!.map(third => (
                                               <li key={third.label}>
                                                 <Link
-                                                  href={third.href ?? '#'}
-                                                  className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
+                                                  href={third.href!}
+                                                  className="block text-sm text-black hover:text-primary dark:text-white"
                                                   onClick={() => {
                                                     setExpandedDesktop(null);
                                                     setExpandedDesktopNested(null);
@@ -294,8 +263,8 @@ export default function Header() {
                                     ) : (
                                       <li key={nested.label}>
                                         <Link
-                                          href={nested.href ?? '#'}
-                                          className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
+                                          href={nested.href!}
+                                          className="block text-sm text-black hover:text-primary dark:text-white"
                                           onClick={() => {
                                             setExpandedDesktop(null);
                                             setExpandedDesktopNested(null);
@@ -313,13 +282,9 @@ export default function Header() {
                           ) : (
                             <li key={sub.label}>
                               <Link
-                                href={sub.href ?? '#'}
-                                className="block text-sm text-black hover:text-[#ED6E00] dark:text-white"
-                                onClick={() => {
-                                  setExpandedDesktop(null);
-                                  setExpandedDesktopNested(null);
-                                  setExpandedDesktopThird(null);
-                                }}
+                                href={sub.href!}
+                                className="block text-sm text-black hover:text-primary dark:text-white"
+                                onClick={() => setExpandedDesktop(null)}
                               >
                                 {sub.label}
                               </Link>
@@ -330,10 +295,7 @@ export default function Header() {
                     )}
                   </>
                 ) : (
-                  <Link
-                    href={item.href ?? '#'}
-                    className="whitespace-nowrap text-sm font-medium text-black transition-colors duration-150 hover:text-[#ED6E00] dark:text-white dark:hover:text-[#ED6E00]"
-                  >
+                  <Link href={item.href!} className="whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-primary">
                     {item.label}
                   </Link>
                 )}
@@ -342,108 +304,44 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* ---------- social + toggle ---------- */}
-        <div className="ml-auto flex items-center space-x-1 sm:space-x-2 md:space-x-4">
-          <div className="hidden items-center space-x-1 sm:space-x-2 md:flex">
-            <Link
-              href="https://www.instagram.com/plattanotechnologies.us/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="h-5 w-5 text-black transition-opacity hover:text-[#ED6E00] dark:text-[#ED6E00]" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/plattano-technologies/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="h-5 w-5 text-black transition-opacity hover:text-[#ED6E00] dark:text-[#ED6E00]" />
-            </Link>
-            <ThemeToggle />
-          </div>
-
-          {/* ---------- hambúrguer ---------- */}
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 focus:outline-none focus:ring md:hidden"
-          >
-            {menuOpen ? (
-              <X className="h-6 w-6 text-black dark:text-[#ED6E00]" />
-            ) : (
-              <Menu className="h-6 w-6 text-black dark:text-[#ED6E00]" />
-            )}
-          </button>
+        {/* social & theme */}
+        <div className="ml-auto hidden items-center space-x-4 md:flex">
+          <Link href="https://www.instagram.com/plattanotechnologies.us/" target="_blank">
+            <FaInstagram className="h-5 w-5 text-black dark:text-primary hover:text-primary" />
+          </Link>
+          <Link href="https://www.linkedin.com/company/plattano-technologies/" target="_blank">
+            <FaLinkedin className="h-5 w-5 text-black dark:text-primary hover:text-primary" />
+          </Link>
+          <ThemeToggle />
         </div>
+
+        {/* mobile hamburger */}
+        <button aria-label="Toggle menu" onClick={() => setMenuOpen(o => !o)} className="md:hidden p-2">
+          {menuOpen ? <X className="h-6 w-6 text-black dark:text-primary" /> : <Menu className="h-6 w-6 text-black dark:text-primary" />}
+        </button>
       </div>
 
-      {/* ---------- overlay ---------- */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50"
-          onClick={() => {
-            setMenuOpen(false);
-            setExpandedMobile(null);
-            setExpandedMobileNested(null);
-          }}
-        />
-      )}
+      {/* mobile overlay */}
+      {menuOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setMenuOpen(false)} />}
 
-      {/* ---------- drawer mobile ---------- */}
+      {/* mobile drawer */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs transform bg-white shadow-xl transition-transform duration-300 dark:bg-black ${
+        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs bg-white dark:bg-black transform transition-transform ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <nav className="mt-24 px-6">
           <ul className="flex flex-col space-y-4">
-            {menuItems.map((item) => (
-              <li key={item.label}>
-                {item.submenu ? (
-                  <>
-                    <button
-                      onClick={() =>
-                        setExpandedMobile((prev) => (prev === item.label ? null : item.label))
-                      }
-                      className={`flex w-full items-center justify-between text-left text-base text-black dark:text-white ${
-                        expandedMobile === item.label ? 'text-[#ED6E00]' : ''
-                      }`}
-                    >
-                      {item.label}
-                      <ChevronDown size={16} />
-                    </button>
-                    {expandedMobile === item.label && renderSubmenu(item.submenu)}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href ?? '#'}
-                    className="block text-base text-black hover:text-[#ED6E00] dark:text-white"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setExpandedMobile(null);
-                      setExpandedMobileNested(null);
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {renderSubmenu(menuItems, 1)}
           </ul>
         </nav>
-
-        {/* ---------- footer drawer ---------- */}
         <div className="mt-auto flex items-center space-x-4 p-6">
-          <Link href="https://instagram.com/plattano.us" target="_blank" aria-label="Instagram">
-            <FaInstagram className="h-6 w-6 text-black hover:text-[#ED6E00] dark:text-[#ED6E00]" />
+          <Link href="https://instagram.com/plattano.us" target="_blank">
+            <FaInstagram className="h-6 w-6 text-black dark:text-primary" />
           </Link>
-          <Link
-            href="https://www.linkedin.com/company/plattano-technologies/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin className="h-6 w-6 text-black hover:text-[#ED6E00] dark:text-[#ED6E00]" />
+          <Link href="https://www.linkedin.com/company/plattano-technologies/" target="_blank">
+            <FaLinkedin className="h-6 w-6 text-black dark:text-primary" />
           </Link>
           <ThemeToggle />
         </div>
