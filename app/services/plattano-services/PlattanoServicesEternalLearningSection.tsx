@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Infinity } from 'lucide-react'
 
-export default function ManagedBackupServicesEternalLearningSection() {
+export default function PlattanoServicesEternalLearningSection() {
   return (
     <section className="w-full bg-white text-black dark:bg-black dark:text-white py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
@@ -19,7 +19,7 @@ export default function ManagedBackupServicesEternalLearningSection() {
           {/* Image */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/images/services/dpaas/managed-backup-services/managed-backup-services-eternal.png"
+              src="/images/services/plattano-services/plattano-services-eternal.png"
               alt="Infinity loop glowing illustration"
               width={800}
               height={400}

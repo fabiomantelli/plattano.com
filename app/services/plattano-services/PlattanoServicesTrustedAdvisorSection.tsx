@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Info } from 'lucide-react'
 
-export default function ManagedBackupServicesTrustedAdvisorSection() {
+export default function PlattanoServicesTrustedAdvisorSection() {
   return (
     <section className="w-full bg-white text-black dark:bg-black dark:text-white py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
@@ -38,7 +38,7 @@ export default function ManagedBackupServicesTrustedAdvisorSection() {
           {/* Right: Illustration */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/images/services/dpaas/managed-backup-services/managed-backup-services-trusted.png"
+              src="/images/services/plattano-services/plattano-services-trusted.png"
               alt="Neon leaf representing growth and guidance"
               width={600}
               height={400}

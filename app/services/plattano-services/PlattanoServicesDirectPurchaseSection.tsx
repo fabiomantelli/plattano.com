@@ -5,17 +5,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const partners = [
-  { name: 'Nutanix', src: '/images/services/dpaas/managed-backup-services/nutanix.webp', href: '/partners/nutanix' },
-  { name: 'Plattano Hot Storage', src: '/images/services/dpaas/managed-backup-services/plattano-hot-storage.webp', href: '/products/hot-storage' },
-  { name: 'VMware', src: '/images/services/dpaas/managed-backup-services/vmware.webp', href: '/partners/vmware' },
-  { name: 'Veeam', src: '/images/services/dpaas/managed-backup-services/veeam.webp', href: '/partners/veeam' },
-  { name: 'ExaGrid', src: '/images/services/dpaas/managed-backup-services/exagrid.webp', href: '/partners/exagrid' },
-  { name: 'SentinelOne', src: '/images/services/dpaas/managed-backup-services/sentinelone.webp', href: '/partners/sentinelone' },
-  { name: 'Rainforest Tech', src: '/images/services/dpaas/managed-backup-services/rainforest.webp', href: '/partners/rainforest' },
-  { name: 'N‑Able', src: '/images/services/dpaas/managed-backup-services/nable.webp', href: '/partners/n-able' },
+  { name: 'Nutanix', src: '/images/services/plattano-services/nutanix.webp' },
+  { name: 'Plattano Hot Storage', src: '/images/services/plattano-services/plattano-hot-storage.webp' },
+  { name: 'VMware', src: '/images/services/plattano-services/vmware.webp' },
+  { name: 'Veeam', src: '/images/services/plattano-services/veeam.webp' },
+  { name: 'ExaGrid', src: '/images/services/plattano-services/exagrid.webp' },
+  { name: 'SentinelOne', src: '/images/services/plattano-services/sentinelone.webp' },
+  { name: 'Rainforest Tech', src: '/images/services/plattano-services/rainforest.webp' },
+  { name: 'N‑Able', src: '/images/services/plattano-services/nable.webp' },
 ]
 
-export default function ManagedBackupServicesDirectPurchaseSection() {
+export default function PlattanoServicesDirectPurchaseSection() {
   return (
     <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
       <motion.div
@@ -48,17 +48,15 @@ export default function ManagedBackupServicesDirectPurchaseSection() {
                 flex items-center justify-center
               "
             >
-              <Link href={p.href} className="w-full h-full flex items-center justify-center">
-                <Image
-                  src={p.src}
-                  alt={p.name}
-                  width={200}
-                  height={80}
-                  className="max-h-16 object-contain"
-                  priority
-                />
-              </Link>
-            </motion.div>
+              <Image
+                src={p.src}
+                alt={p.name}
+                width={200}
+                height={80}
+                className="max-h-16 object-contain"
+                priority
+              />
+          </motion.div>
           ))}
         </div>
       </motion.div>

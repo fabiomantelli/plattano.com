@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function ManagedBackupServicesStrategicPartnersSection() {
+export default function PlattanoServicesStrategicPartnersSection() {
   const tabs = {
     Hardware: ['Dell', 'Lenovo', 'HPE', 'Pure Storage', 'Supermicro', 'APC'],
     Security: ['Fortinet', 'Palo Alto', 'Cisco', 'Aruba'],

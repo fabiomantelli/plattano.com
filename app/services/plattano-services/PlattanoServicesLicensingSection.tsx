@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-export default function ManagedBackupServicesLicensingSection() {
+export default function PlattanoServicesLicensingSection() {
   const benefits = [
     'High‑performance OEM partnership',
     'Industry‑leading national expertise',

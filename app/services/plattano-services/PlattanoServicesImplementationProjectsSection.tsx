@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion'
 
-export default function ManagedBackupServicesImplementationProjectsSection() {
+export default function PlattanoServicesImplementationProjectsSection() {
   return (
     <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div

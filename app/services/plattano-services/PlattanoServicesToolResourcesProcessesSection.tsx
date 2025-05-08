@@ -1,4 +1,3 @@
-// app/components/ToolsResourcesProcessesSection.tsx
 'use client'
 
 import { motion } from 'framer-motion'
@@ -39,7 +38,7 @@ const columns = [
   },
 ]
 
-export default function ManagedBackupServicesToolsResourcesProcessesSection() {
+export default function PlattanoServicesToolsResourcesProcessesSection() {
   return (
     <section className="w-full py-20 bg-white text-neutral-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-6 text-center">

@@ -23,7 +23,7 @@ const gainItems = [
   { Icon: TrendingUp,  label: 'Service Value Add' },
 ]
 
-const ManagedBackupServicesSaveGainSection: FC = () => {
+const PlattanoServicesSaveGainSection: FC = () => {
   return (
     <section className="w-full bg-white text-black dark:bg-black dark:text-white py-16">
       <div className="max-w-4xl mx-auto px-6 sm:px-12 lg:px-0 space-y-12 text-center">
@@ -70,4 +70,4 @@ const ManagedBackupServicesSaveGainSection: FC = () => {
   )
 }
 
-export default ManagedBackupServicesSaveGainSection
+export default PlattanoServicesSaveGainSection

@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion'
 
-export default function ManagedBackupServicesSupportProgramsSection() {
+export default function PlattanoServicesSupportProgramsSection() {
   return (
     <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-5xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8 text-center">

@@ -18,7 +18,7 @@ const projects = [
   },
 ]
 
-export default function ManagedBackupServicesProjectsByProductSection() {
+export default function PlattanoServicesProjectsByProductSection() {
   return (
     <section className="w-full py-20 bg-white text-neutral-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-12 text-center">
