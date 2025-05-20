@@ -99,11 +99,7 @@ export default function Header() {
         setExpandedMobileLevel2(null);
         setExpandedMobileLevel3(null);
       }
-      if (
-        (expandedDesktop || expandedDesktopNested || expandedDesktopThird) &&
-        submenuRef.current &&
-        !submenuRef.current.contains(e.target as Node)
-      ) {
+      if ((expandedDesktop || expandedDesktopNested || expandedDesktopThird) && submenuRef.current && !submenuRef.current.contains(e.target as Node)) {
         setExpandedDesktop(null);
         setExpandedDesktopNested(null);
         setExpandedDesktopThird(null);
@@ -128,6 +124,8 @@ export default function Header() {
       window.removeEventListener('scroll', onScroll);
     };
   }, [menuOpen, expandedDesktop, expandedDesktopNested, expandedDesktopThird]);
+
+  const linkClass = 'block text-sm text-black hover:text-primary dark:text-white dark:hover:text-primary';
 
   const renderSubmenu = (items: MenuItem[], level = 1) => (
     <ul className={`pl-${level * 4} mt-2 space-y-2`}>
@@ -159,7 +157,7 @@ export default function Header() {
             {hasChildren ? (
               <button
                 onClick={toggle}
-                className="flex w-full items-center justify-between text-left text-base text-black dark:text-white"
+                className="flex w-full items-center justify-between text-left text-base text-black dark:text-white hover:text-primary dark:hover:text-primary"
               >
                 {item.label}
                 <ChevronDown
@@ -170,7 +168,7 @@ export default function Header() {
             ) : (
               <Link
                 href={item.href!}
-                className="block text-base text-black dark:text-white hover:text-neutral-200 hover:dark:text-primary"
+                className={linkClass}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
@@ -201,8 +199,8 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => setExpandedDesktop(prev => (prev === item.label ? null : item.label))}
-                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black dark:text-white hover:text-neutral-200 hover:dark:text-primary ${
-                        expandedDesktop === item.label ? 'text-primary' : ''
+                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium hover:text-neutral-200 hover:dark:text-primary ${
+                        expandedDesktop === item.label ? 'text-neutral-200 dark:text-primary' : ''
                       }`}
                     >
                       {item.label}
@@ -217,9 +215,10 @@ export default function Header() {
                                 onClick={() =>
                                   setExpandedDesktopNested(prev => (prev === sub.label ? null : sub.label))
                                 }
-                                className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
-                                  expandedDesktopNested === sub.label ? 'text-primary' : ''
-                                }`}
+                                className={`flex w-full items-center justify-between text-left text-sm
+                                ${expandedDesktopNested === sub.label
+                                  ? 'text-primary'
+                                  : 'text-black hover:text-primary dark:text-white dark:hover:text-primary'}`}
                               >
                                 {sub.label}
                                 <ChevronDown size={14} />
@@ -233,9 +232,10 @@ export default function Header() {
                                           onClick={() =>
                                             setExpandedDesktopThird(prev => (prev === nested.label ? null : nested.label))
                                           }
-                                          className={`flex w-full items-center justify-between text-left text-sm text-black dark:text-white ${
-                                            expandedDesktopThird === nested.label ? 'text-primary' : ''
-                                          }`}
+                                         className={`flex w-full items-center justify-between text-left text-sm
+                                          ${expandedDesktopThird === nested.label
+                                            ? 'text-primary'
+                                            : 'text-black hover:text-primary dark:text-white dark:hover:text-primary'}`}
                                         >
                                           {nested.label}
                                           <ChevronDown size={14} />
@@ -246,7 +246,7 @@ export default function Header() {
                                               <li key={third.label}>
                                                 <Link
                                                   href={third.href!}
-                                                  className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
+                                                  className="block text-sm text-black hover:text-primary hover:dark:text-primary dark:text-white"
                                                   onClick={() => {
                                                     setExpandedDesktop(null);
                                                     setExpandedDesktopNested(null);
@@ -264,7 +264,7 @@ export default function Header() {
                                       <li key={nested.label}>
                                         <Link
                                           href={nested.href!}
-                                          className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
+                                          className="block text-sm text-black hover:text-primary hover:dark:text-primary dark:text-white"
                                           onClick={() => {
                                             setExpandedDesktop(null);
                                             setExpandedDesktopNested(null);
@@ -283,7 +283,7 @@ export default function Header() {
                             <li key={sub.label}>
                               <Link
                                 href={sub.href!}
-                                className="block text-sm text-black hover:text-neutral-200 hover:dark:text-primary dark:text-white"
+                                className="block text-sm text-black hover:text-primary hover:dark:text-primary dark:text-white"
                                 onClick={() => setExpandedDesktop(null)}
                               >
                                 {sub.label}
@@ -307,10 +307,10 @@ export default function Header() {
         {/* social & theme */}
         <div className="ml-auto hidden items-center space-x-4 md:flex">
           <Link href="https://www.instagram.com/plattanotechnologies.us/" target="_blank">
-            <FaInstagram className="h-5 w-5 text-black dark:text-primary hover:text-neutral-200 hover:dark:text-neutral-700" />
+            <FaInstagram className="h-5 w-5 text-black dark:text-primary hover:text-primary hover:dark:text-neutral-700" />
           </Link>
           <Link href="https://www.linkedin.com/company/plattano-technologies/" target="_blank">
-            <FaLinkedin className="h-5 w-5 text-black dark:text-primary hover:text-neutral-200 hover:dark:text-neutral-700" />
+            <FaLinkedin className="h-5 w-5 text-black dark:text-primary hover:text-primary hover:dark:text-neutral-700" />
           </Link>
           <ThemeToggle />
         </div>
