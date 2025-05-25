@@ -49,7 +49,7 @@ export default function HeroSection() {
               </Link>
               <div className="flex justify-center items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>9am – 6pm EST</span>
+                <span>24/7</span>
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
