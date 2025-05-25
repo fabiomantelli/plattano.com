@@ -22,15 +22,6 @@ export default function Footer() {
     note: '',
   })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm({ ...form, [e.target.name]: e.target.value })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log(form)
-  }
-
   return (
     <footer className="w-full bg-neutral-100 text-neutral-900 dark:bg-black dark:text-white">
       {/* Columns */}

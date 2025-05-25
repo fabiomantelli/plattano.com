@@ -31,9 +31,9 @@ export default function FutureSection() {
             Nope... we position ourselves as <span className="text-primary font-medium">agents of change and innovation</span>,
             and we’re fascinated by the unexplored.
           </p>
-          <p className="mt-4 font-semibold">“But they’ll never conform?”</p>
+          <p className="mt-4 font-semibold">“But they&apos;ll never conform?”</p>
           <p>
-            Maybe when humans grow wings and fly ±∞. Until then, we’ll continue to
+            Maybe when humans grow wings and fly ±∞. Until then, we&apos;ll continue to
             <span className="text-primary font-medium"> spread knowledge</span> and help through every communication channel possible.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function FutureSection() {
             “A decision made in the past can drastically alter the future”
           </div>
           <p>
-            Don’t let the past haunt your business—take the leap, follow us, and steer your company to a better future!
+            Don&apos;t let the past haunt your business—take the leap, follow us, and steer your company to a better future!
           </p>
         </div>
       </div>

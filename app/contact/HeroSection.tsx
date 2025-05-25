@@ -17,7 +17,7 @@ export default function HeroSection() {
 
         {/* Urgency Section */}
         <div className="w-full text-center space-y-12">
-          <h2 className="text-2xl md:text-3xl font-bold">I'M IN A HURRY</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">I&apos;M IN A HURRY</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Commercial Contact */}
@@ -29,11 +29,11 @@ export default function HeroSection() {
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>9am – 6pm BRT</span>
+                <span>9am – 6pm EST</span>
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contato@plattano.com.br</span>
+                <span>contact@plattano.com</span>
               </div>
             </div>
 
@@ -49,11 +49,11 @@ export default function HeroSection() {
               </Link>
               <div className="flex justify-center items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>9am – 6pm BRT</span>
+                <span>9am – 6pm EST</span>
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contato@plattano.com.br</span>
+                <span>contact@plattano.com</span>
               </div>
             </div>
           </div>

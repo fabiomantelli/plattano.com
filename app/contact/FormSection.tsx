@@ -9,7 +9,7 @@ export default function FormSection() {
         <h2 className="text-3xl md:text-4xl font-bold">I CAN WAIT</h2>
 
         <p className="text-primary text-sm sm:text-base font-medium">
-          If you'd rather we get in touch later, just fill out the form below — it's quick and easy.
+          If you&apos;d rather we get in touch later, just fill out the form below — it&apos;s quick and easy.
         </p>
 
         <p className="text-base sm:text-lg font-semibold">
