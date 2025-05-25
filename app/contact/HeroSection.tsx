@@ -25,15 +25,15 @@ export default function HeroSection() {
               <h3 className="text-xl font-bold uppercase">Commercial Contact</h3>
               <div className="flex justify-center items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+55 (48) 3197-9877</span>
+                <span>+1 (321) 313 8762</span>
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>9am – 6pm EST</span>
+                <span>24/7</span>
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@plattano.com</span>
+                <span>plattano@plattano.com</span>
               </div>
             </div>
 
@@ -53,7 +53,7 @@ export default function HeroSection() {
               </div>
               <div className="flex justify-center items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@plattano.com</span>
+                <span>plattano@plattano.com</span>
               </div>
             </div>
           </div>

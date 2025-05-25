@@ -24,12 +24,12 @@ export default function Footer() {
 
           <Link href="tel:+13213138762" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
             <Phone size={20} className="text-primary" />
-            <span>+1 321 313-8762</span>
+            <span>+1 (321) 313 8762</span>
           </Link>
 
           <div className="flex items-center justify-center md:justify-start gap-3">
             <Clock size={20} className="text-primary" />
-            <span>9 AM – 6 PM EST</span>
+            <span>24/7</span>
           </div>
 
           <Link href="mailto:plattano@plattano.com" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
