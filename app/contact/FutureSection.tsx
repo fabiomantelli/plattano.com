@@ -42,7 +42,7 @@ export default function FutureSection() {
           <h2 className="text-2xl sm:text-3xl font-bold">
             BACK TO THE <span className="text-primary">FUTURE</span>
           </h2>
-          <p>You've probably seen the movie. But remember the core message…</p>
+          <p>You&apos;ve probably seen the movie. But remember the core message…</p>
           <div className="bg-white dark:bg-neutral-900 text-black dark:text-white font-semibold rounded-lg shadow p-4 max-w-2xl mx-auto">
             “A decision made in the past can drastically alter the future”
           </div>

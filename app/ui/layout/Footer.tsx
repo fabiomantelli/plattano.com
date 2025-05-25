@@ -14,14 +14,6 @@ interface ContactForm {
 }
 
 export default function Footer() {
-  const [form, setForm] = useState<ContactForm>({
-    name: '',
-    company: '',
-    phone: '',
-    email: '',
-    note: '',
-  })
-
   return (
     <footer className="w-full bg-neutral-100 text-neutral-900 dark:bg-black dark:text-white">
       {/* Columns */}
