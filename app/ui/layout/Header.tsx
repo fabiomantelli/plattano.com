@@ -328,9 +328,10 @@ export default function Header() {
       {/* mobile drawer */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs bg-white dark:bg-black transform transition-transform ${
+        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs transform transition-transform ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        } bg-white dark:bg-black`}
+        suppressHydrationWarning
       >
         <nav className="mt-24 px-6">
           <ul className="flex flex-col space-y-4">
