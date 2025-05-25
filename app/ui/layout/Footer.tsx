@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Phone, Mail, Instagram, Clock } from 'lucide-react'
 import Link from 'next/link'
+import ContactForm  from '@/app/components/ContactForm'
 
 interface ContactForm {
   name: string
@@ -72,38 +73,7 @@ export default function Footer() {
           <p>Plattano Technologies US, always by your side</p>
 
           {/* Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="p-6 rounded-xl flex flex-col gap-4 transition-all duration-300 bg-white border border-neutral-300 dark:bg-neutral-900 dark:border-white/10"
-          >
-            {['name', 'company', 'phone', 'email'].map((field) => (
-              <input
-                key={field}
-                type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
-                name={field}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                value={form[field as keyof ContactForm]}
-                onChange={handleChange}
-                className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
-              />
-            ))}
-            <textarea
-              name="note"
-              rows={3}
-              placeholder="Note"
-              value={form.note}
-              onChange={handleChange}
-              className="bg-transparent border rounded px-4 py-2 focus:outline-none resize-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
-            />
-
-            {/* SEND Button */}
-            <button
-              type="submit"
-              className="w-full py-3 rounded-md font-semibold shadow-lg transition-all duration-200 border-2 bg-primary text-white border-primary hover:bg-white hover:text-primary dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-primary"
-            >
-              SEND
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </div>
 
