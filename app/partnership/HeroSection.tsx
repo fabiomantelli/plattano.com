@@ -59,7 +59,7 @@ export default function HeroSection() {
 
             <h3 className="text-lg md:text-xl font-bold">EMPOWERED BY PLATTANO</h3>
             <p className="text-orange-500 mt-2 text-sm md:text-base max-w-xl">
-              Don't leave money on the table — we unlock all your opportunities.
+              Don&apos;t leave money on the table — we unlock all your opportunities.
             </p>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Plus, Info } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 export default function CostStrategySection() {
   return (

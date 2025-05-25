@@ -1,7 +1,3 @@
-'use client';
-
-import Image from 'next/image';
-
 export default function PlattanoHotStorageSection() {
   return (
     <section className="w-full bg-primary text-black py-18 px-8">
