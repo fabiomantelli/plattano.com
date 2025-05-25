@@ -5,7 +5,7 @@ import Image from 'next/image' // Corrected import from next/image
 
 export default function NutanixBusinessSection() {
   return (
-    <section className="w-full py-12 bg-neutral-200 dark:bg-neutral-900 text-white">
+    <section className="w-full py-12 bg-white dark:bg-black text-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

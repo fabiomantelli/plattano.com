@@ -5,7 +5,7 @@ import { Cloud, Folder } from 'lucide-react';
 
 export default function VeeamM365ResponsibilityModelSection() {
   return (
-    <section className="w-full dark:bg-neutral-900 dark:text-white bg-neutral-200 text-black py-20 px-6 sm:px-12 lg:px-24">
+    <section className="w-full dark:bg-neutral-900 dark:text-white bg-black/9 text-black py-20 px-6 sm:px-12 lg:px-24">
       <div className="mx-auto max-w-7xl space-y-8">
         {/* headline */}
         <motion.h2

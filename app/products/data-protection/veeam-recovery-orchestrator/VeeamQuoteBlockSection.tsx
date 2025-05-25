@@ -15,7 +15,7 @@ export default function VeeamQuoteBlockSection() {
       </div>
 
       {/* ---------- band 2 : headline + sub ---------- */}
-      <div className="relative bg-neutral-200 text-black dark:bg-primary px-4 py-20 sm:py-24">
+      <div className="relative bg-black/9 text-black dark:bg-primary px-4 py-20 sm:py-24">
         <h2 className="mx-auto max-w-4xl text-center text-3xl font-extrabold tracking-wide sm:text-4xl">
           ORCHESTRATE THE DATA SYMPHONY
         </h2>

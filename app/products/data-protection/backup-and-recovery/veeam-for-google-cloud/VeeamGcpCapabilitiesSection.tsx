@@ -52,7 +52,7 @@ const items = [
 
 export default function VeeamGcpCapabilitiesSection() {
   return (
-    <section className="w-full bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white py-20">
+    <section className="w-full bg-black/9 text-black dark:bg-neutral-900 dark:text-white py-20">
       <div className="max-w-4xl mx-auto px-6 sm:px-12 lg:px-0 space-y-8">
         {/* Heading */}
         <motion.div

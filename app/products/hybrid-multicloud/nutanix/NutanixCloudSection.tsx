@@ -11,7 +11,7 @@ const firstSet = [
 
 export default function NutanixCloudSection() {
   return (
-    <section className="w-full py-24 bg-white dark:bg-neutral-900 text-black dark:text-white">
+    <section className="w-full py-24 bg-black/9 dark:bg-neutral-900 text-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center space-y-16">
 
         {/* Title */}

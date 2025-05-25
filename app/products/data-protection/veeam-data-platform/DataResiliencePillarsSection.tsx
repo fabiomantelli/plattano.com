@@ -23,7 +23,7 @@ const pillars = [
 
 export default function DataResiliencePillarsSection() {
   return (
-    <section className="w-full py-24 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center space-y-16">
         {/* Title */}
         <motion.h2

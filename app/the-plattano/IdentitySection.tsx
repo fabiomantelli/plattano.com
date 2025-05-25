@@ -2,7 +2,7 @@
 
 export default function IdentitySection() {
   return (
-    <section className="w-full py-20 bg-neutral-200 text-white dark:text-white dark:bg-neutral-900">
+    <section className="w-full py-20 bg-black/9 text-white dark:text-white dark:bg-neutral-900">
       <div className="max-w-6xl mx-auto px-6 text-center space-y-10">
         {/* Title */}
         <h2 className="text-2xl text-black dark:text-neutral-200 sm:text-3xl md:text-4xl font-bold">

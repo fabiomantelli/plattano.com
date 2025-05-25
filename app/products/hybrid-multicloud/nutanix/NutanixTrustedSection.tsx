@@ -7,7 +7,7 @@ export default function NutanixTrustedSection() {
 
   return (
     <section
-      className='w-full py-24 bg-neutral-200 dark:bg-neutral-900'
+      className='w-full py-24 bg-black/9 dark:bg-neutral-900'
     >
       <motion.div
         initial={{ opacity: 0 }}

@@ -12,7 +12,7 @@ export default function NutanixPrismSection() {
   const closeModal = () => setModalImage(null)
 
   return (
-    <section className="w-full py-12 bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white">
+    <section className="w-full py-12 bg-black/9 dark:bg-neutral-900 text-black dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -27,7 +27,7 @@ const features = [
 
 export default function BaaSForPublicCloudResourcesSection() {
   return (
-    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
+    <section className="w-full py-20 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8">
         {/* Heading */}
         <motion.h2
@@ -56,7 +56,7 @@ export default function BaaSForPublicCloudResourcesSection() {
           {features.map((f, idx) => (
             <motion.div
               key={f.title}
-              className="p-6 bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/20 rounded-xl shadow-sm hover:shadow-md transition"
+              className="p-6 bg-primary dark:bg-white/5 border border-neutral-200 dark:border-white/20 rounded-xl shadow-sm hover:shadow-md transition"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}

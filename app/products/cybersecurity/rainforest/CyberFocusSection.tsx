@@ -22,7 +22,7 @@ export default function CyberFocusSection() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-white text-black dark:bg-neutral-900 dark:text-white">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}

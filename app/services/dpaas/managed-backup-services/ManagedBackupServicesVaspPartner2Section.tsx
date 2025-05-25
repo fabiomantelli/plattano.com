@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function ManagedBackupServicesVaspPartner2Section() {
   return (
-    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
+    <section className="w-full py-20 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center gap-12">
         {/* Text Column */}
         <motion.div

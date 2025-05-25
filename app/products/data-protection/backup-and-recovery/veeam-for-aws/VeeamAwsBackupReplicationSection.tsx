@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function VeeamAwsBackupReplicationSection() {
   return (
-    <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-20 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-4xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8 text-center">
         {/* Title */}
         <motion.h2

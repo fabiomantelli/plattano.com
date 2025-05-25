@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function RansomwareSection() {
   return (
-    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-black/9 text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center gap-16">
         {/* Image Section */}
         <motion.div
@@ -37,7 +37,7 @@ export default function RansomwareSection() {
             RANSOMWARE – TRENDS
           </h2>
           <p className="text-lg mb-6">
-            Don’t become a statistic – <span className="text-primary font-semibold">talk to Plattano now!</span>
+            Don&apos;t become a statistic – <span className="text-primary font-semibold">talk to Plattano now!</span>
           </p>
           <p className="text-base mb-8">
             Lessons learned from 1,200 victims and nearly 3,000 cyberattacks – get the report now!

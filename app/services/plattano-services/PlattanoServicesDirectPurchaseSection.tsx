@@ -16,7 +16,7 @@ const partners = [
 
 export default function PlattanoServicesDirectPurchaseSection() {
   return (
-    <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <motion.div
         className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8"
         initial={{ opacity: 0, y: 20 }}
@@ -40,8 +40,9 @@ export default function PlattanoServicesDirectPurchaseSection() {
               viewport={{ once: true, amount: 0.4 }}
               className="
                 p-6 rounded-2xl shadow-md border
-                bg-white/80
-                border-neutral-200 dark:border-white/10
+                bg-neutral-300
+                dark:bg-neutral-300
+                border-neutral-400 dark:border-white/10
                 backdrop-blur-sm
                 transition-all duration-300
                 flex items-center justify-center

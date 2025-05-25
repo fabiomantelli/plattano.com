@@ -5,7 +5,7 @@ import { Eye, Shield, Cpu } from 'lucide-react'; // Icons for the features
 
 export default function SecurityFoundationSection() {
   return (
-    <section className="w-full py-24 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center">
         {/* Title */}
         <motion.div

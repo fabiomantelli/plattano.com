@@ -69,7 +69,7 @@ export default function Footer() {
       />
 
       {/* Bottom Footer */}
-      <div className="w-full bg-neutral-200 text-neutral-700 dark:bg-black dark:text-neutral-400 text-center text-sm py-6 border-t border-neutral-300 dark:border-white/20">
+      <div className="w-full bg-white text-neutral-700 dark:bg-black dark:text-neutral-400 text-center text-sm py-6 border-t border-neutral-300 dark:border-white/20">
         EIN 33-3441498<br />
         <span className="text-primary">© 2025 Plattano® Technologies US</span>
       </div>

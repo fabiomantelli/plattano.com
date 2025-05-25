@@ -67,7 +67,7 @@ export default function CyberFocusSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-white text-neutral-900 dark:bg-black dark:text-white">
       <div ref={ref} className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-24 flex flex-col items-center gap-16">
         {/* Title */}
         <motion.div
