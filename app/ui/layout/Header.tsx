@@ -74,8 +74,8 @@ const menuItems: MenuItem[] = [
     ],
   },
   { label: 'Partnership', href: '/partnership' },
-  { label: 'Contact', href: '/contact' },
   { label: 'The Plattano', href: '/the-plattano' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
