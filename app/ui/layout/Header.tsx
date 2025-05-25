@@ -185,7 +185,7 @@ export default function Header() {
     <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-4 shadow-md' : 'py-6'} bg-primary dark:bg-black`}>
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:px-12">
         {/* logo */}
-        <Link href="/" className="flex-shrink-0">
+      <Link href="/" className="flex-shrink-0">
           <Image src="/images/home/logo-black.webp" alt="Plattano logo" width={180} height={50} className="h-auto w-auto dark:hidden" priority />
           <Image src="/images/home/logo.webp" alt="Plattano logo dark" width={180} height={50} className="hidden h-auto w-auto dark:block" priority />
         </Link>
