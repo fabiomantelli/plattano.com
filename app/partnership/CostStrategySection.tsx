@@ -13,10 +13,10 @@ export default function CostStrategySection() {
 
         {/* Description */}
         <p className="text-base text-neutral-700 dark:text-neutral-300 max-w-3xl mx-auto">
-          At Plattano, we value transparency. As a partner, you'll have access to the full cost and revenue strategy that keeps you competitive—even compared to hyperscalers.
+          At Plattano, we value transparency. As a partner, you&apos;ll have access to the full cost and revenue strategy that keeps you competitive—even compared to hyperscalers.
         </p>
         <p className="text-base text-neutral-700 dark:text-neutral-300 max-w-3xl mx-auto">
-          We believe every partnership should be fair. That’s why we created discount categories based on your engagement, measured by the amount of TB you provision.
+          We believe every partnership should be fair. That&apos;s why we created discount categories based on your engagement, measured by the amount of TB you provision.
         </p>
 
         {/* Cards */}
