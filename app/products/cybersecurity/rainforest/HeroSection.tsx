@@ -17,13 +17,14 @@ export default function HeroSection() {
         >
           {/* Rainforest Logo (desktop only) */}
           <div className="hidden md:block mb-4">
-            <Image
+           <Image
               src="/images/products/cybersecurity/rainforest/rainforest-light-logo.webp"
               alt="Rainforest Logo"
               width={300}
               height={103}
               className="block dark:hidden h-auto w-auto"
               priority
+              suppressHydrationWarning
             />
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp"
@@ -32,7 +33,9 @@ export default function HeroSection() {
               height={103}
               className="hidden dark:block h-auto w-auto"
               priority
+              suppressHydrationWarning
             />
+
           </div>
 
           <h1 className="text-[48px] font-extrabold font-sofia leading-tight">

@@ -25,7 +25,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="space-y-6 flex flex-col items-center justify-center"
         >
