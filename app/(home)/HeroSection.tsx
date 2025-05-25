@@ -12,19 +12,9 @@ export default function HeroSection() {
           absolute inset-0 bg-center bg-cover
           bg-[url('/images/home/high-tech-background-light.png')]
           dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.png')]
-          filter brightness-[0.96] dark:filter dark:brightness-90
         `}
       />
-
-      {/* Glow overlay */}
-      <div
-        className={`
-          absolute inset-0
-          bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_150%)]
-          dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.55)_0%,transparent_60%)]
-          mix-blend-lighten dark:mix-blend-screen
-        `}
-      />
+      <div/>
 
        {/* Grid watermark */}
        <div
@@ -47,7 +37,7 @@ export default function HeroSection() {
           className={`
             font-sofia font-extrabold leading-tight
             text-2xl sm:text-4xl lg:text-6xl
-            drop-shadow-[0_0_8px_rgba(237,110,0,0.8)]
+            drop-shadow-[0_0_2px_rgba(237,110,0,0.8)]
           `}
         >
           CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
