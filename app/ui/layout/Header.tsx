@@ -199,9 +199,10 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => setExpandedDesktop(prev => (prev === item.label ? null : item.label))}
-                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium hover:text-neutral-200 hover:dark:text-primary ${
-                        expandedDesktop === item.label ? 'text-neutral-200 dark:text-primary' : ''
-                      }`}
+                      className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium
+                        hover:text-neutral-200 hover:dark:text-primary
+                        ${expandedDesktop === item.label ? 'text-black dark:text-primary' : 'text-black dark:text-white'}
+                      `}
                     >
                       {item.label}
                       <ChevronDown size={14} />
