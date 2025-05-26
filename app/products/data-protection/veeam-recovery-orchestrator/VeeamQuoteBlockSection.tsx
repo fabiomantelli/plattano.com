@@ -7,7 +7,7 @@ export default function VeeamQuoteBlockSection() {
       <div className="relative flex items-center justify-center px-4 py-10 sm:py-12">
         <div className="absolute inset-0 bg-primary" />
         <p className="relative z-10 text-center text-black text-2xl font-semibold leading-snug sm:text-3xl">
-          "WHEN EVERY SECOND COUNTS, COUNT ON PLATTANO"
+          &quot;WHEN EVERY SECOND COUNTS, COUNT ON PLATTANO&quot;
         </p>
       </div>
 
