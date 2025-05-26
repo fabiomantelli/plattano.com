@@ -114,7 +114,7 @@ const features = [
 
 export default function CloudFoundationFeaturesSection() {
   return (
-    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-white text-neutral-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         {/* Heading */}
         <motion.h2

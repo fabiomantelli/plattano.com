@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function NutanixCloudWorkloadSection() {
   return (
-    <section className="w-full py-24">
+    <section className="w-full py-24 dark:bg-black bg-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

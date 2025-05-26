@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function NutanixHeroSection() {
   return (
-    <section className="w-full py-24 text-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-white dark:bg-black text-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

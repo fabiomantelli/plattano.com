@@ -5,7 +5,7 @@ import { Cpu, Wifi, CheckCircle } from 'lucide-react'; // Example icons from luc
 
 export default function NutanixMultiCloudExecutionSection() {
   return (
-    <section className="w-full py-24 text-white">
+    <section className="w-full py-24 text-white dark:bg-black bg-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

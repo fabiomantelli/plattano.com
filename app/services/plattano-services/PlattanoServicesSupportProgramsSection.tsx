@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function PlattanoServicesSupportProgramsSection() {
   return (
-    <section className="w-full py-20 bg-black/10 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-5xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8 text-center">
         {/* Heading */}
         <motion.h2
@@ -38,7 +38,7 @@ export default function PlattanoServicesSupportProgramsSection() {
       >
         {/* Basic */}
         <div className="border border-primary rounded-lg p-6 space-y-4 hover:shadow-lg transition">
-          <h3 className="text-2xl font-semibold">BASIC (8 × 5)</h3>
+          <h3 className="text-2xl font-semibold">BASIC (8 x 5)</h3>
           <p className="text-sm">
             The Plattano Basic support program delivers business-hour assistance plus product
             <span className='text-primary'> upgrades and updates</span>.
@@ -50,7 +50,7 @@ export default function PlattanoServicesSupportProgramsSection() {
 
         {/* Premium */}
         <div className="border border-primary rounded-lg p-6 space-y-4 hover:shadow-lg transition">
-          <h3 className="text-2xl font-semibold">PREMIUM (24 × 7)</h3>
+          <h3 className="text-2xl font-semibold">PREMIUM (24 x7)</h3>
           <p className="text-sm">
             Plattano Premium support provides fully-managed, <span className='text-primary'>high-touch IT service</span> for our top-tier
             customers. A dedicated Support Account Manager (SAM) will guide you from case initiation

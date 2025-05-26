@@ -32,7 +32,7 @@ const items = [
 
 export default function UseCasesGridSection() {
   return (
-    <section className="w-full py-24 bg-background text-foreground">
+    <section className="w-full py-24 dark:bg-black bg-white text-foreground">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, idx) => (

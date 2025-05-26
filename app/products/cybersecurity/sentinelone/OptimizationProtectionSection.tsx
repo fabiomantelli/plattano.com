@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function SentinelOneHighlightSection() {
   return (
-    <section className="w-full py-24 text-neutral-900 dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:text-white dark:bg-black bg-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

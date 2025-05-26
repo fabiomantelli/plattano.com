@@ -29,7 +29,7 @@ export default function FutureSection() {
           <h3 className="font-semibold mt-2">Comfort zone?</h3>
           <p>
             Nope... we position ourselves as <span className="text-primary font-medium">agents of change and innovation</span>,
-            and we’re fascinated by the unexplored.
+            and we&apos;re fascinated by the unexplored.
           </p>
           <p className="mt-4 font-semibold">“But they&apos;ll never conform?”</p>
           <p>

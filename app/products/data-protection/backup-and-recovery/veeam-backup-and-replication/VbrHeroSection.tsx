@@ -6,7 +6,6 @@ import Image from 'next/image';
 export default function VbrHeroSection() {
   return (
     <section className="relative w-full h-[calc(100vh-100px)] md:h-[80vh] sm:h-[70vh]">
-      {/* ---- background ---- */}
       <Image
         src="/images/products/data-protection/backup-and-recovery/veeam-backup-and-replication/vbr-hero-bg.png"
         alt="Futuristic datacenter backdrop"
@@ -15,15 +14,13 @@ export default function VbrHeroSection() {
         className="-z-10 object-cover"
       />
 
-      {/* ---- overlay ---- */}
       <div
         className="absolute inset-0 -z-10
-                   bg-white/70 backdrop-brightness-90   /* light‑mode: soft white veil */
+                   bg-white/90 backdrop-brightness-90   /* light‑mode: soft white veil */
                    dark:bg-gradient-to-b               /* dark‑mode: deep gradient */
                    dark:from-black/85 dark:via-black/90 dark:to-black/95"
       />
 
-      {/* ---- content ---- */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-center px-6 sm:px-12 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -32,7 +29,7 @@ export default function VbrHeroSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="space-y-5 text-center"
         >
-          <h1 className="break-words text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+          <h1 className="break-words text-black dark:text-neutral-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
             VEEAM
             <br className="sm:hidden" />
             <span className="text-primary"> BACKUP&nbsp;&amp;&nbsp;REPLICATION</span>

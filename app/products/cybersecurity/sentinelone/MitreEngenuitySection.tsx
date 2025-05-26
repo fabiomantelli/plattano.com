@@ -29,7 +29,7 @@ export default function MitreEngenuitySection() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="w-full py-24 text-neutral-900 dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:text-white dark:bg-black bg-white">
       <div
         ref={ref}
         className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-16 flex flex-col items-center gap-16"

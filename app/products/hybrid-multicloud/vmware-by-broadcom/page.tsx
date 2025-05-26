@@ -5,8 +5,8 @@ import MulticloudImpactSection from "./MulticloudImpactSection";
 import EraMultiCloudSection from "./EraMultiCloudSection";
 import CloudFoundationSection from "./CloudFoundationSection";
 import CloudFoundationFeaturesSection from "./CloudFoundationFeaturesSection";
-import UseCasesGridSection from "@/app/products/hybrid-multicloud/vmware/UseCasesGridSection";
-import VmwareFaqSection from "@/app/products/hybrid-multicloud/vmware/VmwareFaqSection";
+import UseCasesGridSection from "./UseCasesGridSection";
+import VmwareFaqSection from "./VmwareFaqSection";
 import Footer from "@/app/ui/layout/Footer";
 
 export default function VmwarePage() {

@@ -36,7 +36,7 @@ export default function VeeamLeaderStatsSection() {
   const isInView = useInView(ref, { once: true, amount: 0.5 })
 
   return (
-    <section ref={ref} className="w-full py-24 text-neutral-900  dark:text-white">
+    <section ref={ref} className="w-full py-24 text-neutral-900 dark:text-white bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-16">
         {/* Title */}
         <div className="text-center space-y-4">
@@ -44,7 +44,7 @@ export default function VeeamLeaderStatsSection() {
             <span className="text-primary">ALIGN WITH THE</span> LEADER #1
           </h2>
           <p className="text-xl">
-            Don’t trust your data strategy to anyone but the global leader in data protection and recovery.
+            Don&apos;t trust your data strategy to anyone but the global leader in data protection and recovery.
           </p>
         </div>
 

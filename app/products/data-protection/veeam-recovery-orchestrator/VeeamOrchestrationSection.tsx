@@ -80,7 +80,7 @@ const FEATURES = [
 
 export default function VeeamOrchestrationSection() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden dark:bg-black bg-white">
       {/* faint patterned bg (optional) */}
       <div className="relative mx-auto max-w-7xl px-6 py-24">
         {/* headline */}

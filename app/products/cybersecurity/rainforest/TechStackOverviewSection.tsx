@@ -122,7 +122,7 @@ export default function TechStackOverviewSection() {
   ]
 
   return (
-    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
+    <section className="w-full py-20 bg-neutral-200 text-black dark:bg-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -30,7 +30,7 @@ export default function StatsSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="w-full py-24 text-neutral-900 dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:text-white dark:bg-black bg-white">
       <div
         ref={ref}
         className="mx-auto max-w-7xl flex flex-col items-center gap-16 px-8 sm:px-12 lg:px-24"

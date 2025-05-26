@@ -5,7 +5,7 @@ import { FaBrain, FaClock, FaShieldAlt } from 'react-icons/fa'; // Importing ico
 
 export default function AutonomousTechSection() {
   return (
-    <section className="w-full py-24 text-neutral-900 dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:text-white dark:bg-black bg-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -52,7 +52,7 @@ export default function AutonomousTechSection() {
               <h3 className="text-xl font-semibold text-primary">REAL-TIME RESOLUTION</h3>
             </div>
             <p className="text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-              Don’t just identify malicious behavior. Block and remediate advanced threats at machine speed with
+              Don&apos;t just identify malicious behavior. Block and remediate advanced threats at machine speed with
               multi-platform analysis.
             </p>
           </motion.div>

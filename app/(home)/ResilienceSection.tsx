@@ -38,7 +38,7 @@ export default function ResilienceSection() {
           "
         >
           <span className="text-primary dark:text-primary">ACTIVATE</span>{' '}
-          YOUR COMPANY’S DIGITAL RESILIENCE.
+          YOUR COMPANY&apos;S DIGITAL RESILIENCE.
           <br />
           <span className="text-primary dark:text-primary">ACTIVATE</span> IT
           HERE AND NOW.

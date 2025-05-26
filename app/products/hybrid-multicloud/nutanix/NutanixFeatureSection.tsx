@@ -32,7 +32,7 @@ const features = [
 
 export default function NutanixFeatureSection() {
   return (
-    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-white text-neutral-900 dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         {/* Title */}
         <motion.h2
@@ -54,7 +54,7 @@ export default function NutanixFeatureSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
               viewport={{ once: true, amount: 0.4 }}
-              className="p-6 rounded-2xl shadow-md border bg-white/80 dark:bg-white/5 border-neutral-200 dark:border-white/10 backdrop-blur-sm transition-all duration-300"
+              className="p-6 rounded-2xl shadow-md border bg-white dark:bg-neutral-900 dark:border-neutral-200 border-neutral-300 dark:border-white/10 backdrop-blur-sm transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <item.icon className="w-8 h-8 text-primary" />

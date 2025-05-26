@@ -6,7 +6,7 @@ import { FaPuzzlePiece, FaServer, FaCloud } from 'react-icons/fa'; // Use react-
 
 export default function NutanixThreeIconsSection() {
   return (
-    <section className="w-full py-24 text-white dark:text-white">
+    <section className="w-full py-24 dark:bg-black bg-white text-white dark:text-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function VeeamCommercialValueSection() {
   return (
-    <section className="w-full py-24 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:bg-black bg-white dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
         {/* Text Block */}
         <div className="flex-1 space-y-6 text-center md:text-left">

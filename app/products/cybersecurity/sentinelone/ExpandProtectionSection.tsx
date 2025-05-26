@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function ExpandProtectionSection() {
   return (
-    <section className="w-full py-24 text-neutral-900 dark:bg-black dark:text-white">
+    <section className="w-full py-24 text-neutral-900 dark:bg-black bg-white dark:bg-black dark:text-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

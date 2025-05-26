@@ -138,7 +138,7 @@ export default function SupportedLanguagesSection() {
   ];
 
   return (
-    <section className="py-16">
+    <section className="py-16 dark:bg-neutral-900 bg-neutral-200">
       <div className="container px-4 mx-auto text-center">
         <motion.h2
           className="text-3xl md:text-4xl font-bold mb-10 text-black dark:text-white"

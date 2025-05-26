@@ -3,21 +3,17 @@
 
 export default function VeeamConfidenceSection() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden dark:bg-black bg-white">
       <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
-        {/* ---------- headline ---------- */}
-        <h2 className="text-3xl font-extrabold tracking-wide sm:text-4xl">
-          <span className="text-[#ED6E00]">BE CONFIDENT</span> IN&nbsp;YOUR&nbsp;RECOVERY&nbsp;PLAN
+        <h2 className="text-3xl font-extrabold tracking-wide sm:text-4xl dark:text-neutral-200 text-neutral-900">
+          <span className="text-primary">BE CONFIDENT</span> IN YOUR RECOVERY PLAN
         </h2>
 
-        {/* ---------- intro ---------- */}
         <p className="mx-auto mt-6 max-w-3xl text-lg text-neutral-700 dark:text-gray-300">
           Say goodbye to business disruptions, brand damage and lost customer trust with a proven,
-          fully&nbsp;tested solution that guarantees recovery every time&nbsp;— and even writes its
+          fully tested solution that guarantees recovery every time — and even writes its
           own reports!
         </p>
-
-        {/* ---------- cards ---------- */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {

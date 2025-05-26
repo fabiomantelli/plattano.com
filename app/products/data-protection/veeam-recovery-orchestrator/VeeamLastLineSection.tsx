@@ -41,25 +41,25 @@ export default function VeeamLastLineSection() {
   const { ref: ref50, value: v50 } = useCountUp(50);
 
   return (
-    <section className="relative isolate overflow-hidden dark:bg-black text-white dark:text-black">
+    <section className="relative isolate overflow-hidden dark:bg-black bg-white text-white dark:text-black">
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {/* -------- copy -------- */}
         <div className="text-center md:text-left">
           <h2 className="text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl">
             <span className="text-primary">RECOVERY</span>
             <br />
-            IS&nbsp;YOUR&nbsp;LAST
+            IS YOUR LAST
             <br />
-            LINE&nbsp;OF&nbsp;<span className="text-primary">DEFENSE</span>
+            LINE OF <span className="text-primary">DEFENSE</span>
           </h2>
 
           <p className="mt-6 max-w-md mx-auto md:mx-0 text-lg text-neutral-900 dark:text-neutral-500">
-            Ransomware is brutal. In our&nbsp;2023 survey, cyber-threats outranked every other
+            Ransomware is brutal. In our 2023 survey, cyber-threats outranked every other
             obstacle to digital and IT transformation.
           </p>
 
           <p className="mt-6 text-sm text-gray-500 dark:text-gray-700">
-            Source:&nbsp;<em>2023 Data Protection Trends</em>.
+            Source: <em>2023 Data Protection Trends</em>.
           </p>
         </div>
 

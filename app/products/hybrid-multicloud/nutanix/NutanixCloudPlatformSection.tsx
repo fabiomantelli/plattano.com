@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function NutanixCloudPlatformSection() {
   return (
-    <section className="w-full py-24">
+    <section className="w-full py-24 dark:bg-black bg-neutral-200">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -15,7 +15,7 @@ export default function NutanixCloudPlatformSection() {
       >
         {/* Title and Logo */} 
         <div className="flex items-center justify-center space-x-4 text-center">
-          <h2 className="text-4xl font-bold text-white">
+          <h2 className="text-4xl font-bold dark:text-white text-neutral-900">
             NUTANIX <span className="text-primary">CLOUD PLATFORM</span>
           </h2>
           <div className="flex justify-center">
@@ -66,7 +66,7 @@ export default function NutanixCloudPlatformSection() {
         </div>
 
         {/* Additional Text */}
-        <div className="text-center mt-8 text-lg md:text-xl font-medium">
+        <div className="text-center dark:text-neutral-400 text-black mt-8 text-lg md:text-xl font-medium">
           <p>
             The Nutanix Cloud Platform includes hybrid cloud infrastructure, unified storage, container services, database services, and desktop services to offer support for any application and workload, anywhere.
           </p>

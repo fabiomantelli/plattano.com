@@ -18,7 +18,7 @@ export default function NutanixTrustedSection() {
       >
         {/* Title */}
         <div className="text-center space-y-6">
-          <h2 className="text-4xl font-bold">
+          <h2 className="text-4xl font-bold dark:text-neutral-200 text-black">
             <span className='text-primary'>OVER 23,000</span> LEADING COMPANIES TRUST  <span className='text-primary'>NUTANIX</span>
           </h2>
         </div>
