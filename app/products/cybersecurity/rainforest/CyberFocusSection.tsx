@@ -19,7 +19,10 @@ export default function CyberFocusSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section className="w-full py-24 bg-white text-black dark:bg-neutral-900 dark:text-white">
@@ -55,20 +58,21 @@ export default function CyberFocusSection() {
             >
               <div className="text-[36px] font-bold text-primary mb-2 h-[1.2em] flex items-center justify-center">
                 {mounted && inView ? (
-                  <CountUp
-                    start={0}
-                    end={stat.value}
-                    duration={2}
-                    decimals={stat.value % 1 !== 0 ? 2 : 0}
-                    prefix={stat.prefix ?? ''}
-                    suffix={` ${stat.unit}`}
-                  >
-                    {({ countUpRef }) => <span ref={countUpRef} />}
-                  </CountUp>
+                  <span suppressHydrationWarning>
+                    <CountUp
+                      start={0}
+                      end={stat.value}
+                      duration={2}
+                      decimals={stat.value % 1 !== 0 ? 2 : 0}
+                      prefix={stat.prefix ?? ''}
+                      suffix={` ${stat.unit}`}
+                    >
+                      {({ countUpRef }) => <span ref={countUpRef} />}
+                    </CountUp>
+                  </span>
                 ) : (
-                  <span>
-                    {stat.prefix ?? ''}
-                    0 {stat.unit}
+                  <span className="opacity-0">
+                    {stat.prefix ?? ''}0 {stat.unit}
                   </span>
                 )}
               </div>
