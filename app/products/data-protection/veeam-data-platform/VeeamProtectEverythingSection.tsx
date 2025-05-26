@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function VeeamProtectsEverythingSection() {
   return (
-    <section className="w-full py-24 bg-black/9 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 text-center space-y-16">
         {/* Title */}
         <div className="space-y-4">

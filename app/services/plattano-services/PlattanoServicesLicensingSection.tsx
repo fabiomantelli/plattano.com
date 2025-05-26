@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 export default function PlattanoServicesLicensingSection() {
   const benefits = [
-    'High‑performance OEM partnership',
-    'Industry‑leading national expertise',
+    'High-performance OEM partnership',
+    'Industry-leading national expertise',
     'Software compliance guarantee',
     'Highly consultative process',
     'Licensing as a Service (LaaS)',
@@ -14,7 +14,7 @@ export default function PlattanoServicesLicensingSection() {
   ]
 
   return (
-    <section className="w-full py-20 bg-white text-black dark:bg-dark dark:text-white">
+    <section className="w-full py-20 bg-white text-black dark:bg-black dark:text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
           {/* Left column */}
@@ -41,12 +41,12 @@ export default function PlattanoServicesLicensingSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="w-full md:w-1/2"
           >
-            <div className="w-full bg-primary text-black dark:text-black rounded-lg p-6 shadow-lg text-center md:text-left">
+            <div className="w-full bg-primary text-white dark:text-black dark:bg-neutral-300 rounded-lg p-6 shadow-lg text-center md:text-left">
               <h3 className="text-xl font-semibold mb-4">Benefits When You License with Us</h3>
               <ul className="space-y-2 list-none">
                 {benefits.map((b, i) => (
                   <li key={i} className="flex items-start md:justify-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-black flex-shrink-0" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-white dark:bg-black flex-shrink-0" />
                     <span className="text-sm">{b}</span>
                   </li>
                 ))}

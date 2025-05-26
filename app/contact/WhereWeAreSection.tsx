@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function WhereWeAreSection() {
   return (
-    <section className="w-full bg-black/9 dark:bg-neutral-900 text-black dark:text-white px-6 sm:px-12 lg:px-24 py-20">
+    <section className="w-full bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white px-6 sm:px-12 lg:px-24 py-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         
         {/* Texto à esquerda */}

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function PlattanoServicesSupportProgramsSection() {
   return (
-    <section className="w-full py-20 bg-black/9 text-black dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-20 bg-black/10 text-black dark:bg-neutral-900 dark:text-white">
       <div className="max-w-5xl mx-auto px-6 sm:px-12 lg:px-24 space-y-8 text-center">
         {/* Heading */}
         <motion.h2

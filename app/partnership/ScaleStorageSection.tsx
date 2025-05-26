@@ -4,7 +4,7 @@ import { BarChartBig } from 'lucide-react';
 
 export default function ScaleStorageSection() {
   return (
-    <section className="w-full bg-black/9 dark:bg-neutral-900 text-black dark:text-white py-20 px-6 sm:px-12 lg:px-24">
+    <section className="w-full bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white py-20 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Icon */}
         <div className="md:w-1/3 w-full flex justify-center md:justify-start">

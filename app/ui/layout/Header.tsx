@@ -182,7 +182,7 @@ export default function Header() {
   );
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-4 shadow-md' : 'py-6'} dark:bg-black bg-primary`}>
+    <header className={`fixed top-0 z-50 w-full transition-all ${isScrolled ? 'py-4 shadow-md' : 'py-6'} bg-primary dark:bg-black`}>
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-8 sm:px-12">
         {/* logo */}
       <Link href="/" className="flex-shrink-0">
@@ -328,10 +328,9 @@ export default function Header() {
       {/* mobile drawer */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs transform transition-transform ${
+        className={`fixed top-0 right-0 z-50 h-full w-3/4 max-w-xs bg-white dark:bg-black transform transition-transform ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
-        } bg-white dark:bg-black`}
-        suppressHydrationWarning
+        }`}
       >
         <nav className="mt-24 px-6">
           <ul className="flex flex-col space-y-4">

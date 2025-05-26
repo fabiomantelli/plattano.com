@@ -40,7 +40,7 @@ const itemsBottom = [
 
 export default function SingularityIntegrationSection() {
   return (
-    <section className="w-full py-24 bg-black/9 text-neutral-900 dark:bg-neutral-900 dark:text-white">
+    <section className="w-full py-24 bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
