@@ -42,7 +42,7 @@ export default function HeroSection() {
           </h1>
 
           <h2 className="text-[24px] font-medium font-sofia-sans">
-            It’s not a matter of <span className="text-primary">if</span> — it's <span className="text-primary">when</span>.
+            It&apos;s not a matter of <span className="text-primary">if</span> — it&apos;s <span className="text-primary">when</span>.
           </h2>
 
           <p className="text-[18px] font-ubuntu leading-relaxed text-neutral-800 dark:text-neutral-300">

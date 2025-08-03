@@ -17,11 +17,11 @@ export default function VeeamAwsHeroSection() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            Veeam Backup for AWS in Orlando – <span className="text-primary">Cloud-Native Protection</span>
+            Veeam Backup for AWS in Orlando - <span className="text-primary">Cloud-Native Protection</span>
           </h1>
 
           <p className="text-base sm:text-lg text-neutral-800 dark:text-neutral-300">
-            Protect your AWS workloads with Plattano Technologies using Veeam's native backup and disaster recovery for Amazon EC2, RDS, and more — fully secured and optimized for enterprises in Orlando.
+            Protect your AWS workloads with Plattano Technologies using Veeam&apos;s native backup and disaster recovery for Amazon EC2, RDS, and more — fully secured and optimized for enterprises in Orlando.
           </p>
 
           <ul className="space-y-4 text-base sm:text-lg text-center md:text-left pt-2">
