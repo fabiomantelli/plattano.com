@@ -4,12 +4,6 @@ import { Phone, Mail, Instagram, Clock } from 'lucide-react';
 import Link from 'next/link';
 import ContactForm from '@/app/components/ContactForm';
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 export default function Footer() {
   const handleAnalytics = (label: string, destination: string) => {
     if (typeof window !== 'undefined' && window.gtag) {
