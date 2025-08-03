@@ -21,7 +21,7 @@ export default function HeroSection() {
           <div className="hidden md:block mb-4">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-light-logo.webp"
-              alt="Logotipo Rainforest Tech claro"
+              alt="Rainforest Tech logo light"
               width={300}
               height={103}
               className="block dark:hidden h-auto w-auto"
@@ -30,7 +30,7 @@ export default function HeroSection() {
             />
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp"
-              alt="Logotipo Rainforest Tech escuro"
+              alt="Rainforest Tech logo dark"
               width={300}
               height={103}
               className="hidden dark:block h-auto w-auto"
@@ -40,11 +40,11 @@ export default function HeroSection() {
           </div>
 
           <h1 className="text-[40px] md:text-[48px] font-extrabold font-sofia leading-tight">
-            Plataforma de <span className="text-primary">Cibersegurança All-in-One</span> Rainforest.tech em Orlando
+            All-in-One <span className="text-primary">Cybersecurity Platform</span> by Rainforest.tech in Orlando
           </h1>
 
           <p className="text-[18px] font-ubuntu leading-relaxed">
-            A Plattano Technologies oferece a <span className="text-primary">plataforma unificada da Rainforest.tech</span> para cibersegurança corporativa em Orlando. Reduza riscos com inteligência, automação e proteção de ponta.
+            Plattano Technologies brings you the unified <span className="text-primary">Rainforest.tech cybersecurity platform</span> for enterprise protection in Orlando. Reduce risks with intelligent automation and advanced threat prevention.
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
           <div className="block md:hidden mb-6">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-light-logo.webp"
-              alt="Logotipo Rainforest Tech claro"
+              alt="Rainforest Tech logo light"
               width={300}
               height={103}
               className="mx-auto h-auto w-auto block dark:hidden"
@@ -69,7 +69,7 @@ export default function HeroSection() {
             />
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-dark-logo.webp"
-              alt="Logotipo Rainforest Tech escuro"
+              alt="Rainforest Tech logo dark"
               width={300}
               height={103}
               className="mx-auto h-auto w-auto hidden dark:block"
@@ -81,7 +81,7 @@ export default function HeroSection() {
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-full mt-6 md:mt-0">
             <Image
               src="/images/products/cybersecurity/rainforest/rainforest-hero.png"
-              alt="Dashboard da plataforma de cibersegurança Rainforest.tech"
+              alt="Rainforest.tech cybersecurity platform dashboard"
               width={600}
               height={400}
               className="w-full h-auto"
