@@ -1,3 +1,4 @@
+// app/ui/analytics/AnalyticsTracker.tsx
 'use client'
 
 import { usePathname, useSearchParams } from 'next/navigation'
