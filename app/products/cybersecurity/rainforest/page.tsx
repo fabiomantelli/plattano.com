@@ -15,30 +15,30 @@ import VulnerabilitySection from './VulnerabilitySection';
 import WhyChooseUsSection from './WhyChooseUsSection';
 
 export const metadata = {
-  title: 'Rainforest.tech em Orlando | Soluções Sustentáveis para Data Centers – Plattano',
+  title: 'Rainforest.tech in Orlando | Sustainable Data Center Solutions – Plattano',
   description:
-    'Revenda autorizada da Rainforest.tech em Orlando, a Plattano Technologies oferece soluções em eficiência energética, sustentabilidade e inteligência para data centers.',
+    'Plattano Technologies is an authorized Rainforest.tech partner in Orlando, providing smart, energy-efficient, and sustainable solutions for enterprise data centers.',
   keywords: [
     'Rainforest.tech Orlando',
-    'sustentabilidade data center',
-    'eficiência energética TI',
-    'parceiro Rainforest.tech',
-    'resfriamento inteligente',
-    'carbono zero data center',
+    'sustainable data center',
+    'energy-efficient IT',
+    'Rainforest.tech partner',
+    'intelligent cooling',
+    'carbon-neutral data center',
     'Plattano Technologies',
-    'tecnologia verde Orlando',
+    'green IT Orlando',
   ],
   alternates: {
-    canonical: 'https://seudominio.com/rainforest', // 🔁 Substituir com seu domínio real
+    canonical: 'https://plattano.com/products/cybersecurity/rainforest',
   },
   openGraph: {
-    title: 'Rainforest.tech Orlando | Eficiência Energética para Data Centers',
+    title: 'Rainforest.tech in Orlando | Energy-Efficient Data Center Solutions',
     description:
-      'Soluções inteligentes da Rainforest.tech com foco em sustentabilidade, performance energética e gestão inteligente de data centers. Atuação local em Orlando com suporte especializado.',
-    url: 'https://seudominio.com/rainforest',
-    siteName: 'Plattano Technologies',
+      'Plattano delivers Rainforest.tech solutions focused on sustainability, energy performance, and intelligent infrastructure for data centers in Orlando and across Florida.',
+    url: 'https://plattano.com/products/cybersecurity/rainforest',
+    siteName: 'Plattano Technologies US',
     type: 'website',
-    locale: 'pt_BR',
+    locale: 'en_US',
   },
 };
 
