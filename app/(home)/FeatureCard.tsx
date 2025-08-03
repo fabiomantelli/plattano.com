@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { event } from "@/lib/gtag/events";
 
 export interface Feature {
   logo: string;
@@ -26,26 +27,29 @@ export default function FeatureCard({ logo, title, description, cta }: Feature) 
         flex flex-col items-center text-center
       "
     >
-      {/* Logo: grayscale by default, restores color on hover */}
       <div className="w-32 h-16 mb-4 flex items-center justify-center filter grayscale transition-all duration-200 group-hover:grayscale-0">
         <Image
           src={logo}
           alt={`${title} logo`}
-          width={128}   // Define explicit width here
-          height={64}   // Define explicit height here
+          width={128}
+          height={64}
           className="object-contain transition-transform duration-200 group-hover:scale-105 w-full h-full"
           priority
         />
       </div>
 
-      {/* Title */}
       <h3 className="w-4/5 mx-auto text-xl font-bold mb-2">{title}</h3>
 
-      {/* Description */}
       <p className="flex-1 w-4/5 mx-auto flex items-center justify-center mb-4">{description}</p>
 
-      {/* CTA button */}
       <button
+        onClick={() =>
+          event({
+            action: 'click_feature_cta',
+            category: 'feature_card',
+            label: title,
+          })
+        }
         className="
           mt-auto
           inline-flex items-center justify-center
