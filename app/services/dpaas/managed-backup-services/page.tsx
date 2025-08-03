@@ -12,6 +12,36 @@ import ManagedBackupServicesVaspServices3Section from "./ManagedBackupServicesVa
 import ManagedBackupServicesVeeamPartnerSection from "./ManagedBackupServicesVeeamPartnerSection";
 import ManagedBackupServicesWeTakeCareOfEverythingSection from "./ManagedBackupServicesWeTakeCareOfEverthingSection";
 
+export const metadata = {
+    title: 'Plattano Technologies | Managed Backup Services in Orlando | Veeam Accredited BaaS by Plattano',
+    description:
+      'Plattano Technologies delivers fully managed backup services (BaaS) for businesses in Orlando. Ensure compliance, fast recovery, and 24/7 protection with our Veeam-certified experts.',
+    keywords: [
+      'Managed Backup Services Orlando',
+      'BaaS Veeam Partner',
+      'Backup as a Service',
+      'VASP provider',
+      'cloud backup solutions',
+      'data protection services',
+      'Plattano Technologies',
+      'Orlando Veeam backup',
+      'backup compliance services',
+      'backup automation and SLAs',
+    ],
+    alternates: {
+      canonical: 'https://plattano.com/services/dpaas/managed-backup-services',
+    },
+    openGraph: {
+      title: 'Managed Backup Services in Orlando | BaaS by Veeam-Certified Experts – Plattano',
+      description:
+        'Plattano offers managed backup with proven Veeam infrastructure and local Orlando expertise. From compliance to SLA-driven recovery, we handle everything for you.',
+      url: 'https://plattano.com/services/dpaas/managed-backup-services',
+      siteName: 'Plattano Technologies',
+      type: 'website',
+      locale: 'en_US',
+    },
+  };
+  
 export default function ManagedBackupServicesPage() {
     return (
         <>

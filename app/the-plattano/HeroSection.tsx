@@ -9,21 +9,23 @@ export default function HeroSection() {
       style={{ height: 'calc(100vh - 60px)' }}
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 h-full py-20">
+
         {/* Text Section */}
         <div className="md:w-1/2 space-y-6 text-center md:text-left">
           <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-            WE <span className="text-primary">RAISE THE BAR</span> FOR IT SERVICE DELIVERY.
+            ABOUT PLATTANO TECHNOLOGIES:<br />
+            <span className="text-primary">Raising the Bar</span> in IT Services
           </h1>
 
           <div className="space-y-4 text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
             <p>
-              We were born from a seed of an idea. Like a tree, we grew through seasons, serving companies through technology.
+              Plattano Technologies was born from an idea—and like a tree, we grew through seasons, serving businesses through secure, resilient, and smart technology.
             </p>
             <p>
-              We have strong roots that reflect our reputation. And we never stop <strong className="text-white dark:text-primary">GROWING</strong>, branching out through innovation to solve the challenges our clients face.
+              With deep roots in innovation and excellence, we continue <strong className="text-white dark:text-primary">GROWING</strong>, delivering IT services in Orlando and beyond with cybersecurity, cloud, and data protection at our core.
             </p>
-            <p className="text-primary font-semibold">WE ARE PLATTANO.</p>
-            <p className="font-semibold">TECHNOLOGY TO SERVE AND TRANSFORM.</p>
+            <p className="text-primary font-semibold uppercase">We are Plattano.</p>
+            <p className="font-semibold uppercase">Technology to serve and transform.</p>
           </div>
         </div>
 
@@ -32,7 +34,7 @@ export default function HeroSection() {
           {/* Light mode image */}
           <Image
             src="/images/the-plattano/plattano-logo-hero-light.svg"
-            alt="Plattano Logo Light"
+            alt="Plattano Technologies logo with identity concept for IT services in Orlando"
             width={600}
             height={400}
             className="w-full h-auto max-w-md md:max-w-full block dark:hidden"
@@ -42,7 +44,7 @@ export default function HeroSection() {
           {/* Dark mode image */}
           <Image
             src="/images/the-plattano/plattano-logo-hero-dark.svg"
-            alt="Plattano Logo Dark"
+            alt="Plattano Technologies logo with identity concept for IT services in Orlando (dark)"
             width={600}
             height={400}
             className="w-full h-auto max-w-md md:max-w-full hidden dark:block"

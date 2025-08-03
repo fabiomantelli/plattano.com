@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/partnership/partnership-hero.png"
-          alt="Partnership Background"
+          alt="Plattano partner program background with icons representing revenue, growth, and market acceleration"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
           className="brightness-[1.9] dark:brightness-[0.6]"
@@ -31,12 +31,15 @@ export default function HeroSection() {
         >
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-black dark:text-white max-w-3xl">
-            BECAUSE NO ONE GROWS ALONE
+            PARTNER WITH PLATTANO<br />
+            <span className="text-primary">Because No One Grows Alone</span>
           </h1>
 
           {/* Accelerate Section */}
           <div className="flex flex-col items-center text-black dark:text-white">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4">ACCELERATE:</h2>
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 uppercase text-primary">
+              Accelerate Your IT Business
+            </h2>
 
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm md:text-base font-medium mb-6 max-w-3xl">
               {[
@@ -55,9 +58,9 @@ export default function HeroSection() {
 
             <hr className="my-6 border-orange-500 w-full max-w-xs opacity-70" />
 
-            <h3 className="text-lg md:text-xl font-bold tracking-wide">EMPOWERED BY PLATTANO</h3>
+            <h3 className="text-lg md:text-xl font-bold tracking-wide uppercase">Built for MSPs, Resellers & IT Providers</h3>
             <p className="text-orange-500 mt-2 text-sm md:text-xl max-w-xl">
-              Don&apos;t leave money on the table — we unlock all your opportunities.
+              Unlock scalable solutions, white-label services, and real margins with Plattano.
             </p>
           </div>
         </motion.div>

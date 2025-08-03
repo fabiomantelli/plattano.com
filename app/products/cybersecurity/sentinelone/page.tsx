@@ -24,6 +24,35 @@ import StatsSection from "./StatsSection";
 import VisibilityFeaturesSection from "./VisibilityFeaturesSection";
 import VisibilityProtectionResponseSection from "./VisibilityProtectionResponseSection";
 
+export const metadata = {
+    title: 'Plattano Technologies | SentinelOne in Orlando | Autonomous AI Cybersecurity',
+    description:
+      'Plattano Technologies offers SentinelOne solutions in Orlando, providing autonomous AI-driven endpoint protection, XDR, and real-time threat prevention for enterprises.',
+    keywords: [
+      'SentinelOne Orlando',
+      'endpoint protection',
+      'XDR solutions',
+      'autonomous cybersecurity',
+      'AI cybersecurity',
+      'Plattano Technologies',
+      'SentinelOne partner Florida',
+      'cybersecurity company Orlando',
+    ],
+    alternates: {
+      canonical: 'https://plattano.com/products/cybersecurity/sentinelone',
+    },
+    openGraph: {
+      title: 'SentinelOne Orlando | AI-Powered Endpoint Security by Plattano',
+      description:
+        'Plattano delivers SentinelOne-powered endpoint and XDR cybersecurity solutions for businesses in Orlando. Protect your operations with real-time, autonomous AI security.',
+      url: 'https://plattano.com/products/cybersecurity/sentinelone',
+      siteName: 'Plattano Technologies',
+      type: 'website',
+      locale: 'en_US',
+    },
+  };
+
+
 export default function SentinelOne() {
     return (
         <>

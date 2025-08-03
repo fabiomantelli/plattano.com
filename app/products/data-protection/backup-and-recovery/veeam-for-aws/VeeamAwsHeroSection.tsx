@@ -1,13 +1,13 @@
-// app/(aws)/veeam-for-aws/ui/VeeamAwsHeroSection.tsx
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function VeeamAwsHeroSection() {
   return (
     <section className="w-full bg-white text-black dark:bg-black dark:text-white py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center gap-12">
+
         {/* Text Column */}
         <motion.div
           className="md:w-1/2 w-full space-y-6 text-center md:text-left"
@@ -17,20 +17,25 @@ export default function VeeamAwsHeroSection() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            <span className="text-primary">COMPREHENSIVE</span> PROTECTION FOR AWS DATA
+            Veeam Backup for AWS in Orlando – <span className="text-primary">Cloud-Native Protection</span>
           </h1>
-          <ul className="space-y-4 text-base sm:text-lg text-center md:text-left">
+
+          <p className="text-base sm:text-lg text-neutral-800 dark:text-neutral-300">
+            Protect your AWS workloads with Plattano Technologies using Veeam's native backup and disaster recovery for Amazon EC2, RDS, and more — fully secured and optimized for enterprises in Orlando.
+          </p>
+
+          <ul className="space-y-4 text-base sm:text-lg text-center md:text-left pt-2">
             <li className="flex items-start gap-3 justify-center md:justify-start">
               <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-              <span>Beyond limited snapshots with agentless backup and DR</span>
+              <span>Beyond snapshots: agentless backup and full DR orchestration</span>
             </li>
             <li className="flex items-start gap-3 justify-center md:justify-start">
               <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-              <span>5× faster recovery for optimized RTOs</span>
+              <span>5× faster recovery with optimized RTO and RPO</span>
             </li>
             <li className="flex items-start gap-3 justify-center md:justify-start">
               <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-              <span>Secure backup with immutable storage and encryption</span>
+              <span>Secure backup with encryption, IAM integration, and immutability</span>
             </li>
           </ul>
         </motion.div>
@@ -45,7 +50,7 @@ export default function VeeamAwsHeroSection() {
         >
           <Image
             src="/images/products/data-protection/backup-and-recovery/veeam-for-aws/veeam-aws-hero.png"
-            alt="Illustration for AWS data protection"
+            alt="Veeam Backup for AWS platform protecting cloud workloads"
             width={800}
             height={500}
             className="w-full h-auto object-cover"
@@ -54,5 +59,5 @@ export default function VeeamAwsHeroSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

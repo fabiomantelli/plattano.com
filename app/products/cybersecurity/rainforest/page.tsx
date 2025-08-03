@@ -15,7 +15,7 @@ import VulnerabilitySection from './VulnerabilitySection';
 import WhyChooseUsSection from './WhyChooseUsSection';
 
 export const metadata = {
-  title: 'Rainforest.tech in Orlando | Sustainable Data Center Solutions – Plattano',
+  title: 'Plattano Technologies | Rainforest.tech in Orlando',
   description:
     'Plattano Technologies is an authorized Rainforest.tech partner in Orlando, providing smart, energy-efficient, and sustainable solutions for enterprise data centers.',
   keywords: [

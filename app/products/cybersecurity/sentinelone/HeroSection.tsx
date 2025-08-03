@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/products/cybersecurity/sentinelone/sentinelone-hero.png"
-          alt="Background Image"
+          alt="SentinelOne AI-powered cybersecurity platform background"
           fill
           style={{ objectFit: 'cover' }}
           className="opacity-50"
@@ -29,14 +29,14 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
           className="space-y-6 flex flex-col items-center justify-center"
         >
-          {/* Title */}
+          {/* Title with SEO keyword */}
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center">
-            <span className="text-primary">SECURITY</span> THAT PROTECTS YOUR WORLD
+            Autonomous <span className="text-primary">Endpoint Security</span> by SentinelOne in Orlando
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl font-medium leading-relaxed text-center">
-            From endpoint to cloud. From IoT devices to containers – we provide the resources and technology to protect your business like never before.
+          {/* Subtitle with value prop */}
+          <p className="text-lg md:text-xl font-medium leading-relaxed text-center max-w-3xl">
+            Plattano Technologies delivers AI-powered threat protection with SentinelOne - securing endpoints, cloud workloads, and IoT infrastructure across Orlando businesses.
           </p>
         </motion.div>
       </div>

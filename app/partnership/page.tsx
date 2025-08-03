@@ -17,6 +17,36 @@ import VeeamMVPSection from "./VeeamMVPSection";
 import VeeamPoweredSection from "./VeeamPoweredSection";
 import WhatWeOfferSection from "./WhatWeOfferSection";
 
+export const metadata = {
+    title: 'Plattano Technologies | Partner with Plattano | Strategic IT Partnerships & BaaS Solutions',
+    description:
+      'Become a Plattano Partner and unlock high-margin, scalable IT solutions including Veeam-powered backup, hot storage, and managed services. Built for MSPs and resellers.',
+    keywords: [
+      'Plattano partnership',
+      'Veeam partner Orlando',
+      'BaaS reseller program',
+      'managed backup partner',
+      'IT reseller partnership',
+      'MSP Veeam solutions',
+      'Plattano hot storage',
+      'channel partner IT',
+      'data protection partner program',
+      'white-label BaaS',
+    ],
+    alternates: {
+      canonical: 'https://plattano.com/partnership',
+    },
+    openGraph: {
+      title: 'Plattano Partnership Program | Scale Your IT Business',
+      description:
+        'Join Plattano’s partner ecosystem and offer enterprise-grade backup, hot storage, and cloud services under your own brand—with full support and technical enablement.',
+      url: 'https://plattano.com/partnership',
+      siteName: 'Plattano Technologies',
+      type: 'website',
+      locale: 'en_US',
+    },
+  };
+  
 export default function PartnershipPage() {
     return (
         <>

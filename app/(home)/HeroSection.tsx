@@ -1,7 +1,7 @@
-// app/components/HeroSection.tsx
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function HeroSection() {
   return (
@@ -14,10 +14,10 @@ export default function HeroSection() {
           dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.png')]
         `}
       />
-      <div/>
+      <div />
 
-       {/* Grid watermark */}
-       <div
+      {/* Grid watermark */}
+      <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
@@ -40,10 +40,21 @@ export default function HeroSection() {
             drop-shadow-[0_0_2px_rgba(237,110,0,0.8)]
           `}
         >
-          CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
-          EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br/>
+          CONNECTING <span className="text-primary">INNOVATION</span>,<br />
+          EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br />
           YOUR WORLD, OUR <span className="text-primary">TECHNOLOGY</span>.
         </h1>
+
+        <p className="mt-6 text-md sm:text-xl font-medium text-neutral-800 dark:text-neutral-300 max-w-2xl mx-auto">
+          Plattano Technologies delivers secure IT solutions, including cloud infrastructure, data backup, and cybersecurity, helping businesses thrive across the U.S.—with headquarters in Orlando, Florida.
+        </p>
+
+        <Link
+          href="/contact"
+          className="mt-8 inline-block bg-primary text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition"
+        >
+          Talk to an Expert
+        </Link>
       </motion.div>
     </section>
   )

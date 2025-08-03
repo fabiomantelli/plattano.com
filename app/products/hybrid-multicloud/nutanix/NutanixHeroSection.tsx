@@ -15,18 +15,22 @@ export default function NutanixHeroSection() {
       >
         {/* Left side: Text content */}
         <div className="flex-1 text-center lg:text-left space-y-6">
-          <h2 className="text-5xl font-bold leading-tight">
-            <span className='text-primary'>SOLVING</span> THE <span className='text-primary'>GREATEST CLOUD CHALLENGES</span>
-          </h2>
+          <h1 className="text-5xl font-bold leading-tight">
+            Nutanix Cloud Platform in Orlando <br />
+            <span className="text-primary md:text-4xl text-3xl">Solving the Greatest Hybrid Cloud Challenges</span>
+          </h1>
+
           <p className="text-lg md:text-md font-medium leading-relaxed font-ubuntu">
-            Nutanix combines the simplicity and agility of public cloud with the performance and security of private cloud.
-            Whether on-premises or hybrid, you can ensure business continuity through unified management, operations,
-            and AI-driven automation.
+            Plattano Technologies delivers Nutanix hyperconverged and hybrid cloud solutions in Orlando. Combine the agility of public cloud with the performance, control, and security of private infrastructure—all through a unified platform.
           </p>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">NUTANIX IS A <span className='text-primary'>LEADER IN HCI</span></h3>
-            <h3 className="text-xl font-semibold">NUTANIX IS A LEADER IN THE <span className='text-primary'>FORRESTER WAVE™</span>: HYBRID INFRASTRUCTURE 2023</h3>
+            <h3 className="text-xl font-semibold">
+              Nutanix: <span className="text-primary">Leader in HCI and Cloud Simplicity</span>
+            </h3>
+            <h3 className="text-xl font-semibold">
+              Recognized in the <span className="text-primary">Forrester Wave™ 2023</span> for Hybrid Cloud Infrastructure
+            </h3>
           </div>
         </div>
 
@@ -34,7 +38,7 @@ export default function NutanixHeroSection() {
         <div className="flex-1 mt-8 lg:mt-0">
           <Image
             src="/images/products/hybrid-multicloud/nutanix/nutanix-hero.png"
-            alt="Nutanix Solution"
+            alt="Nutanix hyperconverged and hybrid cloud infrastructure platform interface"
             width={600}
             height={400}
             className="w-full h-auto"

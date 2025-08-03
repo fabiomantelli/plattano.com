@@ -8,19 +8,34 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Plattano Technologies – Empowering Businesses with Secure IT Solutions',
+  title: 'Plattano Technologies | Secure IT, Backup & Cybersecurity Solutions in Orlando',
   description:
-    'Plattano Technologies specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
+    'Plattano Technologies empowers businesses with secure IT solutions—from managed backup and cloud infrastructure to cybersecurity, ransomware protection, and partner services with Veeam, SentinelOne, ExaGrid, and Rainforest.tech.',
   keywords: [
     'Plattano Technologies',
-    'IT services',
-    'data protection',
-    'hybrid cloud',
-    'cybersecurity',
-    'managed services',
-    'cloud backup',
-    'digital transformation',
+    'cybersecurity Orlando',
+    'IT services USA',
+    'managed backup services',
+    'Veeam partner Orlando',
+    'SentinelOne reseller',
+    'Rainforest.tech distributor',
+    'ExaGrid backup appliances',
+    'hot cloud storage',
+    'hybrid cloud infrastructure',
+    'secure IT services Florida',
   ],
+  alternates: {
+    canonical: 'https://plattano.com/',
+  },
+  openGraph: {
+    title: 'Plattano Technologies | End-to-End Secure IT & Cloud Services in the U.S.',
+    description:
+      'IT services and cybersecurity for modern businesses: from secure backup and cloud to threat detection and partner integrations. Based in Orlando, serving clients nationwide.',
+    url: 'https://plattano.com/',
+    siteName: 'Plattano Technologies',
+    type: 'website',
+    locale: 'en_US',
+  },
   icons: {
     icon: [
       { url: '/images/home/favicon.ico', type: 'image/x-icon' },
@@ -34,6 +49,7 @@ export const metadata: Metadata = {
     ],
   },
 }
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

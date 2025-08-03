@@ -18,6 +18,34 @@ import VeeamM365ThreatStatsSection from "./VeeamM365ThreatStatsSection";
 import VeeamM365WhyBackupSection from "./VeeamM365WhyBackupSection";
 import VeeamM365YourResponsibilitySection from "./VeeamM365YourResponsibilitySection";
 
+export const metadata = {
+    title: 'Plattano Technologies | Veeam Backup for Microsoft 365 in Orlando | SaaS Email & OneDrive Protection',
+    description:
+      'Plattano Technologies offers Veeam Backup for Microsoft 365 in Orlando. Protect Exchange Online, SharePoint, OneDrive, and Teams with secure, compliant SaaS backup and rapid recovery.',
+    keywords: [
+      'Veeam Microsoft 365 backup',
+      'Office 365 backup',
+      'Veeam Orlando',
+      'SharePoint backup',
+      'Exchange Online protection',
+      'ransomware recovery Microsoft 365',
+      'SaaS data protection Orlando',
+      'Plattano Technologies',
+    ],
+    alternates: {
+      canonical: 'https://plattano.com/products/data-protection/veeam-for-microsoft-365',
+    },
+    openGraph: {
+      title: 'Veeam Backup for Microsoft 365 | SaaS Data Protection in Orlando',
+      description:
+        'Get comprehensive Microsoft 365 backup with Veeam. Plattano helps secure your business email, Teams, and files against ransomware, accidental deletion, and compliance gaps.',
+      url: 'https://plattano.com/products/data-protection/veeam-for-microsoft-365',
+      siteName: 'Plattano Technologies',
+      type: 'website',
+      locale: 'en_US',
+    },
+  };
+  
 export default function VeeamForMicrosoft365() {
     return (
         <>

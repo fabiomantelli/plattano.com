@@ -16,24 +16,22 @@ export default function VeeamOneHeroSection() {
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-24 lg:grid-cols-2 lg:gap-16">
         {/* -------- text -------- */}
-        <div className="text-center lg:text-left">
+        <div className="text-center lg:text-left space-y-5">
           <h1 className="text-3xl font-extrabold tracking-tight text-black dark:text-white sm:text-4xl">
-            IT’S TIME TO BE&nbsp;
-            <span className="text-primary">PROACTIVE</span>
-            <br />
-            ABOUT&nbsp;<span className="text-primary">THREAT MITIGATION</span>
+            Veeam ONE in Orlando<br />
+            <span className="text-primary">Real-Time Backup Monitoring & Compliance Visibility</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-md text-lg text-neutral-900 dark:text-gray-300 lg:mx-0">
-            Detect malicious backup activity to keep your recovery posture compliant.
+          <p className="max-w-md text-lg text-neutral-900 dark:text-gray-300 lg:mx-0">
+            Detect threats early, track anomalies, and ensure SLA and ransomware compliance with Veeam ONE — part of the Veeam Data Platform.
           </p>
 
-          <p className="mx-auto mt-4 max-w-md text-lg font-semibold text-primary lg:mx-0">
-            Advanced monitoring &amp; analytics for your entire IT environment
+          <p className="max-w-md text-lg font-semibold text-primary lg:mx-0">
+            Centralized observability for hybrid, virtual, and cloud infrastructure
           </p>
 
-          <p className="mx-auto mt-4 max-w-md text-base italic text-neutral-700 dark:text-gray-400 lg:mx-0">
-            (part of Veeam Data Platform)
+          <p className="max-w-md text-base italic text-neutral-700 dark:text-gray-400 lg:mx-0">
+            Delivered locally by Plattano Technologies
           </p>
         </div>
 
@@ -41,7 +39,7 @@ export default function VeeamOneHeroSection() {
         <div className="flex justify-center lg:justify-end">
           <Image
             src="/images/products/data-protection/veeam-one/veeam-one-hero.webp"
-            alt="Veeam Data Platform – Monitoring & Analytics module"
+            alt="Veeam ONE monitoring dashboard for data protection and compliance"
             width={600}
             height={450}
             priority
