@@ -3,39 +3,25 @@ import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import type { Metadata } from 'next'
 import Header from './ui/layout/Header'
+import { AnalyticsTracker } from './ui/analytics/AnalyticsTracker' // ⬅️ Arquivo que você vai criar
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Plattano Technologies | Secure IT, Backup & Cybersecurity Solutions in Orlando',
+  title: 'Plattano Technologies – Empowering Businesses with Secure IT Solutions',
   description:
-    'Plattano Technologies empowers businesses with secure IT solutions—from managed backup and cloud infrastructure to cybersecurity, ransomware protection, and partner services with Veeam, SentinelOne, ExaGrid, and Rainforest.tech.',
+    'Plattano Technologies specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
   keywords: [
     'Plattano Technologies',
-    'cybersecurity Orlando',
-    'IT services USA',
-    'managed backup services',
-    'Veeam partner Orlando',
-    'SentinelOne reseller',
-    'Rainforest.tech distributor',
-    'ExaGrid backup appliances',
-    'hot cloud storage',
-    'hybrid cloud infrastructure',
-    'secure IT services Florida',
+    'IT services',
+    'data protection',
+    'hybrid cloud',
+    'cybersecurity',
+    'managed services',
+    'cloud backup',
+    'digital transformation',
   ],
-  alternates: {
-    canonical: 'https://plattano.com/',
-  },
-  openGraph: {
-    title: 'Plattano Technologies | End-to-End Secure IT & Cloud Services in the U.S.',
-    description:
-      'IT services and cybersecurity for modern businesses: from secure backup and cloud to threat detection and partner integrations. Based in Orlando, serving clients nationwide.',
-    url: 'https://plattano.com/',
-    siteName: 'Plattano Technologies',
-    type: 'website',
-    locale: 'en_US',
-  },
   icons: {
     icon: [
       { url: '/images/home/favicon.ico', type: 'image/x-icon' },
@@ -50,17 +36,36 @@ export const metadata: Metadata = {
   },
 }
 
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Analytics Script */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+
+        {/* Theme Loader */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function() {
               try {
                 const theme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefer s-color-scheme: dark)').matches;
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 if (theme === 'dark' || (!theme && prefersDark)) {
                   document.documentElement.classList.add('dark');
                 }
@@ -71,7 +76,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        <main className="pt-[100px]">{children}</main>
+        <main className="pt-[100px]">
+          {children}
+        </main>
+        <AnalyticsTracker /> {/* SPA route tracker */}
       </body>
     </html>
   )
