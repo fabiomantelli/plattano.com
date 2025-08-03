@@ -5,11 +5,17 @@ import Link from 'next/link';
 import ContactForm from '@/app/components/ContactForm';
 
 export default function Footer() {
-  const handleAnalytics = (label: string, destination: string) => {
+  const trackEvent = (params: {
+    action: string;
+    category: string;
+    label: string;
+    value?: number;
+  }) => {
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'click_footer_link', {
-        label,
-        destination,
+      window.gtag('event', params.action, {
+        event_category: params.category,
+        event_label: params.label,
+        value: params.value || 1,
       });
     }
   };
@@ -26,7 +32,13 @@ export default function Footer() {
           <Link
             href="tel:+13213138762"
             className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
-            onClick={() => handleAnalytics('phone', '+1 (321) 313 8762')}
+            onClick={() =>
+              trackEvent({
+                action: 'click',
+                category: 'footer_contact',
+                label: 'phone_call',
+              })
+            }
           >
             <Phone size={20} className="text-primary" />
             <span>+1 (321) 313 8762</span>
@@ -40,7 +52,13 @@ export default function Footer() {
           <Link
             href="mailto:plattano@plattano.com"
             className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
-            onClick={() => handleAnalytics('email', 'plattano@plattano.com')}
+            onClick={() =>
+              trackEvent({
+                action: 'click',
+                category: 'footer_contact',
+                label: 'email_click',
+              })
+            }
           >
             <Mail size={20} className="text-primary" />
             <span>plattano@plattano.com</span>
@@ -50,7 +68,13 @@ export default function Footer() {
             href="https://www.instagram.com/plattanotechnologies.us/"
             target="_blank"
             className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
-            onClick={() => handleAnalytics('instagram', 'https://www.instagram.com/plattanotechnologies.us/')}
+            onClick={() =>
+              trackEvent({
+                action: 'click',
+                category: 'footer_social',
+                label: 'instagram',
+              })
+            }
           >
             <Instagram size={20} className="text-primary" />
             <span>@plattanotechnologies.us</span>
@@ -63,12 +87,11 @@ export default function Footer() {
           </address>
         </div>
 
-        {/* Right Column (Form) */}
+        {/* Right Column */}
         <div className="space-y-6 w-full max-w-md">
           <h3 className="text-2xl font-semibold">Get in touch with our team</h3>
           <p>Plattano Technologies US, always by your side</p>
 
-          {/* Form */}
           <ContactForm />
         </div>
       </div>
