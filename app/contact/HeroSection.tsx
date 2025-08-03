@@ -3,6 +3,8 @@
 import { Phone, Clock, Mail } from 'lucide-react';
 import Link from 'next/link';
 
+import { event } from '@/lib/gtag/events'
+
 export default function HeroSection() {
   return (
     <section className="w-full min-h-[calc(100vh-60px)] flex items-center bg-white dark:bg-black text-black dark:text-white px-6 sm:px-12 lg:px-24">
@@ -47,6 +49,13 @@ export default function HeroSection() {
               <Link
                 href="https://wa.me/13213138762"
                 target="_blank"
+                onClick={() =>
+                  event({
+                    action: 'click_whatsapp_support',
+                    category: 'contact_page',
+                    label: 'technical_support_whatsapp',
+                  })
+                }
                 className="inline-block bg-primary text-white font-bold py-2 px-4 rounded-md hover:opacity-90 transition"
               >
                 TALK TO US NOW!
