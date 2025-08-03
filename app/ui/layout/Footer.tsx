@@ -1,18 +1,25 @@
-'use client'
+'use client';
 
-import { Phone, Mail, Instagram, Clock } from 'lucide-react'
-import Link from 'next/link'
-import ContactForm  from '@/app/components/ContactForm'
+import { Phone, Mail, Instagram, Clock } from 'lucide-react';
+import Link from 'next/link';
+import ContactForm from '@/app/components/ContactForm';
 
-interface ContactForm {
-  name: string
-  company: string
-  phone: string
-  email: string
-  note: string
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
 }
 
 export default function Footer() {
+  const handleAnalytics = (label: string, destination: string) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'click_footer_link', {
+        label,
+        destination,
+      });
+    }
+  };
+
   return (
     <footer className="w-full bg-neutral-100 text-neutral-900 dark:bg-black dark:text-white">
       {/* Columns */}
@@ -22,7 +29,11 @@ export default function Footer() {
         <div className="space-y-6 w-full max-w-sm">
           <h3 className="text-2xl font-semibold">CONNECT WITH US</h3>
 
-          <Link href="tel:+13213138762" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
+          <Link
+            href="tel:+13213138762"
+            className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
+            onClick={() => handleAnalytics('phone', '+1 (321) 313 8762')}
+          >
             <Phone size={20} className="text-primary" />
             <span>+1 (321) 313 8762</span>
           </Link>
@@ -32,12 +43,21 @@ export default function Footer() {
             <span>24/7</span>
           </div>
 
-          <Link href="mailto:plattano@plattano.com" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
+          <Link
+            href="mailto:plattano@plattano.com"
+            className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
+            onClick={() => handleAnalytics('email', 'plattano@plattano.com')}
+          >
             <Mail size={20} className="text-primary" />
             <span>plattano@plattano.com</span>
           </Link>
 
-          <Link href="https://www.instagram.com/plattanotechnologies.us/" target="_blank" className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition">
+          <Link
+            href="https://www.instagram.com/plattanotechnologies.us/"
+            target="_blank"
+            className="flex items-center justify-center md:justify-start gap-3 hover:opacity-80 transition"
+            onClick={() => handleAnalytics('instagram', 'https://www.instagram.com/plattanotechnologies.us/')}
+          >
             <Instagram size={20} className="text-primary" />
             <span>@plattanotechnologies.us</span>
           </Link>
@@ -74,5 +94,5 @@ export default function Footer() {
         <span className="text-primary">© 2025 Plattano® Technologies US</span>
       </div>
     </footer>
-  )
+  );
 }

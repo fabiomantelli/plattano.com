@@ -4,17 +4,17 @@ import { FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 const socialLinks = [
   {
-    label: 'INSTAGRAM',
+    label: 'Instagram',
     href: 'https://www.instagram.com/plattanotechnologies.us/',
     icon: <FaInstagram size={28} />,
   },
   {
-    label: 'LINKEDIN',
+    label: 'LinkedIn',
     href: 'https://www.linkedin.com/company/plattano-technologies/',
     icon: <FaLinkedin size={28} />,
   },
   {
-    label: 'YOUTUBE',
+    label: 'YouTube',
     href: 'https://www.youtube.com/@plattanotechnologies8157',
     icon: <FaYoutube size={28} />,
   },
@@ -28,7 +28,8 @@ export default function FutureSection() {
           <h2 className="text-xl font-bold uppercase text-primary">UNCONFORMED SINCE ALWAYS!</h2>
           <h3 className="font-semibold mt-2">Comfort zone?</h3>
           <p>
-            Nope... we position ourselves as <span className="text-primary font-medium">agents of change and innovation</span>,
+            Nope... we position ourselves as{' '}
+            <span className="text-primary font-medium">agents of change and innovation</span>,
             and we&apos;re fascinated by the unexplored.
           </p>
           <p className="mt-4 font-semibold">“But they&apos;ll never conform?”</p>
@@ -52,7 +53,7 @@ export default function FutureSection() {
         </div>
       </div>
 
-      {/* Social Icons with modern UX */}
+      {/* Social Icons with tracking */}
       <div className="flex flex-wrap justify-center gap-6 pt-4">
         {socialLinks.map((item) => (
           <a
@@ -60,6 +61,14 @@ export default function FutureSection() {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'click_social_link', {
+                  platform: item.label.toLowerCase(),
+                  destination: item.href,
+                });
+              }
+            }}
             className="group flex flex-col items-center justify-center px-6 py-5 rounded-xl w-[130px] h-[130px]
                        bg-neutral-100 dark:bg-white/5 border border-neutral-300 dark:border-white/10
                        hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
@@ -68,7 +77,7 @@ export default function FutureSection() {
               {item.icon}
             </div>
             <span className="text-xs font-semibold group-hover:text-primary transition-colors duration-300">
-              {item.label}
+              {item.label.toUpperCase()}
             </span>
           </a>
         ))}
