@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  reactStrictMode: true,
+  images: {
+    domains: ['plattano.com'], // adicione outros domínios se necessário
+  },
+  output: 'standalone', // útil para builds no Vercel ou Docker
+}
 
-export default nextConfig;
+export default nextConfig
