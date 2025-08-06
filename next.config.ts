@@ -6,11 +6,29 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'plattano.com'
-      }
-    ], // adicione outros domínios se necessário
+        hostname: 'plattano.com',
+      },
+      // adicione mais domínios aqui se necessário
+    ],
   },
-  output: 'standalone', // útil para builds no Vercel ou Docker
+  output: 'standalone',
+
+  // ✅ Redirecionar www → sem www (canonical domain fix)
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.plattano.com',
+          },
+        ],
+        destination: 'https://plattano.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
