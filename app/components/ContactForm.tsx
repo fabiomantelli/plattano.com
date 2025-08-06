@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface ContactFormData {
   name: string;
@@ -23,6 +25,25 @@ export default function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateForm = () => {
+    if (!form.name || !form.company || !form.email || !form.phone) {
+      return 'Name, company, phone number, and email are required.';
+    }
+
+    if (!emailRegex.test(form.email)) {
+      return 'Invalid email address.';
+    }
+
+    const digits = form.phone.replace(/\D/g, '');
+    if (digits.length < 10) {
+      return 'Invalid phone number.';
+    }
+
+    return null;
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -35,6 +56,13 @@ export default function ContactForm() {
     setLoading(true);
     setSuccess(false);
     setError(null);
+
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch('/api/send-lead', {
@@ -58,31 +86,58 @@ export default function ContactForm() {
         setError(data.error || 'Error submitting the form.');
       }
     } catch {
-      setError('Network error. Please try again later.');
+      setError('Connection error. Please try again.');
     } finally {
       setLoading(false);
     }
   };
-
-  const fields: (keyof ContactFormData)[] = ['name', 'company', 'phone', 'email'];
 
   return (
     <form
       onSubmit={handleSubmit}
       className="p-6 rounded-xl flex flex-col gap-4 transition-all duration-300 bg-white border border-neutral-300 dark:bg-neutral-900 dark:border-white/10"
     >
-      {fields.map((field) => (
-        <input
-          key={field}
-          type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
-          name={field}
-          placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-          value={form[field]}
-          onChange={handleChange}
-          className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
-          required
-        />
-      ))}
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        value={form.name}
+        onChange={handleChange}
+        required
+        className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
+      />
+
+      <input
+        type="text"
+        name="company"
+        placeholder="Company"
+        value={form.company}
+        onChange={handleChange}
+        required
+        className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
+      />
+
+      <PhoneInput
+        country={'br'}
+        value={form.phone}
+        onChange={(value) => setForm({ ...form, phone: value })}
+        inputProps={{
+          name: 'phone',
+          required: true,
+        }}
+        inputClass="!bg-transparent !border !rounded !px-4 !py-2 !w-full dark:!border-white/40 dark:!text-white"
+        containerClass="!w-full"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={form.email}
+        onChange={handleChange}
+        required
+        className="bg-transparent border rounded px-4 py-2 focus:outline-none border-neutral-300 placeholder:text-neutral-500 text-black dark:border-white/40 dark:placeholder:text-white/60 dark:text-white"
+      />
 
       <textarea
         name="note"
