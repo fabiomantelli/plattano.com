@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { event } from "@/lib/gtag/events";
 
@@ -9,10 +10,12 @@ export interface Feature {
   title: string;
   description: string;
   cta: string;
+  href?: string;
 }
 
-export default function FeatureCard({ logo, title, description, cta }: Feature) {
-  return (
+
+export default function FeatureCard({ logo, title, description, cta, href }: Feature) {
+  const cardContent = (
     <div
       className="
         group
@@ -62,5 +65,13 @@ export default function FeatureCard({ logo, title, description, cta }: Feature) 
         <span className="text-white">{cta}</span>
       </button>
     </div>
+  );
+
+  return href ? (
+    <Link href={href} passHref>
+      {cardContent}
+    </Link>
+  ) : (
+    cardContent
   );
 }
