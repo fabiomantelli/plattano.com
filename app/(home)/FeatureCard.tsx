@@ -36,7 +36,7 @@ export default function FeatureCard({ logo, title, description, cta, href }: Fea
           alt={`${title} logo`}
           width={128}
           height={64}
-          className="object-contain transition-transform duration-200 group-hover:scale-105 w-full h-full"
+          className="object-contain transition-transform duration-200 group-hover:scale-110 w-full h-full"
           priority
         />
       </div>
@@ -60,6 +60,10 @@ export default function FeatureCard({ logo, title, description, cta, href }: Fea
           dark:bg-primary
           bg-black text-white
           rounded-lg
+          transition-all duration-200
+          hover:opacity-90
+          hover:scale-[1.02]
+          cursor-pointer
         "
       >
         <span className="text-white">{cta}</span>
