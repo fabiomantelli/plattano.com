@@ -57,7 +57,7 @@ export default function ContactForm() {
       } else {
         setError(data.error || 'Error submitting the form.');
       }
-    } catch (_err) {
+    } catch {
       setError('Network error. Please try again later.');
     } finally {
       setLoading(false);
