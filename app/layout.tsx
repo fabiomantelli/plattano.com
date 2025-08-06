@@ -11,17 +11,24 @@ const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin']
 export const metadata: Metadata = {
   title: 'Plattano Technologies – Empowering Businesses with Secure IT Solutions',
   description:
-    'Plattano Technologies specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
-  keywords: [
-    'Plattano Technologies',
-    'IT services',
-    'data protection',
-    'hybrid cloud',
-    'cybersecurity',
-    'managed services',
-    'cloud backup',
-    'digital transformation',
-  ],
+    'Plattano Technologies, based in Orlando, Florida, specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
+    keywords: [
+      'Plattano Technologies',
+      'IT services',
+      'data protection',
+      'hybrid cloud',
+      'cybersecurity',
+      'managed services',
+      'cloud backup',
+      'digital transformation',
+      'VMware by Broadcom',
+      'Veeam',
+      'ExaGrid',
+      'SentinelOne',
+      'Rainforest QA',
+      'Orlando IT company',
+      'Orlando cybersecurity',
+    ],    
   icons: {
     icon: [
       { url: '/images/home/favicon.ico', type: 'image/x-icon' },
@@ -69,6 +76,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();`,
           }}
         />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Plattano Technologies",
+              "image": "https://www.plattano.com/images/home/apple-touch-icon.png", // ou outro logo da empresa
+              "url": "https://www.plattano.com",
+              "telephone": "+1-321-313-8762", // substitua com o telefone real
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7345 W Sand Lake Rd Ste 210 Office 6438", // substitua com seu endereço real
+                "addressLocality": "Orlando",
+                "addressRegion": "FL",
+                "postalCode": "32819",
+                "addressCountry": "US"
+              },
+              "description": "Plattano Technologies is a trusted provider of IT services, including cybersecurity, cloud infrastructure, and data protection. We are official resellers of VMware by Broadcom, Veeam, ExaGrid, SentinelOne and Rainforest QA.",
+              "sameAs": [
+                "https://www.linkedin.com/company/plattano-technologies/",
+                "https://www.youtube.com/@plattanotechnologies8157",
+                "https://www.instagram.com/plattanotechnologies.us/"
+              ]
+            }),
+          }}
+        />
+
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
