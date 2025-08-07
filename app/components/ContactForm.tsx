@@ -118,15 +118,31 @@ export default function ContactForm() {
       />
 
       <PhoneInput
-        country={'br'}
+        country={'us'}
+        onlyCountries={['us']}
+        disableDropdown={true}
+        countryCodeEditable={false}
         value={form.phone}
         onChange={(value) => setForm({ ...form, phone: value })}
+        masks={{ us: '(...) ...-....' }}
         inputProps={{
           name: 'phone',
           required: true,
+          placeholder: '(999) 999-9999',
         }}
-        inputClass="!bg-transparent !border !rounded !px-4 !py-2 !w-full dark:!border-white/40 dark:!text-white"
-        containerClass="!w-full"
+        inputClass="
+          !w-full !h-[42px]
+          !bg-transparent !border !rounded !pl-12 !pr-4 !py-2
+          !text-black dark:!text-white
+          !border-neutral-300 dark:!border-white/40
+          placeholder:!text-neutral-500 dark:placeholder:!text-white/60
+        "
+        buttonClass="
+          !bg-transparent !border-none !shadow-none
+          !left-2 !top-1/2 !-translate-y-1/2
+          pointer-events-none absolute
+        "
+        containerClass="!w-full relative"
       />
 
       <input
