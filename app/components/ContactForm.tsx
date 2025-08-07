@@ -100,7 +100,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="name"
-        placeholder="Name"
+        placeholder="Name *"
         value={form.name}
         onChange={handleChange}
         required
@@ -110,7 +110,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="company"
-        placeholder="Company"
+        placeholder="Company *"
         value={form.company}
         onChange={handleChange}
         required
@@ -148,7 +148,7 @@ export default function ContactForm() {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder="Email *"
         value={form.email}
         onChange={handleChange}
         required
