@@ -173,7 +173,7 @@ export default function ContactForm() {
       </button>
 
       {success && (
-        <p className="text-green-600 font-medium">Lead successfully submitted!</p>
+        <p className="text-primary font-medium">Lead successfully submitted!</p>
       )}
       {error && (
         <p className="text-red-500 font-medium">{error}</p>
