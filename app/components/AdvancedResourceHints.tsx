@@ -13,7 +13,11 @@ export default function AdvancedResourceHints() {
       setIsMobile(window.innerWidth < 768)
       
       // Check connection speed
-      const connection = (navigator as any).connection
+      const connection = (navigator as Navigator & {
+        connection?: {
+          effectiveType?: string
+        }
+      }).connection
       if (connection) {
         setConnectionSpeed(connection.effectiveType === '4g' ? 'fast' : 'slow')
       }
@@ -103,7 +107,7 @@ export default function AdvancedResourceHints() {
       
       try {
         observer.observe({ entryTypes: ['largest-contentful-paint'] })
-      } catch (e) {
+      } catch {
         // Fallback for browsers that don't support LCP
         console.warn('LCP observation not supported')
       }

@@ -49,7 +49,6 @@ export default function OptimizedHeroBackground({ className = '' }: OptimizedHer
 
     const getOptimalImageSrc = () => {
       const format = preferredImageFormat === 'webp' ? 'webp' : 'png'
-      const size = isMobile ? 'mobile' : 'desktop'
       const theme = currentTheme
       
       // For now, use existing images but with optimized loading
