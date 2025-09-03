@@ -1,14 +1,41 @@
 // app/layout.tsx
 import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { Sofia_Sans, Ubuntu } from 'next/font/google'
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from './ui/layout/Header'
 import { SafeAnalytics } from './ui/analytics/SafeAnalytics' // ✅ versão segura com Suspense
 import PreloadImages from './components/PreloadImages'
+import CriticalCSS from './components/CriticalCSS'
+import AdvancedResourceHints from './components/AdvancedResourceHints'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geistSans = Geist({ 
+  variable: '--font-geist-sans', 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true
+})
+const geistMono = Geist_Mono({ 
+  variable: '--font-geist-mono', 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true
+})
+const sofiaSans = Sofia_Sans({
+  variable: '--font-sofia',
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  display: 'swap',
+  preload: true
+})
+const ubuntu = Ubuntu({
+  variable: '--font-ubuntu',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true
+})
 
 export const metadata: Metadata = {
   title: 'Plattano Technologies - Empowering Businesses with Secure IT Solutions',
@@ -108,9 +135,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
       </head>
- <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <PreloadImages />
-          <Header />
+ <body className={`${geistSans.variable} ${geistMono.variable} ${sofiaSans.variable} ${ubuntu.variable} antialiased`}>
+        <CriticalCSS />
+        <AdvancedResourceHints />
+        <PreloadImages />
+        <Header />
           <main className="pt-[100px]">{children}</main>
           <SafeAnalytics />
           <script
