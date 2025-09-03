@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.plattano.com',
+            value: 'plattano.com',
           },
         ],
         destination: 'https://plattano.com/:path*',

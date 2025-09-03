@@ -38,7 +38,7 @@ const ubuntu = Ubuntu({
 })
 
 export const metadata: Metadata = {
-  title: 'Plattano Technologies - Empowering Businesses with Secure IT Solutions',
+  title: 'Plattano Technologies',
   description:
     'Plattano Technologies, based in Orlando, Florida, specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
     keywords: [
@@ -113,8 +113,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Plattano Technologies",
-              "image": "https://www.plattano.com/images/home/apple-touch-icon.png", // ou outro logo da empresa
-              "url": "https://www.plattano.com",
+              "image": "https://plattano.com/images/home/apple-touch-icon.png", // ou outro logo da empresa
+              "url": "https://plattano.com",
               "telephone": "+1-321-313-8762", // substitua com o telefone real
               "address": {
                 "@type": "PostalAddress",
