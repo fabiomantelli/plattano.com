@@ -6,6 +6,46 @@
 /* 1. Import Tailwind CSS (zero-config) */
 @import "tailwindcss";
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent layout shift */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+.hero-section {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Optimize background images */
+.bg-optimized {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
 /* 2. Override do dark mode para usar .dark */
 @custom-variant dark (&:where(.dark, .dark *));
 

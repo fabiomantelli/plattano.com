@@ -36,6 +36,8 @@ export default function SolutionsSection() {
               width={600}
               height={400}
               className="w-full"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
           {/* Mobile image under text */}
@@ -46,6 +48,8 @@ export default function SolutionsSection() {
               width={400}
               height={300}
               className="mx-auto"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </motion.div>
           {/* Text */}

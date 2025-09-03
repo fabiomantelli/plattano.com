@@ -5,14 +5,17 @@ import Link from 'next/link'
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white text-neutral-800 dark:bg-black dark:text-white">
-      {/* Background image */}
+    <section className="hero-section relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white text-neutral-800 dark:bg-black dark:text-white">
+      {/* Background image - optimized */}
       <div
         className={`
-          absolute inset-0 bg-center bg-cover
-          bg-[url('/images/home/high-tech-background-light.png')]
-          dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.png')]
+          bg-optimized absolute inset-0
+          bg-[url('/images/home/high-tech-background-light.webp')]
+          dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.webp')]
         `}
+        style={{
+          willChange: 'transform',
+        }}
       />
       <div />
 

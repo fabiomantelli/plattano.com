@@ -51,8 +51,8 @@ export default function StorySection() {
               width={1500}
               height={844}
               className="w-full h-auto"
-              priority
-              unoptimized
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
         </motion.div>
@@ -71,8 +71,8 @@ export default function StorySection() {
             width={800}
             height={450}
             className="w-full h-auto"
-            priority
-            unoptimized
+            loading="lazy"
+            sizes="(max-width: 768px) 66vw, 50vw"
           />
         </motion.div>
       </div>

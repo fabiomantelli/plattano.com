@@ -2,8 +2,11 @@
 import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import type { Metadata } from 'next'
+import './globals.css'
 import Header from './ui/layout/Header'
 import { SafeAnalytics } from './ui/analytics/SafeAnalytics' // ✅ versão segura com Suspense
+import PreloadImages from './components/PreloadImages'
+import { Suspense } from 'react'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -106,11 +109,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        <main className="pt-[100px]">{children}</main>
-        <SafeAnalytics /> {/* ✅ Analytics inside suspense */}
-      </body>
+ <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <PreloadImages />
+          <Header />
+          <main className="pt-[100px]">{children}</main>
+          <SafeAnalytics />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js')
+                      .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                      })
+                      .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                      });
+                  });
+                }
+              `
+            }}
+          />
+        </body>
     </html>
   )
 }
