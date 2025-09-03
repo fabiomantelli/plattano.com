@@ -36,7 +36,7 @@ export function useDeviceOptimization(): DeviceOptimization {
       // Check connection speed
       let connectionSpeed: 'slow' | 'fast' | 'unknown' = 'unknown'
       if ('connection' in navigator) {
-        const connection = (navigator as any).connection
+        const connection = (navigator as unknown as { connection?: { effectiveType: string } }).connection
         if (connection) {
           const effectiveType = connection.effectiveType
           connectionSpeed = effectiveType === '4g' ? 'fast' : 'slow'
@@ -65,7 +65,7 @@ export function useDeviceOptimization(): DeviceOptimization {
     
     // Listen for connection changes
     if ('connection' in navigator) {
-      const connection = (navigator as any).connection
+      const connection = (navigator as unknown as { connection?: { addEventListener: (event: string, callback: () => void) => void, removeEventListener: (event: string, callback: () => void) => void } }).connection
       if (connection) {
         connection.addEventListener('change', updateOptimization)
       }
@@ -74,7 +74,7 @@ export function useDeviceOptimization(): DeviceOptimization {
     return () => {
       window.removeEventListener('resize', updateOptimization)
       if ('connection' in navigator) {
-        const connection = (navigator as any).connection
+        const connection = (navigator as unknown as { connection?: { addEventListener: (event: string, callback: () => void) => void, removeEventListener: (event: string, callback: () => void) => void } }).connection
         if (connection) {
           connection.removeEventListener('change', updateOptimization)
         }

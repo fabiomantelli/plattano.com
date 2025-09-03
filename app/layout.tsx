@@ -6,7 +6,6 @@ import './globals.css'
 import Header from './ui/layout/Header'
 import { SafeAnalytics } from './ui/analytics/SafeAnalytics' // ✅ versão segura com Suspense
 import PreloadImages from './components/PreloadImages'
-import { Suspense } from 'react'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
