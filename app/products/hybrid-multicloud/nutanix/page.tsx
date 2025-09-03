@@ -35,13 +35,13 @@ export const metadata = {
       'data center modernization',
     ],
     alternates: {
-      canonical: 'https://plattano.com/products/cloud/nutanix',
+      canonical: 'https://plattano.com/products/hybrid-multicloud/nutanix',
     },
     openGraph: {
       title: 'Nutanix Cloud Platform in Orlando | Hyperconverged Infrastructure – Plattano',
       description:
         'Simplify your hybrid cloud journey with Nutanix. Plattano Technologies offers Nutanix HCI and multi-cloud solutions in Orlando for scalable, secure IT transformation.',
-      url: 'https://plattano.com/products/cloud/nutanix',
+      url: 'https://plattano.com/products/hybrid-multicloud/nutanix',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',

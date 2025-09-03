@@ -23,13 +23,13 @@ export const metadata = {
       'Orlando IT managed services',
     ],
     alternates: {
-      canonical: 'https://plattano.com/services/dpaas/managed-backup-services',
+      canonical: 'https://plattano.com/services/dpaas/off-site-and-managed-backup',
     },
     openGraph: {
       title: 'Off-Site & Managed Backup Services in Orlando | Plattano BaaS',
       description:
         'Protect your business data with managed, off-site backup services by Plattano Technologies. Delivered with expert support and proven backup infrastructure.',
-      url: 'https://plattano.com/services/dpaas/managed-backup-services',
+      url: 'https://plattano.com/services/dpaas/off-site-and-managed-backup',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',

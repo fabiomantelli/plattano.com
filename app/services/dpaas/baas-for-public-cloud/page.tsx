@@ -24,13 +24,13 @@ export const metadata = {
       'Orlando MSP backup',
     ],
     alternates: {
-      canonical: 'https://plattano.com/services/dpaas/managed-backup-services',
+      canonical: 'https://plattano.com/services/dpaas/baas-for-public-cloud',
     },
     openGraph: {
       title: 'Managed Backup Services for Public Cloud in Orlando | Plattano BaaS',
       description:
         'Protect cloud workloads with managed backup from Plattano. Our BaaS covers AWS, Azure, and Google Cloud with secure, compliant data protection services in Orlando.',
-      url: 'https://plattano.com/services/dpaas/managed-backup-services',
+      url: 'https://plattano.com/services/dpaas/baas-for-public-cloud',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',
