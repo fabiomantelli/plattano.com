@@ -11,7 +11,7 @@ export default function MicrosoftClarity({ projectId }: MicrosoftClarityProps) {
   useEffect(() => {
     // Initialize Clarity only if projectId is provided
     if (typeof window !== 'undefined' && projectId && !window.clarity) {
-      window.clarity = window.clarity || function(...args: any[]) {
+      window.clarity = window.clarity || function(...args: unknown[]) {
         (window.clarity.q = window.clarity.q || []).push(args)
       }
     }
@@ -45,8 +45,8 @@ export default function MicrosoftClarity({ projectId }: MicrosoftClarityProps) {
 declare global {
   interface Window {
     clarity: {
-      (...args: any[]): void
-      q?: any[]
+      (...args: unknown[]): void
+      q?: unknown[]
     }
   }
 }
