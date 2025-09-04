@@ -9,6 +9,7 @@ import { SafeAnalytics } from './ui/analytics/SafeAnalytics' // ✅ versão segu
 import PreloadImages from './components/PreloadImages'
 import CriticalCSS from './components/CriticalCSS'
 import AdvancedResourceHints from './components/AdvancedResourceHints'
+import MicrosoftClarity from './components/MicrosoftClarity'
 
 const geistSans = Geist({ 
   variable: '--font-geist-sans', 
@@ -142,6 +143,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
           <main className="pt-[100px]">{children}</main>
           <SafeAnalytics />
+          <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_ID || ''} />
           <script
             dangerouslySetInnerHTML={{
               __html: `
