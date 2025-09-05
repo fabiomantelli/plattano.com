@@ -92,14 +92,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* ✅ Theme detection script */}
+        {/* ✅ Theme detection script - Dark mode como padrão */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function() {
               try {
                 const theme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (theme === 'dark' || (!theme && prefersDark)) {
+                // Dark mode como padrão, exceto se o usuário escolheu explicitamente light mode
+                if (theme !== 'light') {
                   document.documentElement.classList.add('dark');
                 }
               } catch (_) {}
