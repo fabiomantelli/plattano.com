@@ -22,13 +22,13 @@ export const metadata = {
       'data protection in the cloud',
     ],
     alternates: {
-      canonical: 'https://plattano.com/products/data-protection/veeam-for-aws',
+      canonical: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-aws',
     },
     openGraph: {
       title: 'Veeam Backup for AWS | Secure Cloud Workload Protection in Orlando',
       description:
         'Safeguard your AWS environment with Veeam. Plattano delivers backup, replication, and fast recovery for cloud-native workloads across Orlando and beyond.',
-      url: 'https://plattano.com/products/data-protection/veeam-for-aws',
+      url: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-aws',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',
