@@ -67,14 +67,14 @@ export default function ManagedBackupServicesVaspPartnerSection() {
           <div className="w-full md:w-2/3 space-y-2 text-center md:text-left">
             <h3 className="text-2xl font-bold">PLATTANO TECHNOLOGIES</h3>
             <p className="text-sm text-primary">
-              Value‑added Gold reseller, managed‑services & cloud Gold provider, Veeam‑credentialed partner
+              Value-added Gold reseller, managed-services & cloud Gold provider, Veeam-credentialed partner
             </p>
             <p className="text-base opacity-90">
               Plattano Technologies is a member of the Veeam Silver Cloud & Silver Provider program.
-              We’re a Brazil‑based, high‑tech team headquartered in Florianópolis, SC.
+              We&rsquo;re a Brazil-based, high-tech team headquartered in Florianópolis, SC.
             </p>
             <Link
-              href="/partners/veeam"
+              href="/contact"
               className="inline-block mt-3 px-6 py-2 bg-primary text-black font-semibold rounded-md shadow-lg transition-colors duration-200 hover:bg-transparent hover:text-primary border border-primary"
             >
               VEEAM COMPETENCY PARTNER
