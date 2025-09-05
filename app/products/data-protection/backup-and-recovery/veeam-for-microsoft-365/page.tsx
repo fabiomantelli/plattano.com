@@ -33,13 +33,13 @@ export const metadata = {
       'Plattano Technologies',
     ],
     alternates: {
-      canonical: 'https://plattano.com/products/data-protection/veeam-for-microsoft-365',
+      canonical: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-microsoft-365',
     },
     openGraph: {
       title: 'Veeam Backup for Microsoft 365 | SaaS Data Protection in Orlando',
       description:
         'Get comprehensive Microsoft 365 backup with Veeam. Plattano helps secure your business email, Teams, and files against ransomware, accidental deletion, and compliance gaps.',
-      url: 'https://plattano.com/products/data-protection/veeam-for-microsoft-365',
+      url: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-microsoft-365',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',

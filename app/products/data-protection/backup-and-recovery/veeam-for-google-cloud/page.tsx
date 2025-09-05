@@ -22,13 +22,13 @@ export const metadata = {
       'data protection for GCP',
     ],
     alternates: {
-      canonical: 'https://plattano.com/products/data-protection/veeam-for-google-cloud',
+      canonical: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-google-cloud',
     },
     openGraph: {
       title: 'Veeam Backup for Google Cloud | Cloud-Native GCP Backup in Orlando',
       description:
         'Plattano delivers Veeam-powered backup and recovery for Google Cloud. Protect your GCP workloads with agentless backups, fast restores, and strong security in Orlando.',
-      url: 'https://plattano.com/products/data-protection/veeam-for-google-cloud',
+      url: 'https://plattano.com/products/data-protection/backup-and-recovery/veeam-for-google-cloud',
       siteName: 'Plattano Technologies',
       type: 'website',
       locale: 'en_US',
