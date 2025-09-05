@@ -41,7 +41,7 @@ const ubuntu = Ubuntu({
 export const metadata: Metadata = {
   title: 'Plattano Technologies',
   description:
-    'Plattano Technologies, based in Orlando, Florida, specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity, to drive business innovation and resilience.',
+    'Plattano Technologies, based in Orlando, Florida, specializes in tailored IT services, including data protection, hybrid cloud infrastructure, and cybersecurity.',
     keywords: [
       'Plattano Technologies',
       'IT services',

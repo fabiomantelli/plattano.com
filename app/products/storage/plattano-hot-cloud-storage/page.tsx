@@ -17,7 +17,7 @@ import PlattanoHCSWhoSupportsUsSection from "./PlattanoHCSWhoSupportUsSection";
 export const metadata = {
     title: 'Plattano Technologies | Plattano Hot Cloud Storage in Orlando | Secure, Tier-Free Cloud Storage',
     description:
-      'Plattano Hot Cloud Storage offers scalable, secure, and flat-rate object storage in Orlando. Say goodbye to tiers, egress fees, and hidden costs—designed for backup, media, and enterprise data.',
+      'Scalable, secure, and flat-rate object storage. Say goodbye to tiers, egress fees, and hidden costs — designed for backup, media, and enterprise data.',
     keywords: [
       'hot cloud storage',
       'cloud object storage Orlando',

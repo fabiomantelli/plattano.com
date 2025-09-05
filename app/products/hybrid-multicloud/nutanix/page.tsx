@@ -22,7 +22,7 @@ import NutanixFaqSection from "./NutanixFaqSection";
 export const metadata = {
     title: 'Plattano Technologies | Nutanix Solutions in Orlando | Hybrid & Multi-Cloud Infrastructure',
     description:
-      'Plattano Technologies delivers Nutanix Cloud Platform solutions in Orlando. Simplify IT with hyperconverged infrastructure, hybrid cloud management, and application mobility.',
+      'Plattano Technologies delivers Nutanix Cloud Platform solutions in Orlando. Hyperconverged infrastructure, hybrid cloud management, and application mobility.',
     keywords: [
       'Nutanix Orlando',
       'Nutanix Cloud Platform',

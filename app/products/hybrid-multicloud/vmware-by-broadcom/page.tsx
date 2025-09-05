@@ -12,7 +12,7 @@ import Footer from "@/app/ui/layout/Footer";
 export const metadata = {
     title: 'Plattano Technologies | VMware by Broadcom in Orlando | Cloud Foundation & Multi-Cloud Solutions',
     description:
-      'Plattano Technologies delivers VMware Cloud Foundation solutions in Orlando. Accelerate your hybrid cloud journey with secure infrastructure, mobility, and multicloud operations.',
+      'Plattano Technologies delivers VMware Cloud Foundation solutions. Hybrid cloud journey with secure infrastructure, mobility, and multicloud operations.',
     keywords: [
       'VMware by Broadcom',
       'VMware Orlando',

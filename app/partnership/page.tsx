@@ -20,7 +20,7 @@ import WhatWeOfferSection from "./WhatWeOfferSection";
 export const metadata = {
     title: 'Plattano Technologies | Partner with Plattano | Strategic IT Partnerships & BaaS Solutions',
     description:
-      'Become a Plattano Partner and unlock high-margin, scalable IT solutions including Veeam-powered backup, hot storage, and managed services. Built for MSPs and resellers.',
+      'Unlock high-margin, scalable IT solutions including Veeam-powered backup, hot storage, and managed services. Built for MSPs and resellers.',
     keywords: [
       'Plattano partnership',
       'Veeam partner Orlando',

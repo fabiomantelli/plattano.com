@@ -11,7 +11,7 @@ import Footer from "@/app/ui/layout/Footer";
 export const metadata = {
     title: 'Plattano Technologies | Managed Backup Services in Orlando | Secure BaaS for Public Cloud',
     description:
-      'Plattano Technologies provides fully managed backup services for public cloud environments (AWS, Azure, Google Cloud). Ensure data protection, recovery, and compliance with expert-managed BaaS in Orlando.',
+      'Plattano Technologies provides fully managed backup services for public cloud environments (AWS, Azure, Google Cloud). Ensure data protection, recovery, and compliance.',
     keywords: [
       'managed backup services',
       'baas for public cloud',

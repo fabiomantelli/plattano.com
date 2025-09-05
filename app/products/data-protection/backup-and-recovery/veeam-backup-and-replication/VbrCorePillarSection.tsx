@@ -63,7 +63,7 @@ export default function CorePillarSection() {
             {[
               'Confidently meet recovery objectives',
               'Lower risk with comprehensive data security',
-              'Accelerate your hybrid‑cloud journey',
+              'Accelerate your hybrid-cloud journey',
             ].map((t) => (
               <li key={t} className="flex items-start gap-3 justify-center lg:justify-start">
                 <span className="mt-1 size-2 rounded-full bg-primary" />

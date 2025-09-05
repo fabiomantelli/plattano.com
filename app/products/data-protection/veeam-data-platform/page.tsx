@@ -16,7 +16,7 @@ import VeeamProtectsEverythingSection from "./VeeamProtectEverythingSection";
 export const metadata = {
     title: 'Plattano Technologies | Veeam Data Platform in Orlando | Unified Backup, Monitoring & Recovery',
     description:
-      'Plattano Technologies delivers the full Veeam Data Platform in Orlando. Protect your data with a unified solution combining backup, monitoring, ransomware defense, and DR orchestration.',
+      'Plattano Technologies delivers the full Veeam Data Platform in Orlando. Unified solution combining backup, monitoring, ransomware defense, and DR orchestration.',
     keywords: [
       'Veeam Data Platform',
       'unified data protection',

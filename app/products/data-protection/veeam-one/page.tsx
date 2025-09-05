@@ -13,7 +13,7 @@ import VeeamOneVisibilitySection from "./VeeamOneVisibilitySection";
 export const metadata = {
     title: 'Plattano Technologies | Veeam ONE in Orlando | Backup Monitoring & Visibility',
     description:
-      'Plattano Technologies provides Veeam ONE in Orlando. Gain real-time visibility, intelligent alerts, reporting, and compliance insights across your backup and virtual environments.',
+      'Plattano Technologies provides Veeam ONE. Real-time visibility, intelligent alerts, reporting, and compliance insights across your backup and virtual environments.',
     keywords: [
       'Veeam ONE',
       'backup monitoring Orlando',

@@ -15,7 +15,7 @@ import ManagedBackupServicesWeTakeCareOfEverythingSection from "./ManagedBackupS
 export const metadata = {
     title: 'Plattano Technologies | Managed Backup Services in Orlando | Veeam Accredited BaaS by Plattano',
     description:
-      'Plattano Technologies delivers fully managed backup services (BaaS) for businesses in Orlando. Ensure compliance, fast recovery, and 24/7 protection with our Veeam-certified experts.',
+      'Fully managed backup services (BaaS) for businesses in Orlando. Ensure compliance, fast recovery, and 24/7 protection with our Veeam-certified experts.',
     keywords: [
       'Managed Backup Services Orlando',
       'BaaS Veeam Partner',
