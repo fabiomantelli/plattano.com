@@ -13,29 +13,41 @@ export default function OptimizedHeroBackground({ className = '' }: OptimizedHer
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
-    // Detect theme
+    // Detect theme - prioriza a classe 'dark' no documentElement
     const detectTheme = () => {
-      const isDark = document.documentElement.classList.contains('dark') ||
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      setCurrentTheme(isDark ? 'dark' : 'light')
+      // Primeiro verifica se há classe 'dark' explícita no HTML
+      const hasDarkClass = document.documentElement.classList.contains('dark')
+      const newTheme = hasDarkClass ? 'dark' : 'light'
+      
+      setCurrentTheme(prevTheme => {
+        if (prevTheme !== newTheme) {
+          // Force re-render when theme changes
+          setImageLoaded(false)
+          return newTheme
+        }
+        return prevTheme
+      })
     }
 
+    // Detecta tema inicial
     detectTheme()
     
-    // Listen for theme changes
-    const observer = new MutationObserver(detectTheme)
+    // Observa mudanças na classe do documentElement
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          detectTheme()
+        }
+      })
+    })
+    
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class']
     })
 
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    mediaQuery.addEventListener('change', detectTheme)
-
     return () => {
       observer.disconnect()
-      mediaQuery.removeEventListener('change', detectTheme)
     }
   }, [])
 
@@ -73,9 +85,10 @@ export default function OptimizedHeroBackground({ className = '' }: OptimizedHer
       }
     }
 
+    // Light mode com overlay para melhor contraste do texto
     return {
       ...baseStyles,
-      backgroundImage: `url('/images/home/high-tech-background-light.webp')`,
+      backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.75)), url('/images/home/high-tech-background-light.webp')`,
     }
   }
 

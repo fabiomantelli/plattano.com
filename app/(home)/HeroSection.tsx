@@ -57,7 +57,7 @@ export default function HeroSection() {
           )}
         </h1>
 
-        <p className={`mt-6 ${isMobile ? 'text-sm' : 'text-md sm:text-xl'} font-medium text-neutral-800 dark:text-neutral-300 max-w-2xl mx-auto`}>
+        <p className={`mt-6 ${isMobile ? 'text-sm' : 'text-md sm:text-xl'} font-medium text-neutral-900 dark:text-neutral-300 max-w-2xl mx-auto drop-shadow-sm`}>
           {isMobile 
             ? 'Secure IT solutions for your business growth.'
             : 'Plattano Technologies delivers secure IT solutions, including cloud infrastructure, data backup, and cybersecurity, helping businesses thrive across the U.S.—with headquarters in Orlando, Florida.'
