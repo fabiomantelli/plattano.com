@@ -44,14 +44,14 @@ export default function StatsSection() {
             WHAT HAVE WE ACHIEVED?
           </h2>
           <p className="text-[22px] text-neutral-900 dark:text-white">
-            In <span className="text-primary font-semibold">+8 YEARS</span> WE HAVE SERVED{' '}
-            <span className="text-primary font-semibold">+1,000 CLIENTS</span> NATIONWIDE –{' '}
-            <span className="text-primary font-semibold">ACROSS EVERY SEGMENT.</span>
+            In <span className="dark:text-primary text-neutral-200 font-semibold">+8 YEARS</span> WE HAVE SERVED{' '}
+            <span className="dark:text-primary text-neutral-200 font-semibold">+1,000 CLIENTS</span> NATIONWIDE –{' '}
+            <span className="dark:text-primary text-neutral-200 font-semibold">ACROSS EVERY SEGMENT.</span>
           </p>
         </div>
 
         {/* Stats grid */}
-        <div className="w-full grid grid-cols-2 lg:grid-cols-7 text-center divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-primary">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-7 text-center divide-y-2 lg:divide-y-0 lg:divide-x-2 dark:divide-primary divide-neutral-200">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center p-6">
               <span className="text-4xl md:text-3xl font-bold text-neutral-900 dark:text-white">
