@@ -1,4 +1,4 @@
-import VbrLicensingSection from "@/public/images/products/data-protection/backup-and-recovery/veeam-backup-and-replication/VbrLicensingSection";
+import VbrLicensingSection from "@/app/products/data-protection/backup-and-recovery/veeam-backup-and-replication/VbrLicensingSection";
 import Vbr105RecoveryOptionsSection from "./Vbr105RecoveryOptionsSection";
 import VbrCapabilitiesSection from "./VbrCapabilitiesSection";
 import VbrCloudReadySection from "./VbrCloudReadySection";

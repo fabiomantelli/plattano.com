@@ -2,8 +2,20 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Fallback timer to ensure content shows even if Intersection Observer fails
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="w-full py-12 bg-white text-black dark:bg-black dark:text-white">
       <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 sm:px-12 lg:px-24 md:min-h-[calc(100vh-150px)]">
@@ -11,9 +23,10 @@ export default function HeroSection() {
         {/* Text block */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 space-y-6 md:space-y-8 text-center md:text-left"
         >
           {/* VMware Logo (desktop only) */}
@@ -49,9 +62,10 @@ export default function HeroSection() {
         {/* Image block */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 w-full flex flex-col items-center md:items-end"
         >
           {/* VMware Logo (mobile only) */}

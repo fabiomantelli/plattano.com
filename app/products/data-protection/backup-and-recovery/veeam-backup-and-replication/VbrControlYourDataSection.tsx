@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 export default function VbrControlYourDataSection() {
   return (
     <section className="relative w-full isolate">
-      <div className="absolute inset-0 -z-10 bg-neutral-200 dark:bg-neutral-900" />
+      <div className="absolute inset-0 -z-10 bg-neutral-100 dark:bg-neutral-900" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 text-center sm:px-12 lg:px-24">
         <motion.h2

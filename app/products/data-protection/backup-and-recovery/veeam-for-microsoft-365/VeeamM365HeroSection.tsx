@@ -2,8 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function VeeamM365HeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Fallback timer to ensure content shows even if Intersection Observer fails
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const features = [
     'Protects over 17 million Microsoft 365 users worldwide',
     'Covers Exchange Online, SharePoint, OneDrive, and Microsoft Teams',
@@ -18,9 +30,10 @@ export default function VeeamM365HeroSection() {
         {/* Text Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 space-y-6 text-center lg:text-left"
         >
           <h1 className="text-2xl sm:text-4xl md:text-4xl font-extrabold leading-tight">
@@ -45,9 +58,10 @@ export default function VeeamM365HeroSection() {
         {/* Image Column */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 w-full max-w-md sm:max-w-lg"
         >
           <Image

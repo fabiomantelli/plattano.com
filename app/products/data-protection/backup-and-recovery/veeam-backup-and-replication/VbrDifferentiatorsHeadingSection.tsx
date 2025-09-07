@@ -33,19 +33,6 @@ export default function VbrDifferentiatorsHeadingSection() {
         <div className="relative mt-10 w-full">
           <hr className="border-t border-current opacity-80" />
         </div>
-
-        {/* ---------- future figure ---------- */}
-        <div className="mt-14 flex w-full justify-center">
-          {/* Drop your image here (auto‑scales & centers) */}
-          <Image
-              src="/images/products/data-protection/backup-and-recovery/veeam-backup-and-replication/differentiator-heading.webp"
-              alt="Veeam differentiators chart"
-              width={900}
-              height={500}
-              className="w-full max-w-4xl rounded-xl object-contain"
-              priority
-          />
-        </div>
       </div>
     </section>
   )

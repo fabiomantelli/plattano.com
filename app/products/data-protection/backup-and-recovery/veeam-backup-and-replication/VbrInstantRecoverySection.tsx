@@ -30,18 +30,6 @@ export default function VbrInstantRecoverySection() {
           Veeam’s patented instant recovery delivers ultra‑fast, at‑scale recovery 
           for VMs, applications, servers, and NAS, so you can meet your recovery objectives.
         </motion.p>
-
-        {/* ---------- illustrative figure ---------- */}
-        <div className="mt-14 flex w-full justify-center">
-          <Image
-            src="/images/products/data-protection/backup-and-recovery/veeam-backup-and-replication/vbr-instant-recovery.webp"
-            alt="Veeam differentiators chart"
-            width={900}
-            height={500}
-            loading="lazy"
-            className="w-full max-w-4xl rounded-xl object-contain"
-          />
-        </div>
       </div>
     </section>
   )

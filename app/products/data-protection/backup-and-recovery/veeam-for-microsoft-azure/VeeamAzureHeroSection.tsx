@@ -2,8 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function VeeamAzureHeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Fallback timer to ensure content shows even if Intersection Observer fails
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="w-full min-h-screen flex items-center bg-white text-black dark:bg-black dark:text-white overflow-x-hidden">
       <div className="mx-auto max-w-7xl flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 px-4 sm:px-6 lg:px-24">
@@ -11,9 +23,10 @@ export default function VeeamAzureHeroSection() {
         {/* ---------- Text block ---------- */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 space-y-6 md:space-y-8 text-center md:text-left"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
@@ -44,9 +57,10 @@ export default function VeeamAzureHeroSection() {
         {/* ---------- Image block ---------- */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex-1 w-full flex justify-center md:justify-end"
         >
           <Image

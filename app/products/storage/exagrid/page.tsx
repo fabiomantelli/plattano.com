@@ -1,9 +1,10 @@
 import Footer from "@/app/ui/layout/Footer";
-import ExagridBenefitsSection from "./ExagridBenefitsSections";
 import ExagridFaqSection from "./FaqSection";
 import HeroSection from "./HeroSection";
-import HybridStorageSection from "./HybridStorageSection";
-import WhatWeProtectSection from "./WhatWeProtectSection";
+import ExagridFeaturesSection from "./ExagridFeaturesSection";
+import ExagridPerformanceSection from "./ExagridPerformanceSection";
+import ExagridSecuritySection from "./ExagridSecuritySection";
+import ExagridSupportSection from "./ExagridSupportSection";
 
 export const metadata = {
     title: 'Plattano Technologies | ExaGrid Backup Storage in Orlando | Scalable Tiered Backup Appliances',
@@ -38,9 +39,10 @@ export default function ExagridPage() {
     return (
         <>
             <HeroSection />
-            <ExagridBenefitsSection />
-            <HybridStorageSection />
-            <WhatWeProtectSection />
+            <ExagridFeaturesSection />
+            <ExagridPerformanceSection />
+            <ExagridSecuritySection />
+            <ExagridSupportSection />
             <ExagridFaqSection />
             <Footer />
         </>
