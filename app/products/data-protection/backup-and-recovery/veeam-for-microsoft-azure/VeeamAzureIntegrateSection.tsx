@@ -16,10 +16,10 @@ export default function VeeamAzureIntegrateSection() {
             viewport={{ once: true, amount: 0.5 }}
             className="flex-1 space-y-6 text-center lg:text-left"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight break-words">
               ENABLE THE FULL POWER OF THE SOLUTION.{' '}
               <span className="text-primary">
-                INTEGRATE WITH VEEAM BACKUP&nbsp;&AMP;&nbsp;REPLICATION.
+                INTEGRATE WITH VEEAM BACKUP & REPLICATION.
               </span>
             </h2>
             <p className="text-lg font-medium text-primary">
