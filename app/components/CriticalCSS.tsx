@@ -35,22 +35,15 @@ export default function CriticalCSS() {
       
       /* Prevent FOUC - ensure correct background from start (desktop only) */
       @media (min-width: 640px) {
-        section[class*="bg-gradient-to-b"] {
-          background: linear-gradient(to bottom, #f9fafb, #ffffff) !important;
-        }
-        
-        /* Specific HeroSection background fix */
-        section.relative.w-full.h-\[65vh\] {
+        /* Specific HeroSection background fix - more specific selector */
+        section.relative.w-full.h-\[65vh\][class*="bg-gradient-to-b"] {
           background: linear-gradient(to bottom, #f9fafb, #ffffff) !important;
         }
       }
       
       @media (min-width: 640px) and (prefers-color-scheme: dark) {
-        section[class*="bg-gradient-to-b"] {
-          background: linear-gradient(to bottom, #111827, #000000) !important;
-        }
-        
-        section.relative.w-full.h-\[65vh\] {
+        /* Specific HeroSection background fix - more specific selector */
+        section.relative.w-full.h-\[65vh\][class*="bg-gradient-to-b"] {
           background: linear-gradient(to bottom, #111827, #000000) !important;
         }
       }
