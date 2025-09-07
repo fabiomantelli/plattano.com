@@ -70,13 +70,13 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
-/* Prevent flash of white background on dark mode */
+/* Prevent flash during theme transitions */
 html {
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 html.dark {
-  background-color: black;
+  background-color: #0a0a0a;
 }
 
 body {
