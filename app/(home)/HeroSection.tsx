@@ -69,6 +69,9 @@ export default function HeroSection() {
           {resolvedTheme === 'dark' && (
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/95" />
           )}
+          {resolvedTheme === 'light' && (
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/30" />
+          )}
         </>
       )}
 
