@@ -10,7 +10,13 @@ interface OptimizedHeroBackgroundProps {
 
 export default function OptimizedHeroBackground({ className = '' }: OptimizedHeroBackgroundProps) {
   const { isMobile } = useDeviceOptimization()
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark')
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(() => {
+    // Detecta o tema inicial no lado do cliente para evitar flash
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    }
+    return 'dark' // fallback para SSR
+  })
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -53,7 +59,7 @@ export default function OptimizedHeroBackground({ className = '' }: OptimizedHer
   if (!mounted) {
     return (
       <div className={`absolute inset-0 ${className}`}>
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0" style={{backgroundColor: 'var(--background)'}} />
       </div>
     )
   }

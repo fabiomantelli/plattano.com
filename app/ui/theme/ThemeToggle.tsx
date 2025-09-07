@@ -7,13 +7,9 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme')
-    
-    // Dark mode como padrão, exceto se o usuário escolheu explicitamente light mode
-    const enabledDark = storedTheme !== 'light'
-
-    setIsDark(enabledDark)
-    document.documentElement.classList.toggle('dark', enabledDark)
+    // Apenas sincroniza o estado com o que já foi definido pelo script inline
+    const isDarkMode = document.documentElement.classList.contains('dark')
+    setIsDark(isDarkMode)
     setMounted(true)
   }, [])
 

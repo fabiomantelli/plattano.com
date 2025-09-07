@@ -58,7 +58,7 @@ export default function SkeletonLoader({
 // Hero Section Skeleton
 export function HeroSkeleton() {
   return (
-    <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900" style={{backgroundColor: 'var(--background)'}}>
       {/* Background skeleton */}
       <SkeletonLoader 
         variant="image" 

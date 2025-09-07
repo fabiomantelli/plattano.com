@@ -73,15 +73,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* ✅ Theme detection script - Dark mode como padrão */}
+        {/* ✅ Theme detection script - Respeita preferência do usuário */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function() {
               try {
                 const theme = localStorage.getItem('theme');
-                // Dark mode como padrão, exceto se o usuário escolheu explicitamente light mode
-                if (theme !== 'light') {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (theme === 'dark' || (theme === null && prefersDark)) {
                   document.documentElement.classList.add('dark');
+                } else if (theme === 'light' || (theme === null && !prefersDark)) {
+                  document.documentElement.classList.add('light');
                 }
               } catch (_) {}
             })();`,
