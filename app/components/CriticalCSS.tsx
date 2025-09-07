@@ -20,21 +20,37 @@ export default function CriticalCSS() {
   useEffect(() => {
     // Inject critical CSS for above-the-fold content
     const criticalCSS = `
-      /* Critical CSS for above-the-fold content */
+      /* Critical CSS for above-the-fold content - LCP optimization */
       .hero-section {
         contain: layout style paint;
         content-visibility: auto;
+        will-change: transform;
+      }
+      
+      /* Font loading optimization */
+      .font-sofia {
+        font-display: swap;
+        font-feature-settings: 'kern' 1;
+      }
+      
+      /* Hero text optimization for LCP */
+      .hero-title {
+        contain: layout style;
+        transform: translateZ(0);
+        backface-visibility: hidden;
       }
       
       /* Mobile-specific optimizations */
       ${isMobile ? `
         .hero-section {
           height: 50vh !important;
+          background-attachment: scroll !important;
         }
         
         .hero-section h1 {
           font-size: 1.5rem !important;
           line-height: 1.3 !important;
+          will-change: auto;
         }
         
         .hero-section p {
