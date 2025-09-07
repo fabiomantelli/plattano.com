@@ -69,3 +69,17 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "rlig" 1, "calt" 1;
 }
+
+/* Prevent flash of white background on dark mode */
+html {
+  background-color: white;
+}
+
+html.dark {
+  background-color: black;
+}
+
+body {
+  background-color: inherit;
+  transition: background-color 0.2s ease;
+}

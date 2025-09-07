@@ -3,9 +3,12 @@
 import { useEffect, useState } from 'react'
 
 export default function CriticalCSS() {
+  const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   
   useEffect(() => {
+    setMounted(true)
+    
     // Detect mobile on client side
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -18,6 +21,9 @@ export default function CriticalCSS() {
   }, [])
 
   useEffect(() => {
+    // Only inject CSS on client after mount to prevent hydration mismatch
+    if (!mounted) return
+    
     // Inject critical CSS for above-the-fold content
     const criticalCSS = `
       /* Critical CSS for above-the-fold content - LCP optimization */
@@ -136,7 +142,12 @@ export default function CriticalCSS() {
         element.remove()
       }
     }
-  }, [isMobile])
+  }, [mounted, isMobile])
 
+  // Don't render anything during SSR to prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
+  
   return null
 }

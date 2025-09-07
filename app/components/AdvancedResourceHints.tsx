@@ -3,16 +3,19 @@
 import { useEffect, useState } from 'react'
 
 export default function AdvancedResourceHints() {
+  const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [connectionSpeed, setConnectionSpeed] = useState<'slow' | 'fast'>('fast')
   const [preferredImageFormat, setPreferredImageFormat] = useState<'webp' | 'png'>('webp')
   
   useEffect(() => {
+    setMounted(true)
+    
     // Detect device and connection on client side
     const checkDevice = () => {
       setIsMobile(window.innerWidth < 768)
       
-      // Check connection speed -->
+      // Check connection speed
       const connection = (navigator as Navigator & {
         connection?: {
           effectiveType?: string
@@ -37,6 +40,9 @@ export default function AdvancedResourceHints() {
   }, [])
 
   useEffect(() => {
+    // Only run on client after mount to prevent hydration mismatch
+    if (!mounted) return
+    
     const addResourceHint = (rel: string, href: string, as?: string, type?: string) => {
       // Check if hint already exists
       const existing = document.querySelector(`link[rel="${rel}"][href="${href}"]`)
@@ -113,7 +119,7 @@ export default function AdvancedResourceHints() {
         observer.disconnect()
       }
     }
-  }, [isMobile, connectionSpeed, preferredImageFormat])
+  }, [mounted, isMobile, connectionSpeed, preferredImageFormat])
 
   return null
 }

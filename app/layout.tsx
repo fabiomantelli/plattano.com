@@ -10,6 +10,7 @@ import CriticalCSS from './components/CriticalCSS'
 import AdvancedResourceHints from './components/AdvancedResourceHints'
 import MicrosoftClarity from './components/MicrosoftClarity'
 import { ThemeProvider } from './providers/ThemeProvider'
+import ThemeScript from './components/ThemeScript'
 
 const sofiaSans = localFont({
   src: [
@@ -124,8 +125,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <link rel="manifest" href="/manifest.json" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'dark';
+                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  const shouldBeDark = theme === 'dark' || (theme === 'system' && systemPrefersDark);
+                  
+                  if (shouldBeDark) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })()
+            `,
+          }}
+        />
       </head>
  <body className={`${sofiaSans.variable} font-sans antialiased`}>
+        <ThemeScript />
         <CriticalCSS />
         <AdvancedResourceHints />
         <PreloadImages />

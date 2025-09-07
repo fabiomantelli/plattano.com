@@ -10,7 +10,6 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       enableSystem={true}
       disableTransitionOnChange={false}
       storageKey="theme"
-      suppressHydrationWarning
       {...props}
     >
       {children}
