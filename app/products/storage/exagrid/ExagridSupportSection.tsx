@@ -6,13 +6,12 @@ import { Users, Headphones, Award, Star, CheckCircle, Phone, Clock, Mail } from 
 
 // Hook to animate count up when in view
 function useCountUp(target: number, duration = 2000) {
-  const [value, setValue] = useState(target); // Start with target to prevent hydration mismatch
+  const [value, setValue] = useState(0);
   const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
-    setValue(0); // Reset to 0 after mount for animation
   }, []);
 
   useEffect(() => {
@@ -41,7 +40,7 @@ function useCountUp(target: number, duration = 2000) {
     return () => io.disconnect();
   }, [target, duration, mounted]);
 
-  return { ref, value };
+  return { ref, value: mounted ? value : target };
 }
 
 export default function ExagridSupportSection() {
