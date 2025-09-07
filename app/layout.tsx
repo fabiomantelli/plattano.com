@@ -10,7 +10,7 @@ import CriticalCSS from './components/CriticalCSS'
 import AdvancedResourceHints from './components/AdvancedResourceHints'
 import MicrosoftClarity from './components/MicrosoftClarity'
 import { ThemeProvider } from './providers/ThemeProvider'
-import ThemeScript from './components/ThemeScript'
+
 
 const sofiaSans = localFont({
   src: [
@@ -146,7 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
  <body className={`${sofiaSans.variable} font-sans antialiased`}>
-        <ThemeScript />
+
         <CriticalCSS />
         <AdvancedResourceHints />
         <PreloadImages />
