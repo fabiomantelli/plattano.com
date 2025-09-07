@@ -1,31 +1,24 @@
 'use client'
 
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Apenas sincroniza o estado com o que já foi definido pelo script inline
-    const isDarkMode = document.documentElement.classList.contains('dark')
-    setIsDark(isDarkMode)
     setMounted(true)
   }, [])
 
-  const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark'
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('dark', !isDark)
-    setIsDark(!isDark)
-  }
-
   if (!mounted) return null
+
+  const isDark = theme === 'dark'
 
   return (
     <button
       aria-label="Toggle theme"
-      onClick={toggleTheme}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className="p-2 focus:outline-none focus:ring transition text-black dark:text-primary"
     >
       {isDark ? (

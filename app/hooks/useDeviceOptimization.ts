@@ -13,6 +13,7 @@ interface DeviceOptimization {
 }
 
 export function useDeviceOptimization(): DeviceOptimization {
+  const [mounted, setMounted] = useState(false)
   const [optimization, setOptimization] = useState<DeviceOptimization>({
     isMobile: false,
     isTablet: false,
@@ -24,6 +25,8 @@ export function useDeviceOptimization(): DeviceOptimization {
   })
 
   useEffect(() => {
+    setMounted(true)
+    
     const updateOptimization = () => {
       const width = window.innerWidth
       const isMobile = width < 768
@@ -81,6 +84,19 @@ export function useDeviceOptimization(): DeviceOptimization {
       }
     }
   }, [])
+
+  // Return default values during SSR/hydration to prevent mismatch
+  if (!mounted) {
+    return {
+      isMobile: false,
+      isTablet: false,
+      isDesktop: true,
+      shouldReduceAnimations: false,
+      shouldLazyLoadImages: true,
+      preferredImageFormat: 'webp',
+      connectionSpeed: 'unknown'
+    }
+  }
 
   return optimization
 }

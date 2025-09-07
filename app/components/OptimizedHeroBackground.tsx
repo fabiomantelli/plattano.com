@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useDeviceOptimization } from '../hooks/useDeviceOptimization'
 
@@ -10,57 +11,21 @@ interface OptimizedHeroBackgroundProps {
 
 export default function OptimizedHeroBackground({ className = '' }: OptimizedHeroBackgroundProps) {
   const { isMobile } = useDeviceOptimization()
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(() => {
-    // Detecta o tema inicial no lado do cliente para evitar flash
-    if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-    }
-    return 'dark' // fallback para SSR
-  })
+  const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Detect theme - sync with ThemeToggle logic
-    const detectTheme = () => {
-      if (typeof window !== 'undefined') {
-        // Check if HTML has 'dark' class (this is what ThemeToggle actually sets)
-        const isDark = document.documentElement.classList.contains('dark')
-        const newTheme = isDark ? 'dark' : 'light'
-        setCurrentTheme(newTheme)
-      }
-    }
-
-    detectTheme()
     setMounted(true)
-
-    
-    // Listen for DOM class changes (when ThemeToggle updates the class)
-    const observer = new MutationObserver(() => {
-      detectTheme()
-    })
-    
-    if (typeof window !== 'undefined') {
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['class']
-      })
-    }
-
-    return () => {
-      observer.disconnect()
-    }
   }, [])
 
   const getOptimalImageSrc = () => {
-    return `/images/home/high-tech-background-${currentTheme}.webp`
+    return `/images/home/high-tech-background-${theme}.webp`
   }
 
-  // Don't render until mounted to avoid hydration mismatch
+  // Fallback durante hidratação - usa fundo neutro que funciona em ambos os temas
   if (!mounted) {
     return (
-      <div className={`absolute inset-0 ${className}`}>
-        <div className="absolute inset-0" style={{backgroundColor: 'var(--background)'}} />
-      </div>
+      <div className={`absolute inset-0 -z-10 bg-neutral-100 dark:bg-neutral-900 ${className}`} />
     )
   }
 
@@ -84,10 +49,10 @@ export default function OptimizedHeroBackground({ className = '' }: OptimizedHer
         />
         
         {/* Theme-specific overlays */}
-        {currentTheme === 'dark' && (
+        {theme === 'dark' && (
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/95" />
         )}
-        {currentTheme === 'light' && (
+        {theme === 'light' && (
           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/30" />
         )}
       </div>

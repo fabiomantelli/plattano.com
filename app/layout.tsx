@@ -9,6 +9,7 @@ import PreloadImages from './components/PreloadImages'
 import CriticalCSS from './components/CriticalCSS'
 import AdvancedResourceHints from './components/AdvancedResourceHints'
 import MicrosoftClarity from './components/MicrosoftClarity'
+import { ThemeProvider } from './providers/ThemeProvider'
 
 const sofiaSans = Sofia_Sans({
   variable: '--font-sofia',
@@ -73,26 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* ✅ Theme detection script - Dark mode como padrão */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function() {
-              try {
-                const theme = localStorage.getItem('theme');
-                
-                if (theme === 'light') {
-                  document.documentElement.classList.add('light');
-                } else {
-                  // Dark mode como padrão (mesmo sem escolha prévia)
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (_) {
-                // Fallback para dark mode
-                document.documentElement.classList.add('dark');
-              }
-            })();`,
-          }}
-        />
+
 
         <script
           type="application/ld+json"
@@ -123,13 +105,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Script para evitar flash de cor durante hard refresh - versão segura para hidratação */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Só executa após o DOM estar pronto para evitar mismatch de hidratação
+                if (typeof window !== 'undefined' && document.readyState !== 'loading') {
+                  try {
+                    const theme = localStorage.getItem('theme');
+                    if (theme === 'dark') {
+                      document.documentElement.classList.add('dark');
+                      document.documentElement.style.backgroundColor = '#111827';
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                      document.documentElement.style.backgroundColor = '#ffffff';
+                    }
+                  } catch (e) {
+                    // Fallback para light mode se localStorage não estiver disponível
+                    document.documentElement.style.backgroundColor = '#ffffff';
+                  }
+                } else {
+                  // Durante SSR/hidratação, usa valores padrão
+                  document.documentElement.style.backgroundColor = '#ffffff';
+                }
+              })();
+            `,
+          }}
+        />
       </head>
  <body className={`${sofiaSans.variable} font-sans antialiased`}>
         <CriticalCSS />
         <AdvancedResourceHints />
         <PreloadImages />
-        <Header />
+        <ThemeProvider>
+          <Header />
           <main className="pt-[100px]">{children}</main>
+        </ThemeProvider>
           <SafeAnalytics />
           <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_ID || ''} />
           <script

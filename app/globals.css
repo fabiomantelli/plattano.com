@@ -61,32 +61,11 @@ img {
   --font-ubuntu:      "Ubuntu", sans-serif;
 }
 
-/* 4. Tema claro (padrão) */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-/* 5. Removed prefers-color-scheme to avoid conflicts with JS theme detection */
-
-/* 6. Dark manual via next-themes */
-html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-/* 7. Light manual via next-themes */
-html.light {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-/* 8. Estilização base do body */
+/* 4. Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-sofia);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
