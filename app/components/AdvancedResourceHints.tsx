@@ -12,7 +12,7 @@ export default function AdvancedResourceHints() {
     const checkDevice = () => {
       setIsMobile(window.innerWidth < 768)
       
-      // Check connection speed
+      // Check connection speed -->
       const connection = (navigator as Navigator & {
         connection?: {
           effectiveType?: string
