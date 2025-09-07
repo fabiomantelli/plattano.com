@@ -50,13 +50,10 @@ export default function AdvancedResourceHints() {
       document.head.appendChild(link)
     }
 
-    // DNS prefetch for external resources
-    addResourceHint('dns-prefetch', 'https://fonts.googleapis.com')
-    addResourceHint('dns-prefetch', 'https://fonts.gstatic.com')
-    
-    // Preconnect to critical origins
-    addResourceHint('preconnect', 'https://fonts.googleapis.com')
-    addResourceHint('preconnect', 'https://fonts.gstatic.com', undefined, undefined)
+    // Preload local fonts for better LCP
+    addResourceHint('preload', '/fonts/SofiaSans-Regular.woff2', 'font', 'font/woff2')
+    addResourceHint('preload', '/fonts/SofiaSans-SemiBold.woff2', 'font', 'font/woff2')
+    addResourceHint('preload', '/fonts/SofiaSans-ExtraBold.woff2', 'font', 'font/woff2')
     
     // Preload critical images based on device and connection
     const shouldPreloadImages = !isMobile || connectionSpeed === 'fast'
@@ -72,7 +69,7 @@ export default function AdvancedResourceHints() {
       addResourceHint('preload', '/images/home/logo.webp', 'image')
     }
     
-    // Note: Fonts are now handled by Next.js font optimization with display=swap
+    // Note: Fonts are now handled locally with Next.js localFont optimization
     
     // Module preload for critical JavaScript (if using ES modules)
     if ('modulepreload' in HTMLLinkElement.prototype) {

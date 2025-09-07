@@ -1,6 +1,6 @@
 // app/layout.tsx
 import './globals.css'
-import { Sofia_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from './ui/layout/Header'
@@ -11,12 +11,31 @@ import AdvancedResourceHints from './components/AdvancedResourceHints'
 import MicrosoftClarity from './components/MicrosoftClarity'
 import { ThemeProvider } from './providers/ThemeProvider'
 
-const sofiaSans = Sofia_Sans({
+const sofiaSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/SofiaSans-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/SofiaSans-SemiBold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/SofiaSans-ExtraBold.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/SofiaSans-BoldItalic.woff2',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
   variable: '--font-sofia',
-  subsets: ['latin'],
-  weight: ['400', '700', '800'],
-  display: 'optional', // Changed from 'swap' to 'optional' for better LCP
-  preload: true,
+  display: 'swap',
   fallback: ['system-ui', 'arial', 'sans-serif']
 })
 

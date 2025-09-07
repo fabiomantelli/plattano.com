@@ -72,14 +72,14 @@ export default function HeroSection() {
         ) : (
           <h1
             className={`
-              font-sofia font-extrabold leading-tight
-              text-2xl sm:text-4xl lg:text-6xl
+              font-sofia font-bold leading-tight
+              text-3xl sm:text-4xl lg:text-5xl
               ${isMobile ? '' : 'drop-shadow-[0_0_2px_rgba(237,110,0,0.8)]'}
             `}
           >
             CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
             EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br/>
-            YOUR WORLD, OUR <span className="text-primary">TECHNOLOGY</span>.
+            YOUR WORLD, OUR <br/><span className="text-primary">TECHNOLOGY</span>.
           </h1>
         )}
       </div>
