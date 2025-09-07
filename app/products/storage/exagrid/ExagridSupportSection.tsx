@@ -40,7 +40,7 @@ function useCountUp(target: number, duration = 2000) {
     return () => io.disconnect();
   }, [target, duration, mounted]);
 
-  return { ref, value: mounted ? value : target };
+  return { ref, value: mounted ? value : 0 };
 }
 
 export default function ExagridSupportSection() {
@@ -258,7 +258,9 @@ export default function ExagridSupportSection() {
           </p>
           
           {/* Contact Information */}
-          <div className="backdrop-blur-sm rounded-2xl p-6 mb-8 border border-primary/20">
+          <div className={`rounded-2xl p-6 mb-8 border border-primary/20 transition-all duration-200 ${
+            mounted ? 'backdrop-blur-sm' : ''
+          }`}>
             <h4 className="text-xl font-bold text-primary mb-6 text-center">Commercial Contact</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className={`flex items-center justify-center gap-3 p-4 rounded-xl border border-primary/20 transition-colors duration-200 ${
