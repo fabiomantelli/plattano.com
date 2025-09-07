@@ -44,6 +44,12 @@ function useCountUp(target: number, duration = 2000) {
 }
 
 export default function ExagridSupportSection() {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   // Count-up hooks for animated numbers
   const count81 = useCountUp(81);
   const count132 = useCountUp(132);
@@ -255,21 +261,27 @@ export default function ExagridSupportSection() {
           <div className="backdrop-blur-sm rounded-2xl p-6 mb-8 border border-primary/20">
             <h4 className="text-xl font-bold text-primary mb-6 text-center">Commercial Contact</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center justify-center gap-3 p-4 bg-white dark:bg-black rounded-xl border border-primary/20">
+              <div className={`flex items-center justify-center gap-3 p-4 rounded-xl border border-primary/20 transition-colors duration-200 ${
+                mounted ? 'bg-white dark:bg-black' : 'bg-transparent'
+              }`}>
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
                 <div className="text-center">
                   <p className="font-bold text-primary">+1 (321) 313 8762</p>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">Call Now</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-3 p-4 bg-white dark:bg-black rounded-xl border border-primary/20">
+              <div className={`flex items-center justify-center gap-3 p-4 rounded-xl border border-primary/20 transition-colors duration-200 ${
+                mounted ? 'bg-white dark:bg-black' : 'bg-transparent'
+              }`}>
                 <Clock className="h-5 w-5 text-primary flex-shrink-0" />
                 <div className="text-center">
                   <p className="font-bold text-primary">Available 24/7</p>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">Always Ready</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-3 p-4 bg-white dark:bg-black rounded-xl border border-primary/20">
+              <div className={`flex items-center justify-center gap-3 p-4 rounded-xl border border-primary/20 transition-colors duration-200 ${
+                mounted ? 'bg-white dark:bg-black' : 'bg-transparent'
+              }`}>
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
                 <div className="text-center">
                   <p className="font-bold text-primary">plattano@plattano.com</p>
