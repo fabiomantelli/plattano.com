@@ -124,39 +124,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Script para evitar flash de cor durante hard refresh - versão segura para hidratação */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Executa apenas no cliente para evitar mismatch de hidratação
-                if (typeof window !== 'undefined') {
-                  try {
-                    const theme = localStorage.getItem('theme');
-                    if (theme === 'light') {
-                      // Usuário escolheu explicitamente light mode
-                      document.documentElement.classList.remove('dark');
-                      document.documentElement.style.backgroundColor = '#ffffff';
-                    } else {
-                      // Padrão é dark mode (primeira visita ou preferência dark)
-                      document.documentElement.classList.add('dark');
-                      document.documentElement.style.backgroundColor = '#111827';
-                      // Define dark como padrão se não há preferência salva
-                      if (!theme) {
-                        localStorage.setItem('theme', 'dark');
-                      }
-                    }
-                  } catch (e) {
-                    // Fallback para dark mode se localStorage não estiver disponível
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.style.backgroundColor = '#111827';
-                  }
-                }
-              })();
-            `,
-          }}
-        />
       </head>
  <body className={`${sofiaSans.variable} font-sans antialiased`}>
         <CriticalCSS />
