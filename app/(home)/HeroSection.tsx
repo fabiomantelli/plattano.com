@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 
 export default function HeroSection() {
-  const { theme, resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 

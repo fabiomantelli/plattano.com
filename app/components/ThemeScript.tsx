@@ -19,7 +19,7 @@ export default function ThemeScript() {
       } else {
         document.documentElement.classList.remove('dark');
       }
-    } catch (e) {
+    } catch {
       // Fallback to dark theme if there's an error
       document.documentElement.classList.add('dark');
     }
