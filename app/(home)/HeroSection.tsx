@@ -4,13 +4,12 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import SkeletonLoader from '../components/SkeletonLoader'
+
 
 export default function HeroSection() {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
-  const [contentLoaded, setContentLoaded] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -20,8 +19,7 @@ export default function HeroSection() {
     checkMobile()
     window.addEventListener('resize', checkMobile)
     
-    // Mark content as loaded immediately for better LCP
-    setContentLoaded(true)
+
     
     return () => {
       window.removeEventListener('resize', checkMobile)
