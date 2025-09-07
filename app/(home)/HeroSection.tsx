@@ -2,19 +2,46 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function HeroSection() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white text-neutral-800 dark:bg-black dark:text-white">
-      {/* Background image */}
-      <div
-        className={`
-          absolute inset-0 bg-center bg-cover
-          bg-[url('/images/home/high-tech-background-light.png')]
-          dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('/images/home/high-tech-background-dark.png')]
-        `}
-      />
-      <div/>
+      {/* Background image - disabled on mobile for better LCP */}
+      {mounted && !isMobile && (
+        <>
+          <Image
+            src={theme === 'dark' ? '/images/home/high-tech-background-dark.png' : '/images/home/high-tech-background-light.png'}
+            alt="High-tech background"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          />
+          {theme === 'dark' && (
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/95" />
+          )}
+        </>
+      )}
 
        {/* Grid watermark */}
        <div

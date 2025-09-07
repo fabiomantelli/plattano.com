@@ -1,18 +1,32 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="relative isolate overflow-hidden bg-white text-black dark:bg-black dark:text-white">
-      {/* décor */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0
-                  bg-[url('/images/products/data-protection/veeam-recovery-orchestrator/veaam-recovery-orchestrator-hero-bg.png')]
-                  bg-center bg-no-repeat bg-cover
-                  opacity-20 dark:opacity-15"
-      />
+      {/* décor - disabled on mobile for better LCP */}
+      {!isMobile && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0
+                    bg-[url('/images/products/data-protection/veeam-recovery-orchestrator/veaam-recovery-orchestrator-hero-bg.png')]
+                    bg-center bg-no-repeat bg-cover
+                    opacity-20 dark:opacity-15"
+        />
+      )}
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-24 lg:grid-cols-2 lg:gap-16">
         {/* ------------ text ------------ */}
