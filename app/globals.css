@@ -16,13 +16,13 @@
 
 html {
   scroll-behavior: smooth;
-  /* Default background for light mode */
-  background-color: white;
+  /* Default background for dark mode (default theme) */
+  background-color: black;
 }
 
-/* Dark mode background */
-html.dark {
-  background-color: black;
+/* Light mode background */
+html:not(.dark) {
+  background-color: white;
 }
 
 /* Body background to match theme */
@@ -84,11 +84,11 @@ body {
 
 /* Prevent flash during theme transitions */
 html {
-  background-color: #f5f5f5;
+  background-color: #0a0a0a;
 }
 
-html.dark {
-  background-color: #0a0a0a;
+html:not(.dark) {
+  background-color: #f5f5f5;
 }
 
 body {
