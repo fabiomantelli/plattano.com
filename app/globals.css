@@ -16,6 +16,18 @@
 
 html {
   scroll-behavior: smooth;
+  /* Default background for light mode */
+  background-color: white;
+}
+
+/* Dark mode background */
+html.dark {
+  background-color: black;
+}
+
+/* Body background to match theme */
+body {
+  background-color: inherit;
 }
 
 /* Prevent layout shift */
