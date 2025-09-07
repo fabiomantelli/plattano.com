@@ -111,7 +111,7 @@ export default function ExagridPerformanceSection() {
             <span className="text-primary">Unmatched Performance</span> at Scale
           </h2>
           <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
-            ExaGrid's unique architecture delivers consistent high performance that doesn't degrade as your data grows. 
+            ExaGrid&apos;s unique architecture delivers consistent high performance that doesn&apos;t degrade as your data grows. 
             Experience the fastest backups and recoveries in the industry.
           </p>
         </motion.div>

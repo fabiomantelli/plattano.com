@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Shield, Database, Zap, HardDrive } from 'lucide-react';
 
 export default function ExagridFeaturesSection() {

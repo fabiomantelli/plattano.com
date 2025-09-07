@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Lock, AlertTriangle, CheckCircle, Eye, Clock } from 'lucide-react';
+import { Shield, Lock, AlertTriangle, Eye } from 'lucide-react';
 
 // Hook to animate count up when in view
 function useCountUp(target: number, duration = 2000, decimals = 0) {
@@ -122,7 +122,7 @@ export default function ExagridSecuritySection() {
             <span className="text-primary">Ransomware Protection</span> That Works
           </h2>
           <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
-            ExaGrid provides the industry's most comprehensive ransomware protection with retention time-lock, 
+            ExaGrid provides the industry&apos;s most comprehensive ransomware protection with retention time-lock, 
             delayed deletes, and the only non-network-facing backup storage tier.
           </p>
         </motion.div>
@@ -205,7 +205,7 @@ export default function ExagridSecuritySection() {
               Ransomware Recovery Process
             </h3>
             <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl mx-auto">
-              ExaGrid's proven 4-step recovery process gets your business back online quickly and securely.
+              ExaGrid&apos;s proven 4-step recovery process gets your business back online quickly and securely.
             </p>
           </div>
 

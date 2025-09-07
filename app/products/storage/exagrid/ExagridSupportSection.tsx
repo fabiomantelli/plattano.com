@@ -222,7 +222,7 @@ export default function ExagridSupportSection() {
 
                 {/* Quote */}
                 <blockquote className="text-base md:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
 
                 {/* Author */}
