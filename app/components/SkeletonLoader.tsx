@@ -58,7 +58,7 @@ export default function SkeletonLoader({
 // Hero Section Skeleton
 export function HeroSkeleton() {
   return (
-    <section className={`relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white`}>
+    <section className={`relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-neutral-100 dark:bg-neutral-900`}>
       {/* Background skeleton */}
       <SkeletonLoader 
         variant="image" 
