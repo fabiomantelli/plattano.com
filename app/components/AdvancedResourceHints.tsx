@@ -11,7 +11,7 @@ export default function AdvancedResourceHints() {
   useEffect(() => {
     setMounted(true)
     
-    // Detect device and connection on client side
+    // Detect device and connection on client side!
     const checkDevice = () => {
       setIsMobile(window.innerWidth < 768)
       
