@@ -96,7 +96,7 @@ export default function ExagridFeaturesSection() {
           <p className="text-lg font-semibold text-primary mb-4">
             Ready to experience the ExaGrid difference?
           </p>
-          <p className="text-base text-neutral-700 dark:text-neutral-300">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-neutral-700 dark:text-neutral-300">
             Contact Plattano Technologies for ExaGrid deployment and support in Orlando.
           </p>
         </motion.div>

@@ -111,24 +111,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // Só executa após o DOM estar pronto para evitar mismatch de hidratação
-                if (typeof window !== 'undefined' && document.readyState !== 'loading') {
+                // Executa apenas no cliente para evitar mismatch de hidratação
+                if (typeof window !== 'undefined') {
                   try {
                     const theme = localStorage.getItem('theme');
-                    if (theme === 'dark') {
-                      document.documentElement.classList.add('dark');
-                      document.documentElement.style.backgroundColor = '#111827';
-                    } else {
+                    if (theme === 'light') {
+                      // Usuário escolheu explicitamente light mode
                       document.documentElement.classList.remove('dark');
                       document.documentElement.style.backgroundColor = '#ffffff';
+                    } else {
+                      // Padrão é dark mode (primeira visita ou preferência dark)
+                      document.documentElement.classList.add('dark');
+                      document.documentElement.style.backgroundColor = '#111827';
+                      // Define dark como padrão se não há preferência salva
+                      if (!theme) {
+                        localStorage.setItem('theme', 'dark');
+                      }
                     }
                   } catch (e) {
-                    // Fallback para light mode se localStorage não estiver disponível
-                    document.documentElement.style.backgroundColor = '#ffffff';
+                    // Fallback para dark mode se localStorage não estiver disponível
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.style.backgroundColor = '#111827';
                   }
-                } else {
-                  // Durante SSR/hidratação, usa valores padrão
-                  document.documentElement.style.backgroundColor = '#ffffff';
                 }
               })();
             `,
