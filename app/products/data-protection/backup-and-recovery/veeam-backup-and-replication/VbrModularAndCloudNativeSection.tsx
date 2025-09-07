@@ -15,7 +15,7 @@ export default function VbrModularAndCloudNativeSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="text-center text-2xl font-extrabold leading-tight sm:text-3xl md:text-4xl"
         >
-          MODULAR AND CLOUD‑NATIVE. 
+          MODULAR AND CLOUD-NATIVE. 
           <span className="text-primary"> CLOUD MOBILITY.</span>
         </motion.h2>
 
@@ -27,26 +27,14 @@ export default function VbrModularAndCloudNativeSection() {
           viewport={{ once: true, amount: 0.6 }}
           className="mt-6 max-w-3xl text-center text-base sm:text-lg"
         >
-          Built specifically for AWS, Azure and Google Cloud. Our
-          API‑driven architecture uses native snapshots, storage and security to
+          Built specifically for AWS, Azure and Google Cloud. Our
+          API-driven architecture uses native snapshots, storage and security to
           enable backup and recovery from <em>anywhere</em> to <em>anywhere</em>.
         </motion.p>
 
         {/* ---------- decorative rule ---------- */}
         <div className="relative mt-14 w-full max-w-4xl">
           <hr className="border-t border-current opacity-80" />
-        </div>
-
-        {/* ---------- illustrative figure ---------- */}
-        <div className="mt-14 flex w-full justify-center">
-          <Image
-            src="/images/products/data-protection/backup-and-recovery/veeam-backup-and-replication/vbr-cloud-mobility.webp"
-            alt="Veeam differentiators chart"
-            width={900}
-            height={500}
-            priority
-            className="w-full max-w-4xl rounded-xl object-contain"
-          />
         </div>
       </div>
     </section>
