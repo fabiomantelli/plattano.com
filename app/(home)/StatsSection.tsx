@@ -33,8 +33,10 @@ export default function StatsSection() {
       ref={ref}
       className="
         relative isolate overflow-hidden py-24
-        bg-gradient-to-tl from-white via-orange-500 to-orange-500
-        dark:bg-gradient-to-tl dark:from-[#953B01] dark:via-[#953B01] dark:to-black
+        bg-gradient-to-br from-slate-50 via-orange-50 to-amber-100
+        dark:bg-gradient-to-br dark:from-slate-900 dark:via-orange-950 dark:to-amber-950
+        before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-orange-500/10 before:to-transparent
+        dark:before:bg-gradient-to-r dark:before:from-transparent dark:before:via-orange-400/20 dark:before:to-transparent
       "
     >
       <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-12 lg:px-24 flex flex-col items-center gap-16">
