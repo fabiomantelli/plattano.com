@@ -1,15 +1,16 @@
 // app/components/HeroSection.tsx
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import SkeletonLoader from '../components/SkeletonLoader'
 
 export default function HeroSection() {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setMounted(true)
@@ -18,7 +19,16 @@ export default function HeroSection() {
     }
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    
+    // Simulate content loading for better UX
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 800)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+      clearTimeout(timer)
+    }
   }, [])
 
   return (
@@ -52,26 +62,27 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Content */}
-      <motion.div
-        className="relative z-10 mx-auto max-w-4xl text-center px-6"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h1
-          className={`
-            font-sofia font-extrabold leading-tight
-            text-2xl sm:text-4xl lg:text-6xl
-            drop-shadow-[0_0_2px_rgba(237,110,0,0.8)]
-          `}
-        >
-          CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
-          EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br/>
-          YOUR WORLD, OUR <span className="text-primary">TECHNOLOGY</span>.
-        </h1>
-      </motion.div>
+      {/* Content - Optimized for mobile LCP */}
+      <div className="relative z-10 mx-auto max-w-4xl text-center px-6">
+        {isLoading ? (
+          <SkeletonLoader 
+            type="hero" 
+            className="py-8"
+          />
+        ) : (
+          <h1
+            className={`
+              font-sofia font-extrabold leading-tight
+              text-2xl sm:text-4xl lg:text-6xl
+              ${isMobile ? '' : 'drop-shadow-[0_0_2px_rgba(237,110,0,0.8)]'}
+            `}
+          >
+            CONNECTING <span className="text-primary">INNOVATION</span>,<br/>
+            EMPOWERING <span className="text-primary">POSSIBILITIES</span>:<br/>
+            YOUR WORLD, OUR <span className="text-primary">TECHNOLOGY</span>.
+          </h1>
+        )}
+      </div>
     </section>
   )
 }

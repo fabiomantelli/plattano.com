@@ -15,9 +15,9 @@ const sofiaSans = Sofia_Sans({
   variable: '--font-sofia',
   subsets: ['latin'],
   weight: ['400', '700', '800'],
-  display: 'swap',
+  display: 'optional', // Changed from 'swap' to 'optional' for better LCP
   preload: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', 'arial', 'sans-serif']
 })
 
 export const metadata: Metadata = {

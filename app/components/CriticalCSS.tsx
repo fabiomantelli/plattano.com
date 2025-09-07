@@ -42,6 +42,31 @@ export default function CriticalCSS() {
           margin-top: 1rem !important;
         }
         
+        /* Mobile-first typography optimizations */
+        @media (max-width: 768px) {
+          h1 { 
+            font-size: 1.5rem !important; 
+            line-height: 1.3 !important;
+            font-weight: 700 !important; /* Reduce from 800 to 700 */
+          }
+          h2 { font-size: 1.25rem !important; }
+          h3 { font-size: 1.125rem !important; }
+          .text-6xl { font-size: 1.875rem !important; }
+          .text-4xl { font-size: 1.5rem !important; }
+          .text-2xl { font-size: 1.25rem !important; }
+          
+          /* Disable expensive effects on mobile */
+          .drop-shadow-\[0_0_2px_rgba\(237\,110\,0\,0\.8\)\] {
+            filter: none !important;
+          }
+          
+          /* Optimize animations for mobile */
+          * {
+            animation-duration: 0.2s !important;
+            transition-duration: 0.2s !important;
+          }
+        }
+        
         /* Reduce motion on mobile for better performance */
         @media (prefers-reduced-motion: reduce) {
           * {
