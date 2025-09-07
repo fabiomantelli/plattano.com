@@ -11,7 +11,7 @@ export default function HeroSection() {
   
   return (
     <section className={`hero-section relative w-full ${isMobile ? 'h-[50vh]' : 'h-[65vh]'} flex items-center justify-center overflow-hidden text-neutral-800 dark:text-white`}>
-      {/* Optimized background with skeleton loading */}
+      {/* Optimized background with skeleton loadings */}
       <Suspense fallback={<HeroSkeleton />}>
         <OptimizedHeroBackground className="bg-optimized" />
       </Suspense>
