@@ -27,7 +27,7 @@ export default function HeroSection() {
   // Prevent hydration mismatch by not rendering theme-dependent content until mounted
   if (!mounted) {
     return (
-      <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+      <section className="relative w-full h-[65vh] flex items-center justify-center overflow-hidden bg-white text-neutral-900 dark:bg-black dark:text-neutral-100">
         {/* Grid watermark */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
