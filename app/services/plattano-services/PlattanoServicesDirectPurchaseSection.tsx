@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const partners = [
-  { name: 'Nutanix', src: '/images/services/plattano-services/nutanix.webp' },
   { name: 'Plattano Hot Storage', src: '/images/services/plattano-services/plattano-hot-storage.webp' },
   { name: 'VMware', src: '/images/services/plattano-services/vmware.webp' },
   { name: 'Veeam', src: '/images/services/plattano-services/veeam.webp' },

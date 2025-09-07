@@ -1,7 +1,6 @@
 // app/layout.tsx
 import './globals.css'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Sofia_Sans, Ubuntu } from 'next/font/google'
+import { Sofia_Sans } from 'next/font/google'
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from './ui/layout/Header'
@@ -11,31 +10,13 @@ import CriticalCSS from './components/CriticalCSS'
 import AdvancedResourceHints from './components/AdvancedResourceHints'
 import MicrosoftClarity from './components/MicrosoftClarity'
 
-const geistSans = Geist({ 
-  variable: '--font-geist-sans', 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true
-})
-const geistMono = Geist_Mono({ 
-  variable: '--font-geist-mono', 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true
-})
 const sofiaSans = Sofia_Sans({
   variable: '--font-sofia',
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+  weight: ['400', '700', '800'],
   display: 'swap',
-  preload: true
-})
-const ubuntu = Ubuntu({
-  variable: '--font-ubuntu',
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  preload: true
+  preload: true,
+  fallback: ['system-ui', 'arial']
 })
 
 export const metadata: Metadata = {
@@ -135,8 +116,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
+        <link rel="manifest" href="/manifest.json" />
       </head>
- <body className={`${geistSans.variable} ${geistMono.variable} ${sofiaSans.variable} ${ubuntu.variable} antialiased`}>
+ <body className={`${sofiaSans.variable} font-sans antialiased`}>
         <CriticalCSS />
         <AdvancedResourceHints />
         <PreloadImages />

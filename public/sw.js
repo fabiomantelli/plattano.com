@@ -2,20 +2,31 @@ const CACHE_NAME = 'plattano-v1'
 const STATIC_CACHE_NAME = 'plattano-static-v1'
 const IMAGE_CACHE_NAME = 'plattano-images-v1'
 
-// Resources to cache immediately
+// Resources to cache immediately - only essential ones
 const STATIC_RESOURCES = [
-  '/',
-  '/manifest.json',
-  '/images/home/high-tech-background-light.webp',
-  '/images/home/high-tech-background-dark.webp'
+  '/'
 ]
 
-// Install event - cache static resources
+// Install event - cache static resources with error handling
 self.addEventListener('install', (event) => {
   event.waitUntil(
     Promise.all([
-      caches.open(STATIC_CACHE_NAME).then((cache) => {
-        return cache.addAll(STATIC_RESOURCES)
+      caches.open(STATIC_CACHE_NAME).then(async (cache) => {
+        try {
+          // Cache resources individually to handle failures gracefully
+          for (const resource of STATIC_RESOURCES) {
+            try {
+              const response = await fetch(resource)
+              if (response.ok) {
+                await cache.put(resource, response)
+              }
+            } catch (error) {
+              console.log(`Failed to cache ${resource}:`, error)
+            }
+          }
+        } catch (error) {
+          console.log('Cache installation failed:', error)
+        }
       })
     ])
   )

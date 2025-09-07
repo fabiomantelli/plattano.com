@@ -10,7 +10,7 @@ const projects = [
   },
   {
     title: 'HYBRID MULTICLOUD (DATACENTER)',
-    items: ['Nutanix', 'VMware by Broadcom'],
+    items: ['VMware by Broadcom'],
   },
   {
     title: 'CYBERSECURITY',

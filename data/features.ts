@@ -2,13 +2,6 @@
 import type { Feature } from "../app/(home)/FeatureCard";
 
 export const features: Feature[] = [
-  // {
-  //   logo: "/images/home/nutanix-logo.svg",
-  //   title: "Market-leading Hyperconvergence",
-  //   description:
-  //     "Transform your business with hybrid multicloud—your apps, your infrastructure, your cloud.",
-  //   cta: "SOLVE HYBRID CLOUD CHALLENGES",
-  // },
   {
     logo: "/images/home/vmware-logo.svg",
     title: "Move Quickly and Stay Free",

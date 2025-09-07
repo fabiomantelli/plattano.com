@@ -36,7 +36,8 @@ export default function FeatureCard({ logo, title, description, cta, href }: Fea
           alt={`${title} logo`}
           width={128}
           height={64}
-          className="object-contain transition-transform duration-200 group-hover:scale-110 w-full h-full"
+          style={{ width: 'auto', height: 'auto' }}
+          className="object-contain transition-transform duration-200 group-hover:scale-110 max-w-full max-h-full"
           priority
         />
       </div>

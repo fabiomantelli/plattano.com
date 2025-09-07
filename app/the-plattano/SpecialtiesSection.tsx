@@ -36,10 +36,6 @@ export default function BestOfBestSection() {
                 <Cloud className="text-primary h-4 w-4" />
                 <span>VMware</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Cloud className="text-primary h-4 w-4" />
-                <span>Nutanix</span>
-              </li>
             </ul>
           </motion.div>
 

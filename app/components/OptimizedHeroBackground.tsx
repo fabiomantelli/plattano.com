@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { useDeviceOptimization } from '../hooks/useDeviceOptimization'
 
 interface OptimizedHeroBackgroundProps {
@@ -8,91 +9,82 @@ interface OptimizedHeroBackgroundProps {
 }
 
 export default function OptimizedHeroBackground({ className = '' }: OptimizedHeroBackgroundProps) {
-  const { isMobile, preferredImageFormat } = useDeviceOptimization()
-  const [imageLoaded, setImageLoaded] = useState(false)
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light')
+  const { isMobile } = useDeviceOptimization()
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Detect theme
+    // Detect theme - sync with ThemeToggle logic
     const detectTheme = () => {
-      const isDark = document.documentElement.classList.contains('dark') ||
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      setCurrentTheme(isDark ? 'dark' : 'light')
-    }
-
-    detectTheme()
-    
-    // Listen for theme changes
-    const observer = new MutationObserver(detectTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    })
-
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    mediaQuery.addEventListener('change', detectTheme)
-
-    return () => {
-      observer.disconnect()
-      mediaQuery.removeEventListener('change', detectTheme)
-    }
-  }, [])
-
-  useEffect(() => {
-    // Preload critical images based on device and theme
-    const preloadImage = (src: string) => {
-      const img = new Image()
-      img.onload = () => setImageLoaded(true)
-      img.src = src
-    }
-
-    const getOptimalImageSrc = () => {
-      const format = preferredImageFormat === 'webp' ? 'webp' : 'png'
-      const theme = currentTheme
-      
-      // For now, use existing images but with optimized loading
-      return `/images/home/high-tech-background-${theme}.${format}`
-    }
-
-    preloadImage(getOptimalImageSrc())
-  }, [isMobile, preferredImageFormat, currentTheme])
-
-  const getBackgroundStyles = () => {
-    const baseStyles = {
-      willChange: 'transform',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-    }
-
-    if (currentTheme === 'dark') {
-      return {
-        ...baseStyles,
-        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('/images/home/high-tech-background-dark.webp')`,
+      if (typeof window !== 'undefined') {
+        // Check if HTML has 'dark' class (this is what ThemeToggle actually sets)
+        const isDark = document.documentElement.classList.contains('dark')
+        const newTheme = isDark ? 'dark' : 'light'
+        setCurrentTheme(newTheme)
       }
     }
 
-    return {
-      ...baseStyles,
-      backgroundImage: `url('/images/home/high-tech-background-light.webp')`,
+    detectTheme()
+    setMounted(true)
+
+    
+    // Listen for DOM class changes (when ThemeToggle updates the class)
+    const observer = new MutationObserver(() => {
+      detectTheme()
+    })
+    
+    if (typeof window !== 'undefined') {
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+      })
     }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  const getOptimalImageSrc = () => {
+    return `/images/home/high-tech-background-${currentTheme}.webp`
   }
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <div className={`absolute inset-0 ${className}`}>
+        <div className="absolute inset-0 bg-black" />
+      </div>
+    )
+  }
+
+
 
   return (
     <>
-      {/* Skeleton/placeholder while loading */}
-      {!imageLoaded && (
-        <div 
-          className={`absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 animate-pulse ${className}`}
+      {/* Optimized background with Next.js Image */}
+      <div className={`absolute inset-0 ${className}`}>
+        <Image
+          src={getOptimalImageSrc()}
+          alt="High-tech background"
+          fill
+          priority
+          fetchPriority="high"
+          sizes={isMobile ? "100vw" : "100vw"}
+          className="object-cover"
+          quality={isMobile ? 75 : 85}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
-      )}
-      
-      {/* Optimized background */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-        style={getBackgroundStyles()}
-      />
+        
+        {/* Theme-specific overlays */}
+        {currentTheme === 'dark' && (
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/95" />
+        )}
+        {currentTheme === 'light' && (
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/30" />
+        )}
+      </div>
     </>
   )
 }

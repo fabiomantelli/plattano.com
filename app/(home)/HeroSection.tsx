@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import OptimizedHeroBackground from '../components/OptimizedHeroBackground'
@@ -11,7 +10,7 @@ export default function HeroSection() {
   const { isMobile } = useDeviceOptimization()
   
   return (
-    <section className={`hero-section relative w-full ${isMobile ? 'h-[50vh]' : 'h-[65vh]'} flex items-center justify-center overflow-hidden bg-white text-neutral-800 dark:bg-black dark:text-white`}>
+    <section className={`hero-section relative w-full ${isMobile ? 'h-[50vh]' : 'h-[65vh]'} flex items-center justify-center overflow-hidden text-neutral-800 dark:text-white`}>
       {/* Optimized background with skeleton loading */}
       <Suspense fallback={<HeroSkeleton />}>
         <OptimizedHeroBackground className="bg-optimized" />
@@ -29,13 +28,7 @@ export default function HeroSection() {
       )}
 
       {/* Content */}
-      <motion.div
-        className="relative z-10 mx-auto max-w-4xl text-center px-6"
-        initial={isMobile ? { opacity: 1 } : { opacity: 0, y: 20 }}
-        whileInView={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
-        transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+      <div className="relative z-10 mx-auto max-w-4xl text-center px-6">
         <h1
           className={`
             font-sofia font-extrabold leading-tight
@@ -70,7 +63,7 @@ export default function HeroSection() {
         >
           {isMobile ? 'Contact Us' : 'Talk to an Expert'}
         </Link>
-      </motion.div>
+      </div>
     </section>
   )
 }
