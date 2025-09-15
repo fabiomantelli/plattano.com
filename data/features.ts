@@ -3,14 +3,6 @@ import type { Feature } from "../app/(home)/FeatureCard";
 
 export const features: Feature[] = [
   {
-    logo: "/images/home/vmware-logo.svg",
-    title: "Move Quickly and Stay Free",
-    description:
-      "In a hybrid multicloud world—providing a digital foundation for enterprises.",
-    cta: "FREE YOURSELF FROM CHAOS",
-    href: "/products/hybrid-multicloud/vmware-by-broadcom",
-  },
-  {
     logo: "/images/home/veeam-logo.svg",
     title: "Advance with Radical Resilience",
     description:

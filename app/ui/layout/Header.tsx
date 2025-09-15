@@ -44,13 +44,6 @@ const menuItems: MenuItem[] = [
         ],
       },
       {
-        label: 'Hybrid Multicloud',
-        submenu: [
-          { label: 'VMware by Broadcom', href: '/products/hybrid-multicloud/vmware-by-broadcom' },
-          // { label: 'Nutanix', href: '/products/hybrid-multicloud/nutanix' },
-        ],
-      },
-      {
         label: 'Cybersecurity',
         submenu: [
           { label: 'SentinelOne', href: '/products/cybersecurity/sentinelone' },
