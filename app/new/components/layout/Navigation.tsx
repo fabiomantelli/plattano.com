@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { mainNav, ctaButton } from '../../lib/constants/navigation'
 import { Button } from '../ui/button'
@@ -36,23 +37,32 @@ export default function Navigation() {
     <>
       <nav
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-sm shadow-md'
-            : 'bg-transparent'
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md',
+          isScrolled ? 'py-2' : 'py-4'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className={cn(
+            'flex justify-between items-center transition-all duration-300',
+            isScrolled ? 'h-14' : 'h-16 md:h-20'
+          )}>
             {/* Logo */}
             <Link
-              href="/"
-              className="flex items-center space-x-2 group"
+              href="/new"
+              className="flex items-center flex-shrink-0"
               aria-label="Plattano Home"
             >
-              <div className="text-2xl md:text-3xl font-bold text-primary-600 group-hover:text-primary-700 transition-colors">
-                Plattano
-              </div>
+              <Image
+                src="/images/home/logo-black.webp"
+                alt="Plattano logo"
+                width={isScrolled ? 140 : 180}
+                height={isScrolled ? 40 : 50}
+                className={cn(
+                  'h-auto w-auto transition-all duration-300',
+                  isScrolled ? 'max-h-10' : 'max-h-12'
+                )}
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}
