@@ -53,7 +53,7 @@ export default function Navigation() {
               aria-label="Plattano Home"
             >
               <Image
-                src="/images/home/logo-black.webp"
+                src="/images/home/logo.webp"
                 alt="Plattano logo"
                 width={isScrolled ? 140 : 180}
                 height={isScrolled ? 40 : 50}
