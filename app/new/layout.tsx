@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navigation from './components/layout/Navigation'
 import Footer from './components/layout/Footer'
-import '../globals.css'
+import '@/app/globals.css'
 
 export const metadata: Metadata = {
   title: 'Plattano | Enterprise IT Solutions in Florida',
