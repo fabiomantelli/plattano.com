@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Shield, CheckCircle, ArrowRight, Phone, AlertTriangle, Check, X } from 'lucide-react'
+import { CheckCircle, ArrowRight, Phone, AlertTriangle, Check, X } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs'
@@ -346,7 +346,7 @@ export default function CybersecurityPage() {
       <section className="py-20 bg-gradient-to-r from-red-500 via-primary-500 to-primary-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Don't Wait for an Attack to Happen
+            Don&apos;t Wait for an Attack to Happen
           </h2>
           <p className="text-xl mb-8">
             Protect your business now with AI-powered security

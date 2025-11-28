@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Let's Talk?
+            Let&apos;s Talk?
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
             Fill out the form or contact us directly. Response within 4 hours.
@@ -35,7 +35,7 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl">Send us a Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible
+                    Fill out the form below and we&apos;ll get back to you as soon as possible
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

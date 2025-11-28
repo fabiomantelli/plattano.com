@@ -72,7 +72,7 @@ export default function DataProtectionPage() {
             ))}
           </div>
           <p className="text-center mt-8 text-lg text-gray-700 font-semibold">
-            Don't be a statistic. Protect yourself now.
+            Don&apos;t be a statistic. Protect yourself now.
           </p>
         </div>
       </section>
