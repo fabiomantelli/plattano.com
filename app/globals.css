@@ -61,11 +61,107 @@ img {
   will-change: transform;
 }
 
-/* Grid pattern for backgrounds */
+/* Grid pattern for backgrounds - Optimized for 2025 */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(0, 102, 204, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 102, 204, 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(237, 110, 0, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 110, 0, 0.12) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+/* Modern glassmorphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth animations */
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu animations */
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Gradient text effect - Orange to Warm Yellow */
+.gradient-text {
+  background: linear-gradient(135deg, #ED6E00 0%, #ff7b1a 50%, #ff9147 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Alternative gradient - Orange to Gold */
+.gradient-text-alt {
+  background: linear-gradient(135deg, #ED6E00 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient backgrounds */
+.gradient-orange-warm {
+  background: linear-gradient(135deg, #ED6E00 0%, #ff9147 100%);
+}
+
+.gradient-orange-gold {
+  background: linear-gradient(135deg, #ED6E00 0%, #ff7b1a 50%, #fbbf24 100%);
+}
+
+.gradient-orange-yellow {
+  background: linear-gradient(135deg, #ED6E00 0%, #fbbf24 100%);
+}
+
+/* Modern shadow */
+.shadow-modern {
+  box-shadow: 0 10px 40px rgba(237, 110, 0, 0.1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(237, 110, 0, 0.15);
 }
 
 /* 2. Override do dark mode para usar .dark */
@@ -73,41 +169,41 @@ img {
 
 /* 3. Suas variáveis e @theme inline */
 @theme inline {
-  /* Primary Blue - Trust & Professionalism */
-  --color-primary-50:  #e6f2ff;
-  --color-primary-100: #b3d9ff;
-  --color-primary-200: #80c0ff;
-  --color-primary-300: #4da6ff;
-  --color-primary-400: #1a8cff;
-  --color-primary-500: #0066cc;
-  --color-primary-600: #0052a3;
-  --color-primary-700: #003d7a;
-  --color-primary-800: #002952;
-  --color-primary-900: #001429;
+  /* Primary Orange - Plattano Brand Color #ED6E00 */
+  --color-primary-50:  #fff5eb;
+  --color-primary-100: #ffe4cc;
+  --color-primary-200: #ffc999;
+  --color-primary-300: #ffae66;
+  --color-primary-400: #ff8f33;
+  --color-primary-500: #ED6E00;
+  --color-primary-600: #ff7b1a;
+  --color-primary-700: #ff9147;
+  --color-primary-800: #ffa366;
+  --color-primary-900: #ffb885;
   
-  /* Secondary Green - Call to Action */
-  --color-secondary-50:  #e6f9f0;
-  --color-secondary-100: #b3efd4;
-  --color-secondary-200: #80e5b8;
-  --color-secondary-300: #4ddb9c;
-  --color-secondary-400: #1ad180;
-  --color-secondary-500: #00c853;
-  --color-secondary-600: #00a043;
-  --color-secondary-700: #007832;
-  --color-secondary-800: #005022;
-  --color-secondary-900: #002811;
+  /* Secondary Dark - Professional & Trust */
+  --color-secondary-50:  #f5f5f5;
+  --color-secondary-100: #e5e5e5;
+  --color-secondary-200: #cccccc;
+  --color-secondary-300: #b3b3b3;
+  --color-secondary-400: #808080;
+  --color-secondary-500: #4d4d4d;
+  --color-secondary-600: #333333;
+  --color-secondary-700: #262626;
+  --color-secondary-800: #1a1a1a;
+  --color-secondary-900: #0d0d0d;
   
-  /* Accent Orange - Energy & Highlight */
-  --color-accent-50:  #fff3e6;
-  --color-accent-100: #ffddb3;
-  --color-accent-200: #ffc780;
-  --color-accent-300: #ffb14d;
-  --color-accent-400: #ff9b1a;
-  --color-accent-500: #ff6b00;
-  --color-accent-600: #cc5600;
-  --color-accent-700: #994000;
-  --color-accent-800: #662b00;
-  --color-accent-900: #331500;
+  /* Accent Yellow/Gold - Warm & Professional */
+  --color-accent-50:  #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
   
   /* Neutral - Content */
   --color-gray-50:     #f9fafb;
