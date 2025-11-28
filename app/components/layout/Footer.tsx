@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="text-2xl font-bold text-white mb-4">Plattano</div>
+            <div className="text-2xl font-bold text-white mb-4">Plattano Technologies</div>
             <p className="text-gray-400 mb-6 max-w-md">
               Leading provider of enterprise IT solutions in Florida.
               Specializing in backup, storage, and cybersecurity solutions.
