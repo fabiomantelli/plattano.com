@@ -165,7 +165,7 @@ export default function Navigation() {
                     className="flex items-center hover:text-primary-600 transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
-                    (555) 123-4567
+                    (321) 313-8762
                   </a>
                   <a
                     href="mailto:plattano@plattano.com"
