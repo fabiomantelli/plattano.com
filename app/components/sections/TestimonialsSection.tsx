@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
               <Quote className="h-12 w-12 text-primary-200 mb-6" />
               
               <blockquote className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
-                "{currentTestimonial.quote}"
+                &quot;{currentTestimonial.quote}&quot;
               </blockquote>
 
               <div className="flex items-center">

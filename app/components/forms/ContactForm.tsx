@@ -53,7 +53,7 @@ export default function ContactForm() {
           <div>
             <p className="font-semibold text-secondary-900">Message sent successfully!</p>
             <p className="text-sm text-secondary-700 mt-1">
-              We'll get back to you within 4 hours.
+              We&apos;ll get back to you within 4 hours.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function ContactForm() {
       {/* Interest */}
       <div>
         <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
-          I'm interested in *
+          I&apos;m interested in *
         </label>
         <select
           {...register('interest')}

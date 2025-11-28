@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Users, Award, Target } from 'lucide-react'
+import { ArrowRight, MapPin, Users, Award } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
 import {
@@ -258,7 +258,7 @@ export default function AboutPage() {
             Ready to Work Together?
           </h2>
           <p className="text-xl mb-8">
-            Let's discuss how we can help protect and scale your business
+            Let&apos;s discuss how we can help protect and scale your business
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" variant="secondary" asChild className="bg-white text-primary-600 hover:bg-gray-100">
