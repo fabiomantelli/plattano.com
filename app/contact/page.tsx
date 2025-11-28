@@ -67,7 +67,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="mailto:info@plattano.com"
+                    href="mailto:plattano@plattano.com"
                     className="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors group"
                   >
                     <Mail className="h-5 w-5 text-primary-600 mr-3 mt-0.5 group-hover:scale-110 transition-transform" />

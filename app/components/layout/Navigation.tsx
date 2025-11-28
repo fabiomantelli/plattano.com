@@ -168,11 +168,11 @@ export default function Navigation() {
                     (555) 123-4567
                   </a>
                   <a
-                    href="mailto:info@plattano.com"
+                    href="mailto:plattano@plattano.com"
                     className="flex items-center hover:text-primary-600 transition-colors"
                   >
                     <Mail className="h-4 w-4 mr-2" />
-                    info@plattano.com
+                    plattano@plattano.com
                   </a>
                 </div>
               </div>

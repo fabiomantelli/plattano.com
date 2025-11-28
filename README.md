@@ -161,4 +161,4 @@ Update constants in `app/lib/constants/` to modify:
 
 ## 🤝 Support
 
-For questions or support, contact: info@plattano.com
+For questions or support, contact: plattano@plattano.com
