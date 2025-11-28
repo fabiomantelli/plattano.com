@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import Navigation from './components/layout/Navigation'
 import Footer from './components/layout/Footer'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: 'Plattano | Enterprise IT Solutions in Florida',
@@ -31,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={inter.variable}>
+      <body className={inter.className}>
         <Navigation />
         <main className="min-h-screen pt-20 md:pt-24">{children}</main>
         <Footer />

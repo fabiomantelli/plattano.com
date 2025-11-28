@@ -5,8 +5,7 @@
 
 /* 2. Font family definitions */
 @theme {
-  --font-family-sofia: var(--font-sofia), ui-sans-serif, system-ui, sans-serif;
-  --font-family-ubuntu: var(--font-ubuntu), ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Performance optimizations */
@@ -220,17 +219,14 @@ img {
   /* Legacy */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sofia:       "Sofia Sans", sans-serif;
-  --font-ubuntu:      "Ubuntu", sans-serif;
 }
 
 /* 4. Base styles */
 body {
-  font-family: var(--font-sofia);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings: "rlig" 1, "calt" 1, "tnum" 1;
 }
 
 /* Prevent flash during theme transitions */
