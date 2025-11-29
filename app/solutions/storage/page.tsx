@@ -1,6 +1,9 @@
+'use client'
+
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Database, CheckCircle, ArrowRight, Phone, TrendingDown } from 'lucide-react'
+import { Database, CheckCircle, ArrowRight, Phone, TrendingDown, Shield } from 'lucide-react'
+import { FadeIn, FadeInView, StaggerChildren, StaggerItem } from '../../components/animations'
 import { Button } from '../../components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card'
 import { Accordion, AccordionItem } from '../../components/ui/accordion'
@@ -14,12 +17,6 @@ import {
   savingsCalculator,
 } from '../../lib/constants/storage-solutions'
 
-export const metadata: Metadata = {
-  title: 'Storage Solutions | Plattano',
-  description:
-    'Intelligent and scalable storage. ExaGrid and Plattano Hot Cloud Storage.',
-}
-
 export default function StoragePage() {
   return (
     <div className="min-h-screen">
@@ -28,17 +25,21 @@ export default function StoragePage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
+            <FadeIn className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
               <Database className="h-4 w-4 mr-2" />
               Storage Challenges 2025
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Intelligent Storage That Scales with Your Business
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Advanced deduplication, guaranteed performance, and savings of up to 60%.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </FadeIn>
+            <FadeIn delay={0.1} className="text-4xl md:text-6xl font-bold mb-6">
+              <h1>
+                Intelligent Storage That Scales with Your Business
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2} className="text-xl md:text-2xl text-white/90 mb-8">
+              <p>
+                Advanced deduplication, guaranteed performance, and savings of up to 60%.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3} className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="secondary" asChild className="bg-white text-primary-600 hover:bg-gray-100">
                 <Link href="/contact">
                   Calculate Your Savings
@@ -51,6 +52,20 @@ export default function StoragePage() {
                   Talk to Storage Expert
                 </a>
               </Button>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ExaGrid Trust Bar */}
+      <section className="py-4 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-white text-center">
+            <div className="flex items-center gap-2">
+              <Shield className="h-5 w-5" />
+              <p className="text-sm font-semibold">
+                ExaGrid Certified Partner • Tiered Backup Storage Leader
+              </p>
             </div>
           </div>
         </div>
@@ -59,36 +74,36 @@ export default function StoragePage() {
       {/* Storage Stats */}
       <section className="py-16 bg-orange-50 border-y border-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-            Storage Challenges
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <FadeInView className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2>Storage Challenges</h2>
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {storageStats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <StaggerItem key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-700">{stat.label}</div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-          <p className="text-center mt-8 text-lg text-gray-700 font-semibold">
-            Intelligent storage with deduplication and integrated protection.
-          </p>
+          </StaggerChildren>
+          <FadeInView delay={0.4} className="text-center mt-8 text-lg text-gray-700 font-semibold">
+            <p>Intelligent storage with deduplication and integrated protection.</p>
+          </FadeInView>
         </div>
       </section>
 
       {/* Solutions Side-by-Side */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <FadeInView className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               Storage Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Choose the right solution for your infrastructure
             </p>
-          </div>
+          </FadeInView>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* ExaGrid */}
@@ -187,12 +202,14 @@ export default function StoragePage() {
       {/* Comparison Table */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            ExaGrid vs. Plattano Hot Storage: Which to Choose?
-          </h2>
-          <p className="text-center text-gray-600 mb-12">
-            Compare and decide the best fit for your needs
-          </p>
+          <FadeInView>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              ExaGrid vs. Plattano Hot Storage: Which to Choose?
+            </h2>
+            <p className="text-center text-gray-600 mb-12">
+              Compare and decide the best fit for your needs
+            </p>
+          </FadeInView>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <table className="w-full">
@@ -235,7 +252,7 @@ export default function StoragePage() {
 
       {/* Savings Calculator CTA */}
       <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-accent-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <FadeInView className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <TrendingDown className="h-16 w-16 text-primary-600 mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {savingsCalculator.title}
@@ -249,47 +266,49 @@ export default function StoragePage() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-        </div>
+        </FadeInView>
       </section>
 
       {/* Case Studies */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            Success Stories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FadeInView className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+            <h2>Success Stories</h2>
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <CardTitle className="text-primary-600">{study.industry}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="text-sm font-semibold text-gray-700 mb-1">Challenge:</p>
-                    <p className="text-sm text-gray-600">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-700 mb-1">Solution:</p>
-                    <p className="text-sm text-gray-600">{study.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-secondary-600 mb-1">Result:</p>
-                    <p className="text-sm font-semibold text-gray-900">{study.result}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <StaggerItem key={index}>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="text-primary-600">{study.industry}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">Challenge:</p>
+                      <p className="text-sm text-gray-600">{study.challenge}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">Solution:</p>
+                      <p className="text-sm text-gray-600">{study.solution}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-secondary-600 mb-1">Result:</p>
+                      <p className="text-sm font-semibold text-gray-900">{study.result}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            Frequently Asked Questions
-          </h2>
+          <FadeInView className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+            <h2>Frequently Asked Questions</h2>
+          </FadeInView>
           <Accordion>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} title={faq.question}>

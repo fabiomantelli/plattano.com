@@ -1,13 +1,10 @@
+'use client'
+
 import { Metadata } from 'next'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { FadeIn, FadeInView } from '../components/animations'
 import ContactForm from '../components/forms/ContactForm'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/card'
-
-export const metadata: Metadata = {
-  title: 'Contact Us | Plattano',
-  description:
-    'Get in touch with Plattano. Schedule a consultation or request a quote for IT solutions.',
-}
 
 export default function ContactPage() {
   return (
@@ -16,12 +13,12 @@ export default function ContactPage() {
       <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Let&apos;s Talk?
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-            Fill out the form or contact us directly. Response within 4 hours.
-          </p>
+          <FadeIn className="text-4xl md:text-6xl font-bold mb-6">
+            <h1>Let&apos;s Talk?</h1>
+          </FadeIn>
+          <FadeIn delay={0.1} className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+            <p>Fill out the form or contact us directly. Response within 4 hours.</p>
+          </FadeIn>
         </div>
       </section>
 

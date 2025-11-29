@@ -1,6 +1,9 @@
+'use client'
+
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Users, Award } from 'lucide-react'
+import { FadeIn, FadeInView, StaggerChildren, StaggerItem } from '../components/animations'
 import { Button } from '../components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
 import {
@@ -13,12 +16,6 @@ import {
   whyChooseUs,
 } from '../lib/constants/about'
 
-export const metadata: Metadata = {
-  title: 'About Plattano | Your Trusted IT Partner',
-  description:
-    'Learn about Plattano - 15+ years protecting businesses in Florida with enterprise IT solutions.',
-}
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
@@ -27,13 +24,13 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Your Trusted IT Partner in Florida
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              {companyInfo.mission}
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 text-white/90">
+            <FadeIn className="text-4xl md:text-6xl font-bold mb-6">
+              <h1>Your Trusted IT Partner in Florida</h1>
+            </FadeIn>
+            <FadeIn delay={0.1} className="text-xl md:text-2xl text-white/90 mb-8">
+              <p>{companyInfo.mission}</p>
+            </FadeIn>
+            <FadeIn delay={0.2} className="flex flex-wrap justify-center gap-6 text-white/90">
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 mr-2" />
                 {companyInfo.location}
@@ -46,7 +43,7 @@ export default function AboutPage() {
                 <Award className="h-5 w-5 mr-2" />
                 Since {companyInfo.founded}
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -54,82 +51,86 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <StaggerItem key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Mission & Vision */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <Card>
-              <CardHeader>
-                <div className="text-5xl mb-4">🎯</div>
-                <CardTitle>Our Mission</CardTitle>
-                <CardDescription className="text-lg">
-                  {companyInfo.mission}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader>
-                <div className="text-5xl mb-4">🚀</div>
-                <CardTitle>Our Vision</CardTitle>
-                <CardDescription className="text-lg">
-                  {companyInfo.vision}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader>
+                  <div className="text-5xl mb-4">🎯</div>
+                  <CardTitle>Our Mission</CardTitle>
+                  <CardDescription className="text-lg">
+                    {companyInfo.mission}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader>
+                  <div className="text-5xl mb-4">🚀</div>
+                  <CardTitle>Our Vision</CardTitle>
+                  <CardDescription className="text-lg">
+                    {companyInfo.vision}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Values */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Values
             </h2>
             <p className="text-xl text-gray-600">
               The principles that guide everything we do
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
+              <StaggerItem key={index} className="text-center">
                 <div className="text-5xl mb-4">{value.icon}</div>
                 <h3 className="font-semibold text-gray-900 mb-2">{value.title}</h3>
                 <p className="text-sm text-gray-600">{value.description}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Timeline */}
       <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-primary-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Journey
             </h2>
             <p className="text-xl text-gray-600">
               7+ years of growth and innovation
             </p>
-          </div>
-          <div className="space-y-8">
+          </FadeInView>
+          <StaggerChildren className="space-y-8">
             {timeline.map((item, index) => (
-              <div
+              <StaggerItem
                 key={index}
                 className="flex items-start bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
               >
@@ -144,110 +145,122 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-gray-600">{item.description}</p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Certifications */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Certifications & Partnerships
             </h2>
             <p className="text-xl text-gray-600">
               Certified by industry-leading technology providers
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
-              <Card key={index} className="text-center">
-                <CardHeader>
-                  <div className="text-5xl mb-4">{cert.badge}</div>
-                  <CardTitle className="text-lg">{cert.name}</CardTitle>
-                  <CardDescription>{cert.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <StaggerItem key={index}>
+                <Card className="text-center h-full">
+                  <CardHeader>
+                    <div className="text-5xl mb-4">{cert.badge}</div>
+                    <CardTitle className="text-lg">{cert.name}</CardTitle>
+                    <CardDescription>{cert.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Team */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Team
             </h2>
             <p className="text-xl text-gray-600">
               Experienced professionals dedicated to your success
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card>
-              <CardHeader className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">
-                  {team.engineers}
-                </div>
-                <CardTitle className="text-lg">Certified Engineers</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">
-                  {team.certifications}
-                </div>
-                <CardTitle className="text-lg">Technical Certifications</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">
-                  {team.experience}
-                </div>
-                <CardTitle className="text-lg">Average Experience</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardHeader className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">
-                  {team.languages.length}
-                </div>
-                <CardTitle className="text-lg">Languages Supported</CardTitle>
-                <CardDescription className="text-xs">
-                  {team.languages.join(', ')}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader className="text-center">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">
+                    {team.engineers}
+                  </div>
+                  <CardTitle className="text-lg">Certified Engineers</CardTitle>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader className="text-center">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">
+                    {team.certifications}
+                  </div>
+                  <CardTitle className="text-lg">Technical Certifications</CardTitle>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader className="text-center">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">
+                    {team.experience}
+                  </div>
+                  <CardTitle className="text-lg">Average Experience</CardTitle>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+            <StaggerItem>
+              <Card className="h-full">
+                <CardHeader className="text-center">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">
+                    {team.languages.length}
+                  </div>
+                  <CardTitle className="text-lg">Languages Supported</CardTitle>
+                  <CardDescription className="text-xs">
+                    {team.languages.join(', ')}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </StaggerItem>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose Plattano?
             </h2>
             <p className="text-xl text-gray-600">
               What makes us different from other IT providers
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseUs.map((reason, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <div className="text-4xl mb-4">{reason.icon}</div>
-                  <CardTitle>{reason.title}</CardTitle>
-                  <CardDescription>{reason.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <StaggerItem key={index}>
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="text-4xl mb-4">{reason.icon}</div>
+                    <CardTitle>{reason.title}</CardTitle>
+                    <CardDescription>{reason.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 

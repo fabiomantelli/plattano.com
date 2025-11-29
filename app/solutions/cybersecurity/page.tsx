@@ -1,6 +1,8 @@
-import { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
-import { CheckCircle, ArrowRight, Phone, AlertTriangle, Check, X } from 'lucide-react'
+import { CheckCircle, ArrowRight, Phone, AlertTriangle, Check, X, Shield } from 'lucide-react'
+import { FadeIn, FadeInView, StaggerChildren, StaggerItem } from '../../components/animations'
 import { Button } from '../../components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs'
@@ -14,12 +16,6 @@ import {
   faqs,
 } from '../../lib/constants/cybersecurity-solutions'
 
-export const metadata: Metadata = {
-  title: 'Cybersecurity Solutions | Plattano',
-  description:
-    'AI-powered defense against advanced threats. SentinelOne and Rainforest protection.',
-}
-
 export default function CybersecurityPage() {
   return (
     <div className="min-h-screen">
@@ -28,17 +24,21 @@ export default function CybersecurityPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
+            <FadeIn className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
               <AlertTriangle className="h-4 w-4 mr-2" />
               Threat Landscape 2025
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Intelligent Defense Against Advanced Threats
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              AI-powered protection with SentinelOne and Rainforest. Automatic detection and response 24/7.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </FadeIn>
+            <FadeIn delay={0.1} className="text-4xl md:text-6xl font-bold mb-6">
+              <h1>
+                Intelligent Defense Against Advanced Threats
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2} className="text-xl md:text-2xl text-white/90 mb-8">
+              <p>
+                AI-powered protection with SentinelOne and Rainforest. Automatic detection and response 24/7.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3} className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="secondary" asChild className="bg-white text-red-600 hover:bg-gray-100">
                 <Link href="/contact">
                   Free 30-Day Trial
@@ -51,6 +51,33 @@ export default function CybersecurityPage() {
                   Talk to Security Expert
                 </a>
               </Button>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Trust Bars */}
+      <section className="py-3 bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-white text-center">
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4" />
+              <p className="text-sm font-semibold">
+                SentinelOne Certified Partner • AI-Powered Endpoint Protection Leader
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-3" style={{ background: 'linear-gradient(to right, #1a5460, #1E5E6C, #1a5460)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-white text-center">
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4" />
+              <p className="text-sm font-semibold">
+                Rainforest Partner • External Attack Surface Management Specialist
+              </p>
             </div>
           </div>
         </div>
@@ -59,36 +86,36 @@ export default function CybersecurityPage() {
       {/* Threat Stats */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            The Threat Landscape in 2025
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <FadeInView className="text-2xl md:text-3xl font-bold text-center mb-12">
+            <h2>The Threat Landscape in 2025</h2>
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {threatStats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <StaggerItem key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-red-400 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-300">{stat.label}</div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-          <p className="text-center mt-8 text-lg text-red-400 font-semibold">
-            Is your company prepared?
-          </p>
+          </StaggerChildren>
+          <FadeInView delay={0.4} className="text-center mt-8 text-lg text-red-400 font-semibold">
+            <p>Is your company prepared?</p>
+          </FadeInView>
         </div>
       </section>
 
       {/* Solutions Tabs */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               Cybersecurity Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Choose the right protection for your business
             </p>
-          </div>
+          </FadeInView>
 
           <Tabs defaultValue="sentinelone" className="w-full">
             <div className="flex justify-center mb-8">
@@ -232,12 +259,14 @@ export default function CybersecurityPage() {
       {/* Comparison Table */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            Which Solution is Right for You?
-          </h2>
-          <p className="text-center text-gray-600 mb-12">
-            Compare features and choose the best fit
-          </p>
+          <FadeInView>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              Which Solution is Right for You?
+            </h2>
+            <p className="text-center text-gray-600 mb-12">
+              Compare features and choose the best fit
+            </p>
+          </FadeInView>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <table className="w-full">
@@ -297,41 +326,43 @@ export default function CybersecurityPage() {
       {/* Case Studies */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            Success Stories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FadeInView className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+            <h2>Success Stories</h2>
+          </FadeInView>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <CardTitle className="text-red-600">{study.industry}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="text-sm font-semibold text-gray-700 mb-1">Challenge:</p>
-                    <p className="text-sm text-gray-600">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-700 mb-1">Solution:</p>
-                    <p className="text-sm text-gray-600">{study.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-secondary-600 mb-1">Result:</p>
-                    <p className="text-sm font-semibold text-gray-900">{study.result}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <StaggerItem key={index}>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="text-red-600">{study.industry}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">Challenge:</p>
+                      <p className="text-sm text-gray-600">{study.challenge}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">Solution:</p>
+                      <p className="text-sm text-gray-600">{study.solution}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-secondary-600 mb-1">Result:</p>
+                      <p className="text-sm font-semibold text-gray-900">{study.result}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            Frequently Asked Questions
-          </h2>
+          <FadeInView className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+            <h2>Frequently Asked Questions</h2>
+          </FadeInView>
           <Accordion>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} title={faq.question}>
