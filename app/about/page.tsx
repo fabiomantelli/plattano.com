@@ -1,6 +1,5 @@
 'use client'
 
-import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Users, Award } from 'lucide-react'
 import { FadeIn, FadeInView, StaggerChildren, StaggerItem } from '../components/animations'

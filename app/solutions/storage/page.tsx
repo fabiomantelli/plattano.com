@@ -1,6 +1,5 @@
 'use client'
 
-import { Metadata } from 'next'
 import Link from 'next/link'
 import { Database, CheckCircle, ArrowRight, Phone, TrendingDown, Shield } from 'lucide-react'
 import { FadeIn, FadeInView, StaggerChildren, StaggerItem } from '../../components/animations'

@@ -1,8 +1,7 @@
 'use client'
 
-import { Metadata } from 'next'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
-import { FadeIn, FadeInView } from '../components/animations'
+import { FadeIn } from '../components/animations'
 import ContactForm from '../components/forms/ContactForm'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/card'
 
